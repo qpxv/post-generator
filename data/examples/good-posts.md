@@ -1,6 +1,5 @@
 IMPORTANT: match this format exactly. posts should be this length. same structure, same rhythm, same style.
 
-
 woke up today and just did what i wanted
 
 i had no alarm for school
@@ -43,9 +42,7 @@ its choosing your work
 
 and when you do that youre entire mood changes in the most positive way
 
-
 ---
-
 
 was doing reps in my room today
 
@@ -139,9 +136,7 @@ they do nothing
 
 and you do everything
 
-
 ---
-
 
 i genuinely cannot understand how people go through life thinking they cant achieve anything
 
@@ -250,10 +245,7 @@ you chose safety over possibility
 
 and now youre living the result of that choice
 
-
-
 ---
-
 
 watched two magpies this morning for an hour and realized something kinda insane
 
@@ -334,10 +326,7 @@ the people who win are the ones who can work with birds
 
 and nothing else
 
-
 ---
-
-
 
 its 5am and im watching magpies build their life
 
@@ -369,9 +358,7 @@ you just chose the controller and i chose the early morning
 
 we both made a choice
 
-
 ---
-
 
 sales is just chess
 
@@ -457,9 +444,7 @@ you just moved pieces randomly
 
 which is not how chess works
 
-
 ---
-
 
 coaches will charge 200 bucks an hour for their time
 
@@ -511,9 +496,7 @@ and suddenly that 3k investment made you 15k
 
 instead of costing you 10k in lost revenue plus 50 hours of your life you'll never get back
 
-
 ---
-
 
 just played a chess game where i thought i was getting destroyed
 
@@ -599,10 +582,7 @@ always
 
 you just have to stop reacting long enough to find it
 
-
 ---
-
-
 
 Heyoooooo brooootherrrrr.
 Hope you are doing amazing to this start of the week.
@@ -638,9 +618,7 @@ And if they say no, also good.
 Will make you way more respected.
 Talk to you tomorrow.
 
-
 ---
-
 
 Yoyxoooooyooo it’s Saturday.
 Best day of the week for most people.
@@ -667,7 +645,6 @@ That’s the wrong approach.
 Talk to you tomorrow.
 
 ---
-
 
 HELLLLOOOOOOOOO BROOOOOOO.
 Hope you are doing extraordinarily extravagantly fanciful today brother.
@@ -709,9 +686,7 @@ Anyway, that’s it from me for today.
 I’ll see you tomorrow.
 BYE BROOOOOO.
 
-
 ---
-
 
 i built an ai system tonight that reads my journal
 
@@ -775,9 +750,7 @@ whether its an ai system or a website
 
 garbage in garbage out
 
-
 ---
-
 
 sat at my desk at the 9-5 today staring out the window
 
@@ -851,7 +824,106 @@ the answer is nothing
 
 absolutely nothing
 
-
 ---
 
+about 2 years ago i was sitting in a café in Porto going through my own store numbers.
 
+it was a tuesday morning.
+
+good coffee.
+no calls until the afternoon.
+
+my store was doing well. solid 7 figures.
+
+but something had been quietly bothering me for months that i couldn't name.
+
+nothing obviously wrong.
+
+every time i tried to scale ad spend past a certain point the returns would soften.
+
+CAC would creep up.
+margins would thin slightly.
+
+i'd pull back.
+
+stabilise.
+try again.
+same thing.
+
+i'd convinced myself it was a paid media problem.
+tested new angles.
+
+brought in a creative consultant.
+restructured campaign architecture twice.
+
+nothing changed the pattern.
+
+i ordered another coffee and just sat there staring at the numbers with no agenda.
+
+then almost by accident i pulled up something i hadn't looked at properly in a while.
+
+customer cohort data.
+
+specifically repeat purchase rate by acquisition month going back 18 months.
+
+what i saw stopped me.
+
+month after month.
+
+regardless of which campaigns were running, creative performance, anything i'd been optimising.
+
+repeat purchase rate was sitting between 14% and 17%.
+
+completely flat.
+
+18 months of customers, acquisition spend.
+
+and roughly 85% of every customer i'd ever paid to bring in had bought once and left.
+
+i sat with that number for a long time.
+
+the problem wasn't the ads.
+
+i'd been trying to fix a retention problem with acquisition solutions for 18 months.
+
+every time CAC crept up i'd optimise the ad account.
+
+but CAC was creeping up because i was replacing lost customers instead of keeping them.
+
+i was filling a leaking bucket and calling it scaling.
+
+went back to the store that afternoon and looked at the post purchase experience properly for the first time.
+
+thank you email.
+shipping update.
+review request at day 21.
+
+that was it.
+
+18 months.
+millions in revenue.
+
+and virtually nothing built to bring a customer back after the package arrived.
+
+spent the next 6 weeks building a real retention system.
+
+segmented post purchase flows.
+winback sequences properly timed to actual repurchase behaviour.
+
+SMS that felt like it came from a person.
+
+a cross sell architecture based on what my best customers were actually buying in sequence.
+
+repeat purchase rate went from 15% to 31% over the following quarter.
+
+CAC dropped without touching a single ad.
+
+i think about that tuesday morning in Porto a lot.
+
+i'd been optimising the most visible part of the business for 18 months.
+
+while the real problem sat quietly in a cohort report i hadn't opened in over a year.
+
+the answers are almost always already in the data.
+
+you just have to slow down long enough to actually look.
