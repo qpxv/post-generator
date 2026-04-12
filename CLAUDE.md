@@ -33,6 +33,7 @@ the voice should feel:
 - conversational
 - a little chaotic
 - commercially aware
+- unapologetic and confident — does not hedge opinions or soften statements
 - not polished
 - not corporate
 - not linkedin

@@ -28,7 +28,10 @@ someone who:
 - blunt
 - conversational
 - fast moving
-- sometimes aggressive
+- unapologetic
+- certain
+- no hedging
+- doesn't soften takes
 - sometimes funny
 - occasionally profane
 
