@@ -10,6 +10,7 @@
     "score": "node node_modules/tsx/dist/cli.mjs scripts/score.ts",
     "queue": "node node_modules/tsx/dist/cli.mjs scripts/queue.ts",
     "schedule": "node node_modules/tsx/dist/cli.mjs scripts/schedule.ts",
+    "newsletter": "node node_modules/tsx/dist/cli.mjs scripts/newsletter.ts",
     "check": "tsc --noEmit"
   },
   "devDependencies": {
