@@ -222,3 +222,65 @@ what you want
 three paragraphs max
 
 when you send a hundred of those daily with consistent follow-ups you will book meetings
+
+---
+
+we've worked with 30+ clients in the b2b twitter space and they all shared the same issue:
+
+they couldn't sign any clients from this app because they focused on being better than their peers
+
+they're trying to outcompete their competitors by being seen as more capable at a given thing
+
+they were trying to push better case studies. better content. better frameworks. better advice. more detailed breakdowns. more impressive numbers.
+
+and even though being better can work in a vacuum, on twitter, being better doesn't mean anything
+
+your ideal client who's scrolling their feed at 8pm isn't evaluating who has the most impressive case study between the 15 accounts they follow in the same niche. 
+
+they're not reading your post instead of your competitors' one because you manage double the ad spend that they manage
+
+your ideal client is actually scrolling fast, and the thing that stops them is not "more quality."
+
+what stops their never-ending doom scroll is seeing something DIFFERENT.
+
+if you can't interrupt the pattern, you blend in with the pattern, and never get discovered
+
+marketing is contrast. if you package yourself differently, you're halfway there already
+
+this is why when we onboard a new client at my agency, the very first thing we do before writing a single piece of content is scraping the content of every single competitor in their space. 
+
+twitter, youtube, everything. we map the entire niche. 
+
+what are they saying. how are they saying it. what does their profile look like. what's their offer. what's their tone. what topics do they cover. what format do they use. what funnels do they run. EVERYTHING
+
+we're building a complete map of the "default". what does the average high-performing account in this space look and sound like.
+
+and only after knowing exactly what works in a given niche and absorbing the principles...
+
+we start finding ways of positioning our client as the EXACT opposite of everyone else.
+
+this works because the human brain only responds and cares about novelty
+
+this is the reason why everyone will skip the opening of a show after maybe 1-3 times of watching it
+
+this is why some up-and-comers get big "title shots" while others never see the light of the spotlight
+
+look at a rising start like Connor McGregor for example
+
+he was different. the way he trash talked everyone. his karate stance. the way he punched old man at bars. his goofy leprechaun accent
+
+if he wasn't so different, he would never had gotten the chances he did or grow so fast inside the UFC
+
+and let's be real, you probably can't compete by "being better" when there's agencies who've been doing what you do for 10 years, have 125k+ followers across all socials and already signed 99% of your TAM by the time you were doing backflips inside your mother's belly
+
+maybe you can't even say anything that they haven't said already before
+
+but what you can do is package it in a completely different way
+
+a different tone of voice. a different offer framing. a different guarantee. a different profile setup. a different ICP segment. a different perspective on the same problem
+
+that ALONE will put you ahead of 99% of people
+
+so never compete in existing market space
+
+CREATE your own market and excel in it
