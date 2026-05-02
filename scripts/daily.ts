@@ -44,15 +44,19 @@ const exampleDir = 'data/examples';
 const exampleFiles = fs.existsSync(exampleDir)
   ? fs
     .readdirSync(exampleDir)
-    .filter((f) => f.endsWith('.md') && !f.includes('README'))
+    .filter((f) => f.endsWith('.md') && !f.includes('README') && !f.includes('replies'))
     .map((f) => readText(path.join(exampleDir, f)))
   : [];
 const examples = exampleFiles.join('\n\n---\n\n');
 
+// Load reply examples
+const replyExamplesPath = 'data/examples/good-replies.md';
+const replyExamples = fs.existsSync(replyExamplesPath) ? readText(replyExamplesPath) : '';
+
 // Build delimiter list dynamically based on POST_COUNT
 const delimiterBlock = Array.from(
   { length: POST_COUNT },
-  (_, i) => `===post-${i + 1}===\n{post}`
+  (_, i) => `===post-${i + 1}===\n{post}\n===reply-${i + 1}===\n{reply or "none"}`
 ).join('\n');
 
 const systemPrompt = `you are ghostwriting x posts for ben winzer.
@@ -88,6 +92,18 @@ hard rules - never break these:
 - never write about topics that would reduce authority or make ben look small - this includes family, relationships, personal struggles, emotional vulnerability, anything that signals instability or neediness. if the journal mentions these things, extract a business or mindset angle from the context instead and leave the private detail out entirely. the account should always project competence and forward momentum
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the rhythm, the structure, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. if a post does not feel as sharp and confident as these examples then rewrite it until it does:\n\n${examples}\n` : ''}
+replies: every website-focused post (the 75%) must have a reply. personal posts (the 25%) must output "none" for the reply.
+
+the reply is a second tweet that threads directly under the main post. rules:
+- max 2 lines
+- all lowercase, zero punctuation - same voice rules as the main post
+- it should feel like a natural follow-through from the post, not a pitch
+- it must reference the specific angle of the post - never generic
+- it is an invitation to reach out, not a sales message
+- never start with "if you want" or "click here" or "book a call"
+- never sound like a marketer wrote it
+
+${replyExamples ? `these are example replies to use as reference for energy and length. study the tone - direct, short, personal, never salesy:\n\n${replyExamples}\n` : ''}
 post length: mix short and long posts. for every ${POST_COUNT} posts, write at least 1 and at most 2 as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts can be long - multiple paragraphs, stream of consciousness, builds to a point.
 
 hooks: every post must open with a hook that makes someone stop scrolling. no slow builds. no context-setting. the first line is everything. look at how the example posts open and match that energy. specific > vague. concrete > abstract. story > statement when possible.
@@ -109,8 +125,9 @@ const userPrompt = `journal entry - ${journal.name}:\n\n${journalContent}`;
 console.log('generating posts...');
 const response = await complete(systemPrompt, userPrompt);
 
-// Parse posts
+// Parse posts and replies
 const posts = parsePosts(response, POST_COUNT);
+const replies = parseReplies(response, POST_COUNT);
 
 if (posts.length === 0) {
   console.error('could not parse posts from response. raw output:');
@@ -122,7 +139,13 @@ if (posts.length === 0) {
 const today = new Date().toISOString().slice(0, 10);
 ensureDir('output/drafts');
 const outputPath = `output/drafts/${today}.daily.md`;
-const outputContent = posts.map((p, i) => `## post ${i + 1}\n\n${p}`).join('\n\n---\n\n');
+const outputContent = posts
+  .map((p, i) => {
+    const reply = replies[i];
+    const replyLine = reply ? `\n\n**reply:** ${reply}` : '';
+    return `## post ${i + 1}\n\n${p}${replyLine}`;
+  })
+  .join('\n\n---\n\n');
 fs.writeFileSync(outputPath, outputContent, 'utf8');
 
 console.log(`\n${posts.length} posts generated. scheduling to typefully...\n`);
@@ -150,6 +173,11 @@ if (!socialSetId) {
 let scheduled = 0;
 
 for (const [i, post] of posts.entries()) {
+  const reply = replies[i];
+  const postsPayload = reply
+    ? [{ text: post }, { text: reply }]
+    : [{ text: post }];
+
   try {
     const res = await fetch(`https://api.typefully.com/v2/social-sets/${socialSetId}/drafts`, {
       method: 'POST',
@@ -158,7 +186,7 @@ for (const [i, post] of posts.entries()) {
         platforms: {
           x: {
             enabled: true,
-            posts: [{ text: post }],
+            posts: postsPayload,
           },
         },
         publish_at: 'next-free-slot',
@@ -183,11 +211,26 @@ console.log(`drafts saved to ${outputPath}`);
 
 // Parse Claude's delimited output
 function parsePosts(text: string, count: number): string[] {
-  const pattern = /===post-\d+===/g;
-  const parts = text.split(pattern);
-  return parts
-    .slice(1, count + 1)
-    .map((p) => p.trim())
-    .filter(Boolean);
+  return Array.from({ length: count }, (_, i) => {
+    const start = text.indexOf(`===post-${i + 1}===`);
+    if (start === -1) return '';
+    const contentStart = start + `===post-${i + 1}===`.length;
+    const nextPost = text.indexOf(`===reply-${i + 1}===`, contentStart);
+    const end = nextPost !== -1 ? nextPost : text.length;
+    return text.slice(contentStart, end).trim();
+  }).filter(Boolean);
+}
+
+function parseReplies(text: string, count: number): (string | null)[] {
+  return Array.from({ length: count }, (_, i) => {
+    const marker = `===reply-${i + 1}===`;
+    const start = text.indexOf(marker);
+    if (start === -1) return null;
+    const contentStart = start + marker.length;
+    const nextPost = text.indexOf(`===post-${i + 2}===`, contentStart);
+    const end = nextPost !== -1 ? nextPost : text.length;
+    const val = text.slice(contentStart, end).trim();
+    return val === 'none' || val === '' ? null : val;
+  });
 }
 
