@@ -3,7 +3,7 @@ import { loadEnv } from './env.js';
 
 loadEnv();
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY, maxRetries: 3 });
 
 export async function complete(systemPrompt: string, userPrompt: string): Promise<string> {
   const message = await client.messages.create({
