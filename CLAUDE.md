@@ -52,6 +52,24 @@ the voice should feel:
 - punctuation is allowed when it improves rhythm
 - do not make the writing too clean or too elegant
 
+## word precision
+
+every word must point at something specific and observable. if a word names a category or a conclusion without showing the specific detail, behavior, or visual element that causes it, cut it or replace it with that detail, behavior, or visual element.
+
+banned words — never use these as standalone descriptors:
+- intentional / unintentional (show what the layout does or fails to do)
+- clean / polished (describe the actual elements — spacing, font, hierarchy)
+- professional / unprofessional (show the specific detail that signals it)
+- credible / not credible (describe what's missing or present that creates that read)
+- feels / feeling (as a substitute for describing the actual observable element)
+- full / empty (as design descriptors — show what's there or what's missing)
+- quality / high-quality / low-quality (show what makes it that way)
+- trust (as a conclusion — show the specific detail that builds or breaks it)
+- authority (show what earns it or destroys it — a photo, a number, a testimonial, a missing element)
+- perceived value (show the signal — the font, the layout, the copy, the price framing)
+
+the test: can the reader picture the exact detail, behavior, or visual element being described? if not, the words are doing no work.
+
 ## content rules
 
 every post should do at least one of these:
