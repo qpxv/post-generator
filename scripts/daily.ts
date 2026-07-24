@@ -35,7 +35,7 @@ if (journalFiles.length === 0) {
   process.exit(1);
 }
 
-const journal = journalFiles[0];
+const journal = journalFiles[150];
 console.log(`reading: ${journal.name}`);
 const journalContent = readText(journal.fullPath);
 
@@ -52,6 +52,10 @@ const examples = exampleFiles.join('\n\n---\n\n');
 // Load reply examples
 const replyExamplesPath = 'data/examples/good-replies.md';
 const replyExamples = fs.existsSync(replyExamplesPath) ? readText(replyExamplesPath) : '';
+
+// Load ben's own voice samples (real messages, not curated posts)
+const voiceSamplesPath = 'data/voice-samples.md';
+const voiceSamples = fs.existsSync(voiceSamplesPath) ? readText(voiceSamplesPath) : '';
 
 // Build delimiter list dynamically based on POST_COUNT
 const delimiterBlock = Array.from(
@@ -120,6 +124,7 @@ banned words — never use these as standalone descriptors:
 the test: after writing a sentence, ask — can the reader picture the exact detail, behavior, or visual element i'm describing? if not, the words are doing no work. replace them with what you actually see.
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the rhythm, the structure, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. if a post does not feel as sharp and confident as these examples then rewrite it until it does:\n\n${examples}\n` : ''}
+${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
 replies: every website-focused post (the 75%) must have a reply. personal posts (the 25%) must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
