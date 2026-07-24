@@ -170,13 +170,46 @@ console.log('generating posts...');
 const response = await complete(systemPrompt, userPrompt);
 
 // Parse posts and replies
-const posts = parsePosts(response, POST_COUNT);
-const replies = parseReplies(response, POST_COUNT);
+let posts = parsePosts(response, POST_COUNT);
+let replies = parseReplies(response, POST_COUNT);
 
 if (posts.length === 0) {
   console.error('could not parse posts from response. raw output:');
   console.log(response);
   process.exit(1);
+}
+
+// Second pass: catch and fix the specific banned sentence patterns that keep
+// slipping through single-shot generation (mainly negation-payoff constructions
+// like "no X, no Y, just Z")
+console.log('checking for banned patterns...');
+const revisePrompt = `you are proofreading a batch of already-written x posts for one specific recurring problem: banned negation constructions.
+
+banned pattern (any negation word - no/not/none/nothing/never/without - any connector - just/but/instead/rather - one negated clause or more): a sentence or line sequence that lists what something ISN'T or DOESN'T have before landing on what it IS. examples of the banned shape: "no message. not on teams. just absent.", "no big design. no fancy layout. just a real person with real proof.", "the gap doesn't have to be big. it just has to exist.", "not because the business is bad, but because the website never gave them a reason to believe it."
+
+also fix, if present: the same sentence-opening structure (same subject+verb) repeated two or more times in a row ("they see X. they see Y."), bare noun-fragment lists stacked line by line with no verb, and the "X doesn't do A, it does B" contrastive cliche.
+
+voice constraints to preserve while rewriting: all lowercase, zero punctuation, present tense, one thought per line with blank lines between.
+
+your job: read every post and reply below. if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
+
+output the exact same number of posts using the exact same delimiters as the input, in the same order:
+
+${delimiterBlock}`;
+
+const reviseInput = posts
+  .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}`)
+  .join('\n');
+
+const revised = await complete(revisePrompt, reviseInput);
+const revisedPosts = parsePosts(revised, POST_COUNT);
+const revisedReplies = parseReplies(revised, POST_COUNT);
+
+if (revisedPosts.length === POST_COUNT) {
+  posts = revisedPosts;
+  replies = revisedReplies;
+} else {
+  console.warn('revise pass output did not parse cleanly - keeping original posts');
 }
 
 // Save drafts to output
