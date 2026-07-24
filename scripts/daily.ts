@@ -36,7 +36,7 @@ if (journalFiles.length === 0) {
   process.exit(1);
 }
 
-const journal = journalFiles[150];
+const journal = journalFiles[0];
 console.log(`reading: ${journal.name}`);
 const journalContent = readText(journal.fullPath);
 
