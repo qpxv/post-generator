@@ -201,7 +201,7 @@ const reviseInput = posts
   .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}`)
   .join('\n');
 
-const revised = await complete(revisePrompt, reviseInput);
+const revised = await complete(revisePrompt, reviseInput, 'claude-opus-5', 16000);
 const revisedPosts = parsePosts(revised, POST_COUNT);
 const revisedReplies = parseReplies(revised, POST_COUNT);
 
