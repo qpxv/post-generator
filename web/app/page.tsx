@@ -6,6 +6,7 @@ import { Loader2, Inbox } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Skeleton } from "@/components/ui/skeleton";
+import { DeleteDraftButton } from "@/components/delete-draft-button";
 import {
   Pagination,
   PaginationContent,
@@ -83,6 +84,11 @@ export default function Home() {
     }
   }
 
+  function removeDraft(id: string) {
+    setDrafts((prev) => (prev ? prev.filter((d) => d.id !== id) : prev));
+    setCount((c) => Math.max(0, c - 1));
+  }
+
   const hasPrev = offset > 0;
   const hasNext = offset + LIMIT < count;
 
@@ -134,7 +140,7 @@ export default function Home() {
         {drafts?.map((d) => (
           <li
             key={d.id}
-            className="flex items-start gap-4 rounded-lg border px-5 py-4 transition-colors hover:border-foreground/20 hover:bg-accent/40"
+            className="flex items-center gap-4 rounded-lg border px-5 py-4 transition-colors hover:border-foreground/20 hover:bg-accent/40"
           >
             <Link
               href={`/posts/${d.id}`}
@@ -142,7 +148,7 @@ export default function Home() {
             >
               {d.preview || <span className="text-muted-foreground italic">(Empty)</span>}
             </Link>
-            <div className="shrink-0 pt-0.5">
+            <div className="flex shrink-0 items-center gap-2">
               <Button
                 variant={d.isReviewed ? "outline" : "success"}
                 size="sm"
@@ -152,6 +158,7 @@ export default function Home() {
                 {pendingId === d.id && <Loader2 className="animate-spin" />}
                 {d.isReviewed ? "Mark as unreviewed" : "Mark as reviewed"}
               </Button>
+              <DeleteDraftButton id={d.id} onDeleted={() => removeDraft(d.id)} />
             </div>
           </li>
         ))}

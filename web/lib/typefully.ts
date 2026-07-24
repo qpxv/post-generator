@@ -15,6 +15,7 @@ async function typefullyFetch<T>(path: string, init?: RequestInit): Promise<T> {
     const body = await res.text();
     throw new Error(`typefully ${init?.method ?? 'GET'} ${path} failed: ${body}`);
   }
+  if (res.status === 204) return undefined as T;
   return res.json() as Promise<T>;
 }
 
@@ -129,6 +130,13 @@ export async function updateDraftText(id: string, post: string, reply: string | 
   await typefullyFetch(`/v2/social-sets/${socialSetId}/drafts/${id}`, {
     method: 'PATCH',
     body: JSON.stringify({ platforms: { x: { enabled: true, posts } } }),
+  });
+}
+
+export async function deleteDraft(id: string): Promise<void> {
+  const socialSetId = await getSocialSetId();
+  await typefullyFetch(`/v2/social-sets/${socialSetId}/drafts/${id}`, {
+    method: 'DELETE',
   });
 }
 

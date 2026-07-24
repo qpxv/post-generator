@@ -6,6 +6,7 @@ import { ArrowLeft, Loader2, Check, CircleAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Skeleton } from "@/components/ui/skeleton";
+import { DeleteDraftButton } from "@/components/delete-draft-button";
 import { cn } from "@/lib/utils";
 
 type DraftDetail = {
@@ -114,10 +115,9 @@ export default function PostDetail() {
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      setDraft(data);
+      router.push("/");
     } catch (e) {
       setError((e as Error).message);
-    } finally {
       setReviewPending(false);
     }
   }
@@ -131,19 +131,22 @@ export default function PostDetail() {
         </Button>
 
         {draft && (
-          <Button
-            variant={draft.isReviewed ? "success" : "outline"}
-            size="sm"
-            onClick={toggleReviewed}
-            disabled={reviewPending}
-          >
-            {reviewPending ? (
-              <Loader2 className="animate-spin" />
-            ) : draft.isReviewed ? (
-              <Check />
-            ) : null}
-            {draft.isReviewed ? "Mark as unreviewed" : "Mark as reviewed"}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              variant={draft.isReviewed ? "success" : "outline"}
+              size="sm"
+              onClick={toggleReviewed}
+              disabled={reviewPending}
+            >
+              {reviewPending ? (
+                <Loader2 className="animate-spin" />
+              ) : draft.isReviewed ? (
+                <Check />
+              ) : null}
+              {draft.isReviewed ? "Mark as unreviewed" : "Mark as reviewed"}
+            </Button>
+            <DeleteDraftButton id={draft.id} onDeleted={() => router.push("/")} />
+          </div>
         )}
       </header>
 
