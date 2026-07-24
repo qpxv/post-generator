@@ -72,6 +72,7 @@ voice:
 - profanity is fine when it sounds natural
 - never corporate, never polished, never motivational speaker energy
 - never say "site" - always say "website"
+- always write in present tense - even when the journal describes something that already happened, retell it as if it is happening right now. never use past tense verbs (was, went, said, saw, did, had, built, told, walked, realized) - convert them to present tense (is, go, say, see, do, have, build, tell, walk, realize)
 - unapologetic - does not qualify opinions before stating them
 - confident and declarative - states things as fact not as possibility
 - does not second-guess himself mid-post
@@ -196,6 +197,20 @@ if (!socialSetId) {
   process.exit(1);
 }
 
+// Fetch the "Needs Review" tag slug so every scheduled draft can carry it
+const tagsRes = await fetch(`https://api.typefully.com/v2/social-sets/${socialSetId}/tags`, { headers: authHeaders });
+if (!tagsRes.ok) {
+  const err = await tagsRes.text();
+  console.error(`failed to fetch typefully tags: ${err}`);
+  process.exit(1);
+}
+const tags = await tagsRes.json() as { results: { slug: string; name: string }[] };
+const needsReviewTag = tags.results.find((t) => t.name.toLowerCase() === 'needs review');
+if (!needsReviewTag) {
+  console.error('no "needs review" tag found in this social set - create it in typefully first');
+  process.exit(1);
+}
+
 // Schedule to Typefully
 let scheduled = 0;
 
@@ -217,6 +232,7 @@ for (const [i, post] of posts.entries()) {
           },
         },
         publish_at: 'next-free-slot',
+        tags: [needsReviewTag.slug],
       }),
     });
 
