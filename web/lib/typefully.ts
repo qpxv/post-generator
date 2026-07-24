@@ -133,11 +133,64 @@ export async function updateDraftText(id: string, post: string, reply: string | 
   });
 }
 
+async function fetchScheduledQueue(socialSetId: string): Promise<Draft[]> {
+  const all: Draft[] = [];
+  const pageSize = 50;
+  let offset = 0;
+  for (;;) {
+    const params = new URLSearchParams({
+      status: 'scheduled',
+      order_by: 'scheduled_date',
+      limit: String(pageSize),
+      offset: String(offset),
+    });
+    const data = await typefullyFetch<{ results: Draft[] }>(
+      `/v2/social-sets/${socialSetId}/drafts?${params.toString()}`
+    );
+    all.push(...data.results);
+    if (data.results.length < pageSize) break;
+    offset += pageSize;
+  }
+  return all;
+}
+
+// After deleting a post, its time slot opens up mid-queue. Shift every later
+// scheduled post back by one slot so the gap collapses to the end of the queue
+// instead of leaving a hole where the deleted post used to be.
+async function closeQueueGap(socialSetId: string, freedSlot: string): Promise<void> {
+  const queue = await fetchScheduledQueue(socialSetId);
+  const upcoming = queue
+    .filter((d) => d.scheduled_date && d.scheduled_date > freedSlot)
+    .sort((a, b) => (a.scheduled_date! < b.scheduled_date! ? -1 : 1));
+
+  let slot = freedSlot;
+  for (const d of upcoming) {
+    const nextSlot = d.scheduled_date!;
+    await typefullyFetch(`/v2/social-sets/${socialSetId}/drafts/${d.id}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ publish_at: slot }),
+    });
+    slot = nextSlot;
+  }
+}
+
 export async function deleteDraft(id: string): Promise<void> {
   const socialSetId = await getSocialSetId();
+  const draft = await typefullyFetch<Draft>(`/v2/social-sets/${socialSetId}/drafts/${id}`);
+
   await typefullyFetch(`/v2/social-sets/${socialSetId}/drafts/${id}`, {
     method: 'DELETE',
   });
+
+  if (draft.scheduled_date) {
+    // Best-effort: the delete itself already succeeded, so don't fail the
+    // whole operation if re-packing the queue hits a snag.
+    try {
+      await closeQueueGap(socialSetId, draft.scheduled_date);
+    } catch (err) {
+      console.error('failed to close queue gap after delete:', err);
+    }
+  }
 }
 
 export async function setReviewed(id: string, currentTags: string[], reviewed: boolean): Promise<void> {
