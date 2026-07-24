@@ -9,12 +9,13 @@ loadEnv();
 const JOURNAL_DIR = process.env.JOURNAL_DIR;
 const TYPEFULLY_API_KEY = process.env.TYPEFULLY_API_KEY;
 const POST_COUNT = parseInt(process.env.POST_COUNT ?? '5', 10);
+const DRY_RUN = process.env.DRY_RUN === 'true';
 
 if (!JOURNAL_DIR) {
   console.error('missing JOURNAL_DIR in .env');
   process.exit(1);
 }
-if (!TYPEFULLY_API_KEY) {
+if (!TYPEFULLY_API_KEY && !DRY_RUN) {
   console.error('missing TYPEFULLY_API_KEY in .env');
   process.exit(1);
 }
@@ -186,6 +187,12 @@ const outputContent = posts
   })
   .join('\n\n---\n\n');
 fs.writeFileSync(outputPath, outputContent, 'utf8');
+
+if (DRY_RUN) {
+  console.log(`\n${posts.length} posts generated (dry run - not scheduled to typefully).`);
+  console.log(`drafts saved to ${outputPath}`);
+  process.exit(0);
+}
 
 console.log(`\n${posts.length} posts generated. scheduling to typefully...\n`);
 
