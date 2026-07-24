@@ -132,7 +132,7 @@ export default function Home() {
       {drafts !== null && drafts.length === 0 && !error && (
         <div className="flex flex-col items-center gap-2 py-16 text-muted-foreground">
           <Inbox className="size-6" />
-          <p className="text-sm">Nothing here. Queue is clear.</p>
+          <p className="text-sm">All caught up! Nothing waiting for you here.</p>
         </div>
       )}
 
