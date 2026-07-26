@@ -1,0 +1,50 @@
+name: nightly-post
+
+on:
+  # 01:05 UTC = 03:05 CEST (matches the local overnight run time during summer).
+  # Off by ~1h during CET/winter (Berlin is UTC+1 then) - fine for a summer trip,
+  # bump the hour by 1 if this still runs into winter.
+  schedule:
+    - cron: "5 1 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "DRY_RUN (skip posting to Typefully)"
+        type: boolean
+        default: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: fetch journal entry
+        id: journal
+        run: |
+          DATE=$(TZ=Europe/Berlin date -d yesterday +%Y-%m-%d)
+          LABEL=$(TZ=Europe/Berlin date -d yesterday +"%B %-d" | tr '[:upper:]' '[:lower:]')
+          mkdir -p journal-tmp
+          URL="https://journal-app-xi-beryl.vercel.app/api/entries/export?date=$DATE&tz=Europe%2FBerlin"
+          HTTP_STATUS=$(curl -s -o "journal-tmp/$LABEL.txt" -w "%{http_code}" "$URL")
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "journal export failed with status $HTTP_STATUS, skipping post"
+            rm -f "journal-tmp/$LABEL.txt"
+            exit 1
+          fi
+          echo "journal_dir=$PWD/journal-tmp" >> "$GITHUB_OUTPUT"
+
+      - name: generate and post
+        run: npm run post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
+          JOURNAL_DIR: ${{ steps.journal.outputs.journal_dir }}
+          POST_COUNT: "6"
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
