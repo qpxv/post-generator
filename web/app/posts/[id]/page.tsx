@@ -55,7 +55,7 @@ export default function PostDetail() {
   const [reply, setReply] = useState("");
   const [hasReply, setHasReply] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [saveState, setSaveState] = useState<"idle" | "saving">("idle");
+  const [saveState, setSaveState] = useState<"idle" | "saving" | "saved">("idle");
   const [reviewPending, setReviewPending] = useState(false);
 
   useEffect(() => {
@@ -96,7 +96,8 @@ export default function PostDetail() {
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      router.push("/");
+      setSaveState("saved");
+      setTimeout(() => setSaveState("idle"), 1500);
     } catch (e) {
       setError((e as Error).message);
       setSaveState("idle");
@@ -197,7 +198,8 @@ export default function PostDetail() {
           <div>
             <Button onClick={save} disabled={saveState === "saving"}>
               {saveState === "saving" && <Loader2 className="animate-spin" />}
-              {saveState === "saving" ? "Saving" : "Save"}
+              {saveState === "saved" && <Check />}
+              {saveState === "saving" ? "Saving" : saveState === "saved" ? "Saved" : "Save"}
             </Button>
           </div>
         </div>
