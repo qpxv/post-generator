@@ -7,11 +7,6 @@ on:
   schedule:
     - cron: "5 1 * * *"
   workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "DRY_RUN (skip posting to Typefully)"
-        type: boolean
-        default: false
 
 jobs:
   post:
@@ -47,4 +42,3 @@ jobs:
           TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
           JOURNAL_DIR: ${{ steps.journal.outputs.journal_dir }}
           POST_COUNT: "6"
-          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}

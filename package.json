@@ -19,7 +19,6 @@
     "typescript": "^5.8.0"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.79.0",
-    "@esbuild/darwin-arm64": "^0.27.4"
+    "@anthropic-ai/sdk": "^0.79.0"
   }
 }
