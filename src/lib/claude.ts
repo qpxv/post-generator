@@ -13,6 +13,10 @@ export async function complete(systemPrompt: string, userPrompt: string, model =
     messages: [{ role: 'user', content: userPrompt }],
   });
   const block = message.content.find((b) => b.type === 'text');
-  if (!block) throw new Error('no text block in response');
+  if (!block) {
+    throw new Error(
+      `no text block in response (stop_reason: ${message.stop_reason}, content: ${JSON.stringify(message.content)})`
+    );
+  }
   return block.text;
 }
