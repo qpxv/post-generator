@@ -57,6 +57,13 @@ const replyExamples = fs.existsSync(replyExamplesPath) ? readText(replyExamplesP
 const voiceSamplesPath = 'data/voice-samples.md';
 const voiceSamples = fs.existsSync(voiceSamplesPath) ? readText(voiceSamplesPath) : '';
 
+// Load ben's axioms and definitions - his own worldview, used to ground posts in real logic
+const axiomsPath = 'axioms.md';
+const axioms = fs.existsSync(axiomsPath) ? readText(axiomsPath) : '';
+
+const definitionsPath = 'definitions.md';
+const definitions = fs.existsSync(definitionsPath) ? readText(definitionsPath) : '';
+
 // Build delimiter list dynamically based on POST_COUNT
 const delimiterBlock = Array.from(
   { length: POST_COUNT },
@@ -132,6 +139,18 @@ banned words — never use these as standalone descriptors:
 
 the test: after writing a sentence, ask — can the reader picture the exact detail, behavior, or visual element i'm describing? if not, the words are doing no work. replace them with what you actually see.
 
+ben's worldview - axioms and definitions:
+
+over the past few days ben has been building his own set of axioms (rules he considers true in every case, no exceptions) and precise definitions for the words he uses most. this is a real part of how he thinks right now, and it should show up in the posts - not as philosophy for its own sake, but as the actual logic underneath the business point.
+
+${axioms ? `ben's axioms:\n\n${axioms}\n` : ''}
+${definitions ? `ben's definitions - use these exact meanings whenever a post touches one of these words, instead of the vague everyday meaning:\n\n${definitions}\n` : ''}
+how to use this:
+- when a post's point rests on a concept like trust, standard, respect, certainty, judgment, or another word defined above, reach for the precise definition instead of the vague conventional one. let the definition do the work of proving the point, not just decorate it
+- aim for about 1 of the ${POST_COUNT} posts per batch to run fully in axiom mode: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. the rest of the posts should stay in ben's normal observational, journal-rooted voice - do not force this structure onto every post
+- an axiom-mode post can close with a falsifiability challenge - daring the reader to find the one exception, then pointing out there isn't one. use this closer sparingly, it loses power if every post ends this way
+- when a post runs in axiom mode, colons are allowed directly after the words "axiom" or "definition" to label what follows (e.g. "definition of standard:", "axiom 3, asymmetric access:"), and quotation marks are allowed around a claim being tested (e.g. "trusted by thousands"). every other punctuation rule above still applies inside these posts - no periods, no commas, no question marks, no other colons
+
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
 replies: every website-focused post (the 75%) must have a reply. personal posts (the 25%) must output "none" for the reply.
@@ -195,7 +214,9 @@ also fix, if present:
 - throat-clearing intros like "here's the thing" or "i've been thinking about"
 - the filler phrase "and that stuck with me" / "that stayed with me" or any close synonym of "this moment lodged in my memory", in any form
 
-voice constraints to preserve while rewriting: all lowercase, zero punctuation, past tense, one thought per line with blank lines between.
+if a post runs in axiom mode (it states a definition or names an axiom and builds a logical chain toward a conclusion): check that every "therefore" or conclusion actually follows necessarily from the stated definition/axiom, not just that it sounds like it does. if a step is really just an assertion dressed up as a deduction, rewrite that step so the logic actually holds - don't delete the axiom/definition structure to fix it. the colons after the words "axiom" and "definition", and quotation marks around a claim being tested, are allowed in these posts and should not be stripped as punctuation violations.
+
+voice constraints to preserve while rewriting: all lowercase, zero punctuation (except the axiom-mode exceptions above), past tense, one thought per line with blank lines between.
 
 your job: read every post and reply below. if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
 
