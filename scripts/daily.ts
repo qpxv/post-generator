@@ -64,6 +64,42 @@ const axioms = fs.existsSync(axiomsPath) ? readText(axiomsPath) : '';
 const definitionsPath = 'definitions.md';
 const definitions = fs.existsSync(definitionsPath) ? readText(definitionsPath) : '';
 
+// Rotate which axiom and which definitions get featured each day. Without this,
+// the model has no memory of prior batches and keeps reaching for the same
+// "obvious" picks (axiom 2/3, definition of trust/discipline) every single run.
+// Seeding the pick off the calendar date makes the featured axiom/definitions
+// deterministic per day (safe to re-run the same day) but different day to day,
+// so coverage rotates through the full list instead of collapsing onto a few.
+function dayOfYear(d: Date): number {
+  const start = Date.UTC(d.getUTCFullYear(), 0, 0);
+  const diff = Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()) - start;
+  return Math.floor(diff / 86400000);
+}
+
+const seed = dayOfYear(new Date());
+
+// axioms.md entries are separated by blank lines, each starting "axiom N (name)"
+const axiomBlocks = axioms
+  .split(/\n\s*\n/)
+  .map((b) => b.trim())
+  .filter((b) => /^axiom \d+/i.test(b));
+
+const featuredAxiom = axiomBlocks.length > 0 ? axiomBlocks[seed % axiomBlocks.length] : '';
+
+// definitions.md is one "term: meaning" per line
+const definitionLines = definitions
+  .split('\n')
+  .map((l) => l.trim())
+  .filter(Boolean);
+
+const DEFINITIONS_WINDOW = 6;
+const featuredDefinitions = definitionLines.length > 0
+  ? Array.from(
+    { length: Math.min(DEFINITIONS_WINDOW, definitionLines.length) },
+    (_, i) => definitionLines[(seed + i) % definitionLines.length],
+  )
+  : [];
+
 // Build delimiter list dynamically based on POST_COUNT
 const delimiterBlock = Array.from(
   { length: POST_COUNT },
@@ -149,6 +185,8 @@ how to use this:
 - when a post's point rests on a concept like trust, standard, respect, certainty, judgment, or another word defined above, reach for the precise definition instead of the vague conventional one. let the definition do the work of proving the point, not just decorate it
 - aim for about 1 of the ${POST_COUNT} posts per batch to run fully in axiom mode: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. the rest of the posts should stay in ben's normal observational, journal-rooted voice - do not force this structure onto every post
 - an axiom-mode post can close with a falsifiability challenge - daring the reader to find the one exception, then pointing out there isn't one. use this closer sparingly, it loses power if every post ends this way
+${featuredAxiom ? `- this batch has been running the same one or two axioms and definitions over and over (mostly asymmetric access, and trust/discipline), and that repetition is a real problem - it makes the account look like it only has one idea. today's axiom-mode post, if you write one, MUST build its logical chain around this specific axiom instead of defaulting back to a familiar one:\n\n${featuredAxiom}\n\ndo not use a different axiom for the axiom-mode post today unless the journal makes this one genuinely impossible to connect to - reach for the connection before giving up on it` : ''}
+${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when a post needs a precise definition today, pull from this rotating set before defaulting to trust or discipline again:\n\n${featuredDefinitions.map((d) => `- ${d}`).join('\n')}\n\nonly reach outside this set (or back to trust/discipline) if the journal entry genuinely doesn't connect to any of them - don't force a fit, but don't default back to the same two words out of habit either` : ''}
 - when a post runs in axiom mode, colons are allowed directly after the words "axiom" or "definition" to label what follows (e.g. "definition of standard:", "axiom 3, asymmetric access:"), and quotation marks are allowed around a claim being tested (e.g. "trusted by thousands"). every other punctuation rule above still applies inside these posts - no periods, no commas, no question marks, no other colons
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
