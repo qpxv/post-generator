@@ -225,7 +225,7 @@ ${delimiterBlock}`;
 const userPrompt = `journal entry - ${journal.name}:\n\n${journalContent}`;
 
 console.log('generating posts...');
-const response = await complete(systemPrompt, userPrompt, 'claude-opus-5', 32000);
+const response = await complete(systemPrompt, userPrompt);
 
 // Parse posts and replies
 let posts = parsePosts(response, POST_COUNT);
@@ -267,7 +267,7 @@ const reviseInput = posts
   .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}`)
   .join('\n');
 
-const revised = await complete(revisePrompt, reviseInput, 'claude-opus-5', 32000);
+const revised = await complete(revisePrompt, reviseInput);
 const revisedPosts = parsePosts(revised, POST_COUNT);
 const revisedReplies = parseReplies(revised, POST_COUNT);
 
