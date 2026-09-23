@@ -10,8 +10,8 @@ a person has direct access to their own standards, spoken or unspoken; a person 
 axiom 4 (action-identity)
 an entity is identical to the sum of its actions; no fixed essence exists behind or beneath them.
 
-axiom 5 (universal fixability)
-for any deficit d, if d is not a member of the exception set {death, height, biological constants, ...}, then d can be closed by action.
+axiom 5 (conditional fixability)
+for any deficit d, if an action can affect the conditions constituting d, then some action can increase, decrease, or otherwise alter d
 
 axiom 6 (definition-resolution)
 a word is a primitive if it cannot be expressed as a function of other defined words; a redirect if it can be so expressed, resolved to its dependencies at the point of use; a deferred term if it is expressible in principle but left unresolved, relying on axiom 7 for its meaning.
