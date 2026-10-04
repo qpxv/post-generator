@@ -41,4 +41,4 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
           JOURNAL_DIR: ${{ steps.journal.outputs.journal_dir }}
-          POST_COUNT: "6"
+          POST_COUNT: "12"

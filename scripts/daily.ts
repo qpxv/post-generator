@@ -9,6 +9,14 @@ loadEnv();
 const JOURNAL_DIR = process.env.JOURNAL_DIR;
 const TYPEFULLY_API_KEY = process.env.TYPEFULLY_API_KEY;
 const POST_COUNT = parseInt(process.env.POST_COUNT ?? '5', 10);
+// Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
+// (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom)
+const SHORT_POST_MIN = Math.max(1, Math.ceil(POST_COUNT / 6));
+const SHORT_POST_MAX = Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
+const AXIOM_POST_COUNT = Math.max(1, Math.round(POST_COUNT / 6));
+const WEBSITE_POST_SHARE = 0.6;
+const WEBSITE_POST_COUNT = Math.round(POST_COUNT * WEBSITE_POST_SHARE);
+const PERSONAL_POST_COUNT = POST_COUNT - WEBSITE_POST_COUNT;
 
 if (!JOURNAL_DIR) {
   console.error('missing JOURNAL_DIR in .env');
@@ -84,7 +92,11 @@ const axiomBlocks = axioms
   .map((b) => b.trim())
   .filter((b) => /^axiom \d+/i.test(b));
 
-const featuredAxiom = axiomBlocks.length > 0 ? axiomBlocks[seed % axiomBlocks.length] : '';
+// One featured axiom per axiom-mode post, so a second axiom post doesn't fall back to a familiar one
+const featuredAxioms = Array.from(
+  { length: Math.min(AXIOM_POST_COUNT, axiomBlocks.length) },
+  (_, i) => axiomBlocks[(seed + i) % axiomBlocks.length],
+);
 
 // definitions.md is one "term: meaning" per line
 const definitionLines = definitions
@@ -183,16 +195,16 @@ ${axioms ? `ben's axioms:\n\n${axioms}\n` : ''}
 ${definitions ? `ben's definitions - use these exact meanings whenever a post touches one of these words, instead of the vague everyday meaning:\n\n${definitions}\n` : ''}
 how to use this:
 - when a post's point rests on a concept like trust, standard, respect, certainty, judgment, or another word defined above, reach for the precise definition instead of the vague conventional one. let the definition do the work of proving the point, not just decorate it
-- aim for about 1 of the ${POST_COUNT} posts per batch to run fully in axiom mode: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. the rest of the posts should stay in ben's normal observational, journal-rooted voice - do not force this structure onto every post
-- the axiom-mode post does NOT need to land on websites, trust, conversion, or any business point - ben genuinely geeks out on this stuff as philosophy in its own right, so let the logical chain conclude wherever it actually leads (about emotion, judgment, identity, behavior, other people, whatever the axiom is actually about). only bend it toward the website/business angle if the journal entry makes that connection natural - never force it. count the axiom-mode post as one of the personal posts for the 75/25 split when it doesn't land on a business point, so it doesn't eat into the website-post quota
+- aim for about ${AXIOM_POST_COUNT} of the ${POST_COUNT} posts per batch to run fully in axiom mode: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. the rest of the posts should stay in ben's normal observational, journal-rooted voice - do not force this structure onto every post
+- an axiom-mode post does NOT need to land on websites, trust, conversion, or any business point - ben genuinely geeks out on this stuff as philosophy in its own right, so let the logical chain conclude wherever it actually leads (about emotion, judgment, identity, behavior, other people, whatever the axiom is actually about). only bend it toward the website/business angle if the journal entry makes that connection natural - never force it. count an axiom-mode post as one of the personal posts for the website/personal split when it doesn't land on a business point, so it doesn't eat into the website-post quota
 - an axiom-mode post can close with a falsifiability challenge - daring the reader to find the one exception, then pointing out there isn't one. use this closer sparingly, it loses power if every post ends this way
-${featuredAxiom ? `- this batch has been running the same one or two axioms and definitions over and over (mostly asymmetric access, and trust/discipline), and that repetition is a real problem - it makes the account look like it only has one idea. today's axiom-mode post, if you write one, MUST build its logical chain around this specific axiom instead of defaulting back to a familiar one:\n\n${featuredAxiom}\n\ndo not use a different axiom for the axiom-mode post today unless the journal makes this one genuinely impossible to connect to - reach for the connection before giving up on it` : ''}
+${featuredAxioms.length > 0 ? `- this batch has been running the same one or two axioms and definitions over and over (mostly asymmetric access, and trust/discipline), and that repetition is a real problem - it makes the account look like it only has one idea. today's axiom-mode posts MUST each build their logical chain around one of these specific axioms instead of defaulting back to a familiar one. use a different one for each axiom-mode post, never the same axiom twice in a batch:\n\n${featuredAxioms.join('\n\n')}\n\ndo not swap in a different axiom today unless the journal makes these genuinely impossible to connect to - reach for the connection before giving up on it` : ''}
 ${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when a post needs a precise definition today, pull from this rotating set before defaulting to trust or discipline again:\n\n${featuredDefinitions.map((d) => `- ${d}`).join('\n')}\n\nonly reach outside this set (or back to trust/discipline) if the journal entry genuinely doesn't connect to any of them - don't force a fit, but don't default back to the same two words out of habit either` : ''}
 - when a post runs in axiom mode, colons are allowed directly after the words "axiom" or "definition" to label what follows (e.g. "definition of standard:", "axiom 3, asymmetric access:"), and quotation marks are allowed around a claim being tested (e.g. "trusted by thousands"). every other punctuation rule above still applies inside these posts - no periods, no commas, no question marks, no other colons
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
-replies: every website-focused post (the 75%) must have a reply. personal posts (the 25%) must output "none" for the reply.
+replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
 - max 2 lines
@@ -204,15 +216,15 @@ the reply is a second tweet that threads directly under the main post. rules:
 - never sound like a marketer wrote it
 
 ${replyExamples ? `these are example replies to use as reference for energy and length. study the tone - direct, short, personal, never salesy:\n\n${replyExamples}\n` : ''}
-post length: mix short and long posts. for every ${POST_COUNT} posts, write at least 1 and at most 2 as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.
+post length: mix short and long posts. for every ${POST_COUNT} posts, write at least ${SHORT_POST_MIN} and at most ${SHORT_POST_MAX} as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.
 
 hooks: every post must open with a hook that makes someone stop scrolling. no slow builds. no context-setting. the first line is everything. look at how the example posts open and match that energy. specific > vague. concrete > abstract. story > statement when possible.
 
 your job: read the journal and write exactly ${POST_COUNT} posts with this split:
 
-75% of the posts (round up) should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.
+${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.
 
-25% of the posts (round down) should be personal - observations from his day, random realizations, stories about anything. the point can be about life, mindset, work, money, whatever fits. no website angle required.
+${PERSONAL_POST_COUNT} of the ${POST_COUNT} posts should be personal - observations from his day, random realizations, stories about anything. the point can be about life, mindset, work, money, whatever fits. no website angle required.
 
 start every post with a hook. the first line needs to grab immediately - skip context, skip the thesis, skip any kind of warm up.
 
