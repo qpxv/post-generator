@@ -42,13 +42,17 @@ const journalContent = readText(journal.fullPath);
 // each other, so the batch size follows how much actually happened.
 // Each export line starts with "[dd.MM.yy, h:mm a]", so counting those
 // stamps counts entries even when an entry body spans several lines.
-const RICH_JOURNAL_ENTRY_THRESHOLD = 150;
-const RICH_JOURNAL_POST_COUNT = 12;
-const THIN_JOURNAL_POST_COUNT = 6;
+// Tiers widen as they go up because high-count days pad with filler entries,
+// so distinct postable moments grow slower than the raw entry count.
+const POST_COUNT_TIERS = [
+  { minEntries: 180, postCount: 12 },
+  { minEntries: 100, postCount: 9 },
+  { minEntries: 40, postCount: 6 },
+];
+const MIN_POST_COUNT = 4;
 const journalEntryCount = (journalContent.match(/^\[\d{2}\.\d{2}\.\d{2}, /gm) ?? []).length;
-const POST_COUNT = journalEntryCount >= RICH_JOURNAL_ENTRY_THRESHOLD
-  ? RICH_JOURNAL_POST_COUNT
-  : THIN_JOURNAL_POST_COUNT;
+const POST_COUNT = POST_COUNT_TIERS.find((t) => journalEntryCount >= t.minEntries)?.postCount
+  ?? MIN_POST_COUNT;
 console.log(`${journalEntryCount} journal entries, generating ${POST_COUNT} posts`);
 
 // Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
