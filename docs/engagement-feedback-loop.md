@@ -78,9 +78,18 @@ reads and writes stay in plain functions so the same core can run from a github 
 - **feedback collapse.** if only winners get used as examples, the voice narrows over time. keep some exploration: a share of posts in each batch try patterns the data hasn't proven yet.
 - **fxtwitter breaking.** collector failures get logged and skipped, and the rest of the pipeline never depends on it.
 
+## phase 0 result (oct 5 2026)
+
+`npm run backfill` pulled 1412 published posts (1409 with stats, 3 deleted on x) into `data/performance/backfill.json`. `npm run analyze` ranks each post against its own month, permutation-tests a few features, and has the local claude cli write the report: `data/performance/analysis-2026-10-05.md`.
+
+- **reach is set by the account, not the post.** median views swung about 5x between eras (146 to 195 in aug/sep 2025, 35 to 54 through spring 2026, back to 97 to 148 from july 2026).
+- **two real effects, both small:** short posts rank lower (42nd vs 52nd percentile, p < 0.001) and evening posts rank lower (p 0.01, borderline). website vs personal is a dead tie, so the locked 60/40 split costs nothing.
+- **untested but consistent pattern:** animal and nature moments sit at the bottom in both categories and never appear in either top list.
+- **verdict:** a weekly insights loop would mostly chase noise. keep collecting, review quarterly against hypotheses written down in advance, and add features the table is missing (media, links, animal/nature).
+
 ## phases
 
-0. **backfill + one analysis.** a one-off script pulls all 1412 published posts and their stats into json, then runs one analysis (local claude cli, since it's dev tooling). result: is there any pattern worth learning? if not, stop here.
+0. **backfill + one analysis.** done, see above. a one-off script pulls all 1412 published posts and their stats into json, then runs one analysis (local claude cli, since it's dev tooling). result: is there any pattern worth learning? if not, stop here.
 1. **ledger + tags + daily collector.**
 2. **weekly insights + review signal**, fed into the prompt.
 3. **auto-tuning inside each category** (short share, axiom share, patterns) within fixed limits. the website/personal split is never touched.

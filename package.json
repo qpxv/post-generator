@@ -11,6 +11,8 @@
     "queue": "node node_modules/tsx/dist/cli.mjs scripts/queue.ts",
     "schedule": "node node_modules/tsx/dist/cli.mjs scripts/schedule.ts",
     "newsletter": "node node_modules/tsx/dist/cli.mjs scripts/newsletter.ts",
+    "backfill": "node node_modules/tsx/dist/cli.mjs scripts/backfill-performance.ts",
+    "analyze": "node node_modules/tsx/dist/cli.mjs scripts/analyze-performance.ts",
     "check": "tsc --noEmit"
   },
   "devDependencies": {
