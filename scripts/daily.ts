@@ -8,15 +8,6 @@ loadEnv();
 
 const JOURNAL_DIR = process.env.JOURNAL_DIR;
 const TYPEFULLY_API_KEY = process.env.TYPEFULLY_API_KEY;
-const POST_COUNT = parseInt(process.env.POST_COUNT ?? '5', 10);
-// Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
-// (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom)
-const SHORT_POST_MIN = Math.max(1, Math.ceil(POST_COUNT / 6));
-const SHORT_POST_MAX = Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
-const AXIOM_POST_COUNT = Math.max(1, Math.round(POST_COUNT / 6));
-const WEBSITE_POST_SHARE = 0.6;
-const WEBSITE_POST_COUNT = Math.round(POST_COUNT * WEBSITE_POST_SHARE);
-const PERSONAL_POST_COUNT = POST_COUNT - WEBSITE_POST_COUNT;
 
 if (!JOURNAL_DIR) {
   console.error('missing JOURNAL_DIR in .env');
@@ -46,6 +37,28 @@ if (journalFiles.length === 0) {
 const journal = journalFiles[0];
 console.log(`reading: ${journal.name}`);
 const journalContent = readText(journal.fullPath);
+
+// A thin journal day can't support a full batch without the posts repeating
+// each other, so the batch size follows how much actually happened.
+// Each export line starts with "[dd.MM.yy, h:mm a]", so counting those
+// stamps counts entries even when an entry body spans several lines.
+const RICH_JOURNAL_ENTRY_THRESHOLD = 150;
+const RICH_JOURNAL_POST_COUNT = 12;
+const THIN_JOURNAL_POST_COUNT = 6;
+const journalEntryCount = (journalContent.match(/^\[\d{2}\.\d{2}\.\d{2}, /gm) ?? []).length;
+const POST_COUNT = journalEntryCount >= RICH_JOURNAL_ENTRY_THRESHOLD
+  ? RICH_JOURNAL_POST_COUNT
+  : THIN_JOURNAL_POST_COUNT;
+console.log(`${journalEntryCount} journal entries, generating ${POST_COUNT} posts`);
+
+// Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
+// (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom)
+const SHORT_POST_MIN = Math.max(1, Math.ceil(POST_COUNT / 6));
+const SHORT_POST_MAX = Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
+const AXIOM_POST_COUNT = Math.max(1, Math.round(POST_COUNT / 6));
+const WEBSITE_POST_SHARE = 0.6;
+const WEBSITE_POST_COUNT = Math.round(POST_COUNT * WEBSITE_POST_SHARE);
+const PERSONAL_POST_COUNT = POST_COUNT - WEBSITE_POST_COUNT;
 
 // Load example posts if any
 const exampleDir = 'data/examples';
