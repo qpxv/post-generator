@@ -2,6 +2,7 @@ import { writeText } from '../src/lib/fs.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
 import { loadPosts } from '../src/lib/performance/store.js';
 import { median, percentileAmong, permutationPValue } from '../src/lib/performance/stats.js';
+import { zonedParts } from '../src/lib/performance/time.js';
 import type { PublishedPost, TweetStats } from '../src/types/performance.js';
 
 // Views keep climbing for a few days, so younger posts would read as losers
@@ -10,7 +11,6 @@ const SHORT_POST_MAX_CHARS = 280;
 const PERMUTATIONS = 2000;
 const SIGNIFICANCE_LEVEL = 0.05;
 const SAMPLE_SIZES = { website: 25, personal: 15 };
-const TIME_ZONE = 'Europe/Berlin';
 
 interface ScoredPost {
   post: PublishedPost;
@@ -34,14 +34,6 @@ interface FeatureResult {
 
 type Complete = (systemPrompt: string, userPrompt: string) => Promise<string>;
 
-function berlinParts(iso: string): { month: string; hour: number } {
-  const parts = new Intl.DateTimeFormat('en-GB', {
-    timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', hour: '2-digit', hourCycle: 'h23',
-  }).formatToParts(new Date(iso));
-  const get = (type: string): string => parts.find((p) => p.type === type)?.value ?? '';
-  return { month: `${get('year')}-${get('month')}`, hour: Number(get('hour')) };
-}
-
 function extractFeatures(post: PublishedPost, hour: number): Record<string, boolean> {
   const { text } = post;
   return {
@@ -62,7 +54,7 @@ function scorePosts(posts: PublishedPost[], now: Date): ScoredPost[] {
     const latest = post.snapshots.latest?.stats;
     if (post.isMissingOnX || !latest || latest.views === null) return [];
     if (new Date(post.publishedAt).getTime() > cutoff) return [];
-    const { month, hour } = berlinParts(post.publishedAt);
+    const { month, hour } = zonedParts(post.publishedAt);
     const stats = { ...latest, views: latest.views };
     // fxtwitter counts the self-reply as a reply, which isn't engagement
     const externalReplies = Math.max(0, stats.replies - Math.min(1, post.threadReplies.length));

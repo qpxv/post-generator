@@ -4,6 +4,11 @@ import type { FollowerPoint, PostsFile, PublishedPost } from '../../types/perfor
 
 export const POSTS_PATH = 'data/performance/posts.json';
 export const FOLLOWERS_PATH = 'data/performance/followers.json';
+// Written by daily.ts when a draft is created, read by the collector once it publishes
+export const LEDGER_PATH = 'data/performance/ledger.json';
+export const GUIDANCE_PATH = 'data/learned/guidance.json';
+export const LEARNED_PROMPT_PATH = 'data/learned/prompt.md';
+export const CHANGELOG_PATH = 'data/learned/changelog.md';
 
 export function loadJson<T>(filePath: string, fallback: T): T {
   if (!fs.existsSync(filePath)) return fallback;

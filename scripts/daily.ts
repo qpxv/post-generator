@@ -2,9 +2,20 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readText, ensureDir } from '../src/lib/fs.js';
 import { complete } from '../src/lib/claude.js';
+import { completeViaCli } from '../src/lib/claude-cli.js';
 import { loadEnv } from '../src/lib/env.js';
+import { GUIDANCE_PATH, LEARNED_PROMPT_PATH, LEDGER_PATH, loadJson, saveJson } from '../src/lib/performance/store.js';
+import type { Guidance, Ledger } from '../src/types/performance.js';
 
 loadEnv();
+
+// --cli routes both model calls through the local claude cli (subscription,
+// not api credits) and --dry-run skips typefully, so a batch can be tested
+// locally without spending anything or touching the queue
+const isCliMode = process.argv.includes('--cli');
+const isDryRun = process.argv.includes('--dry-run');
+const generate = (system: string, user: string): Promise<string> =>
+  isCliMode ? completeViaCli(system, user) : complete(system, user);
 
 const JOURNAL_DIR = process.env.JOURNAL_DIR;
 const TYPEFULLY_API_KEY = process.env.TYPEFULLY_API_KEY;
@@ -13,7 +24,7 @@ if (!JOURNAL_DIR) {
   console.error('missing JOURNAL_DIR in .env');
   process.exit(1);
 }
-if (!TYPEFULLY_API_KEY) {
+if (!TYPEFULLY_API_KEY && !isDryRun) {
   console.error('missing TYPEFULLY_API_KEY in .env');
   process.exit(1);
 }
@@ -55,10 +66,21 @@ const POST_COUNT = POST_COUNT_TIERS.find((t) => journalEntryCount >= t.minEntrie
   ?? MIN_POST_COUNT;
 console.log(`${journalEntryCount} journal entries, generating ${POST_COUNT} posts`);
 
+// Written nightly by scripts/learn.ts from how past posts performed
+const guidance = loadJson<Guidance | null>(GUIDANCE_PATH, null);
+const learnedPrompt = fs.existsSync(LEARNED_PROMPT_PATH) ? readText(LEARNED_PROMPT_PATH).trim() : '';
+
 // Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
-// (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom)
-const SHORT_POST_MIN = Math.max(1, Math.ceil(POST_COUNT / 6));
-const SHORT_POST_MAX = Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
+// (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom), unless the
+// learner has proven short posts lose and capped them
+const learnedShortPosts = guidance?.shortPosts ?? null;
+const SHORT_POST_MIN = learnedShortPosts?.min ?? Math.max(1, Math.ceil(POST_COUNT / 6));
+const SHORT_POST_MAX = learnedShortPosts?.max ?? Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
+// The last posts of each batch ignore the learned block and try angles the
+// data hasn't proven yet. Without this the system only copies past winners
+// and the account narrows into one style.
+const EXPLORE_POST_COUNT = learnedPrompt ? (POST_COUNT >= 9 ? 2 : 1) : 0;
+const exploreIndexes = Array.from({ length: EXPLORE_POST_COUNT }, (_, i) => POST_COUNT - EXPLORE_POST_COUNT + i);
 const AXIOM_POST_COUNT = Math.max(1, Math.round(POST_COUNT / 6));
 const WEBSITE_POST_SHARE = 0.6;
 const WEBSITE_POST_COUNT = Math.round(POST_COUNT * WEBSITE_POST_SHARE);
@@ -221,7 +243,7 @@ ${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
-replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
+${learnedPrompt ? `${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
 - max 2 lines
@@ -254,7 +276,7 @@ ${delimiterBlock}`;
 const userPrompt = `journal entry - ${journal.name}:\n\n${journalContent}`;
 
 console.log('generating posts...');
-const response = await complete(systemPrompt, userPrompt);
+const response = await generate(systemPrompt, userPrompt);
 
 // Parse posts and replies
 let posts = parsePosts(response, POST_COUNT);
@@ -296,7 +318,7 @@ const reviseInput = posts
   .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}`)
   .join('\n');
 
-const revised = await complete(revisePrompt, reviseInput);
+const revised = await generate(revisePrompt, reviseInput);
 const revisedPosts = parsePosts(revised, POST_COUNT);
 const revisedReplies = parseReplies(revised, POST_COUNT);
 
@@ -315,10 +337,16 @@ const outputContent = posts
   .map((p, i) => {
     const reply = replies[i];
     const replyLine = reply ? `\n\n**reply:** ${reply}` : '';
-    return `## post ${i + 1}\n\n${p}${replyLine}`;
+    const exploreLabel = exploreIndexes.includes(i) ? ' (explore)' : '';
+    return `## post ${i + 1}${exploreLabel}\n\n${p}${replyLine}`;
   })
   .join('\n\n---\n\n');
 fs.writeFileSync(outputPath, outputContent, 'utf8');
+
+if (isDryRun) {
+  console.log(`\n${posts.length} posts generated (dry run, nothing scheduled). drafts saved to ${outputPath}`);
+  process.exit(0);
+}
 
 console.log(`\n${posts.length} posts generated. scheduling to typefully...\n`);
 
@@ -357,6 +385,7 @@ if (!needsReviewTag) {
 
 // Schedule to Typefully
 let scheduled = 0;
+const ledger = loadJson<Ledger>(LEDGER_PATH, {});
 
 for (const [i, post] of posts.entries()) {
   const reply = replies[i];
@@ -386,6 +415,17 @@ for (const [i, post] of posts.entries()) {
       continue;
     }
 
+    // The draft id links this post to its stats once it publishes, which is
+    // how exploration posts get measured against the rest
+    const created = await res.json() as { id?: number };
+    if (created.id !== undefined) {
+      ledger[String(created.id)] = {
+        generatedAt: new Date().toISOString(),
+        isExplore: exploreIndexes.includes(i),
+        originalText: post,
+        originalReply: reply ?? null,
+      };
+    }
     console.log(`post ${i + 1}: added to queue`);
     scheduled++;
   } catch (err) {
@@ -393,6 +433,7 @@ for (const [i, post] of posts.entries()) {
   }
 }
 
+saveJson(LEDGER_PATH, ledger);
 console.log(`\ndone. ${scheduled}/${posts.length} posts in typefully.`);
 console.log(`drafts saved to ${outputPath}`);
 

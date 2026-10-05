@@ -7,10 +7,11 @@ import { spawn } from 'node:child_process';
 // no --mcp-config loads zero MCP servers, otherwise the model sees the user's
 // connectors and comments on them in the output. Not --bare: that forces
 // ANTHROPIC_API_KEY auth and would bill the API instead of the subscription.
-export async function completeViaCli(systemPrompt: string, userPrompt: string): Promise<string> {
+export async function completeViaCli(systemPrompt: string, userPrompt: string, model?: string): Promise<string> {
   const args = [
     '-p', '--tools', '', '--permission-prompts', 'none', '--strict-mcp-config',
     '--no-session-persistence', '--system-prompt', systemPrompt,
+    ...(model ? ['--model', model] : []),
   ];
 
   const stdout = await new Promise<string>((resolve, reject) => {

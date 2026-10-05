@@ -1,3 +1,5 @@
+import type { PostTags } from '../lib/performance/tags.js';
+
 export interface TweetStats {
   views: number | null;
   likes: number;
@@ -33,6 +35,10 @@ export interface PublishedPost {
   hasMedia: boolean;
   isMissingOnX: boolean;
   snapshots: PostSnapshots;
+  // Set by tag-posts from the published text, so review edits are reflected
+  tags?: PostTags;
+  // Generated as an exploration post that ignored the learned guidance
+  isExplore?: boolean;
 }
 
 export interface PostsFile {
@@ -43,4 +49,38 @@ export interface PostsFile {
 export interface FollowerPoint {
   date: string;
   followers: number;
+}
+
+export interface LedgerEntry {
+  generatedAt: string;
+  isExplore: boolean;
+  // What the pipeline wrote before review, so edits can be diffed against
+  // the published text later
+  originalText: string;
+  originalReply: string | null;
+}
+
+// Keyed by typefully draft id
+export type Ledger = Record<string, LedgerEntry>;
+
+export type RuleDirection = 'prefer' | 'avoid';
+
+export interface LearnedRule {
+  // e.g. "website:hook=math" or "all:length=short"
+  id: string;
+  direction: RuleDirection;
+  text: string;
+  effect: number;
+  pValue: number;
+  nWith: number;
+  activeSince: string;
+}
+
+export interface Guidance {
+  updatedAt: string;
+  windowPosts: number;
+  rules: LearnedRule[];
+  // Only knob the learner may move. The website/personal split is never a knob.
+  shortPosts: { min: number; max: number } | null;
+  winnerDraftIds: number[];
 }

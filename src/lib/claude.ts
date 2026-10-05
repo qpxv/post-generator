@@ -43,3 +43,32 @@ export async function complete(systemPrompt: string, userPrompt: string, model =
 
   throw lastError;
 }
+
+// Haiku 4.5 takes neither adaptive thinking nor effort, so this is a plain
+// call. The JSON schema constrains the output, but callers still validate
+// the values because a schema can't express every rule they care about.
+export async function completeJson(
+  systemPrompt: string,
+  userPrompt: string,
+  schema: Record<string, unknown>,
+  model = 'claude-haiku-4-5',
+  maxTokens = 16000,
+): Promise<string> {
+  const message = await client.messages.create({
+    model,
+    max_tokens: maxTokens,
+    system: systemPrompt,
+    messages: [{ role: 'user', content: userPrompt }],
+    output_config: { format: { type: 'json_schema', schema } },
+  });
+
+  if (message.stop_reason === 'refusal') {
+    throw new Error('request refused by safety classifiers (stop_reason: refusal)');
+  }
+  if (message.stop_reason === 'max_tokens') {
+    throw new Error(`json output cut off at max_tokens (${maxTokens}), send a smaller batch`);
+  }
+  const block = message.content.find((b) => b.type === 'text');
+  if (!block) throw new Error(`no text block in json response (stop_reason: ${message.stop_reason})`);
+  return block.text;
+}

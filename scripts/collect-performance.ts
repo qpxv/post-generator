@@ -1,8 +1,8 @@
 import { loadEnv } from '../src/lib/env.js';
 import { fetchDraftThread, fetchPublishedDrafts, fetchSocialSetId, tweetIdFromUrl } from '../src/lib/performance/typefully.js';
 import { fetchTweet } from '../src/lib/performance/fxtwitter.js';
-import { loadPosts, recordFollowers, savePosts, POSTS_PATH } from '../src/lib/performance/store.js';
-import type { PostSnapshots, PublishedPost } from '../src/types/performance.js';
+import { loadJson, loadPosts, recordFollowers, savePosts, LEDGER_PATH, POSTS_PATH } from '../src/lib/performance/store.js';
+import type { Ledger, PostSnapshots, PublishedPost } from '../src/types/performance.js';
 
 loadEnv();
 
@@ -53,6 +53,7 @@ function errorMessage(err: unknown): string {
 const socialSetId = await fetchSocialSetId(TYPEFULLY_API_KEY);
 const drafts = await fetchPublishedDrafts(TYPEFULLY_API_KEY, socialSetId);
 const posts = loadPosts();
+const ledger = loadJson<Ledger>(LEDGER_PATH, {});
 
 // Text and thread never change after publishing, so fetch them once per draft
 const newDrafts = drafts.filter((d) => !posts.has(d.id));
@@ -74,6 +75,7 @@ await runPool(newDrafts, TYPEFULLY_CONCURRENCY, async (draft) => {
       hasMedia,
       isMissingOnX: false,
       snapshots: {},
+      isExplore: ledger[String(draft.id)]?.isExplore,
     });
   } catch (err) {
     console.error(`draft ${draft.id}: ${errorMessage(err)}`);

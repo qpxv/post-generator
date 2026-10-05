@@ -12,6 +12,8 @@
     "schedule": "node node_modules/tsx/dist/cli.mjs scripts/schedule.ts",
     "newsletter": "node node_modules/tsx/dist/cli.mjs scripts/newsletter.ts",
     "collect": "node node_modules/tsx/dist/cli.mjs scripts/collect-performance.ts",
+    "tag": "node node_modules/tsx/dist/cli.mjs scripts/tag-posts.ts",
+    "learn": "node node_modules/tsx/dist/cli.mjs scripts/learn.ts",
     "analyze": "node node_modules/tsx/dist/cli.mjs scripts/analyze-performance.ts",
     "check": "tsc --noEmit"
   },

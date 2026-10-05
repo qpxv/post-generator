@@ -87,6 +87,24 @@ reads and writes stay in plain functions so the same core can run from a github 
 - **untested but consistent pattern:** animal and nature moments sit at the bottom in both categories and never appear in either top list.
 - **verdict:** a weekly insights loop would mostly chase noise. keep collecting, review quarterly against hypotheses written down in advance, and add features the table is missing (media, links, animal/nature).
 
+## how it runs now (oct 5 2026)
+
+phases 1 to 3 are built and run in the nightly workflow before posting. each learning step is `continue-on-error`, so it can never block a post.
+
+1. `npm run collect`: new published drafts from typefully, fxtwitter snapshots at 48h and 7d plus latest stats, follower count → `data/performance/posts.json`, `followers.json`.
+2. `npm run tag`: haiku tags new posts (category, hook, moment, landing) from the published text. history was tagged once locally with `npm run tag -- --cli`.
+3. `npm run learn`: no llm. ranks posts within their month, tests every tag value inside each category over the newest 270 posts, and writes `data/learned/guidance.json` + `data/learned/prompt.md`. rule changes are logged in `data/learned/changelog.md`.
+4. `npm run post` injects `prompt.md` (learned rules + the 6 best posts of the last 30 days), applies the short-post knob, and marks the last 1 or 2 posts as exploration posts that ignore the learned block. it records each draft's id, explore flag and original text in `data/performance/ledger.json`.
+5. the workflow commits `data/` back to `main`.
+
+**rule gate:** n ≥ 30 per group, effect ≥ 8 percentile points, p < 0.01 (5000 seeded shuffles), same direction in the older and newer half of the window. an active rule stays until p > 0.05. max 6 rules. wording comes only from `src/lib/performance/tags.ts`, so the prompt can only change in pre-written ways.
+
+**first run:** 0 rules passed. the closest was "website posts that open with a scene from the day do better" (+17 points, p 0.023). "short loses" and "animal hooks lose" don't hold in the newest 270 posts.
+
+**local testing without api credits:** `npm run post -- --cli --dry-run` generates through the local claude cli and schedules nothing.
+
+**next:** learn from ben's review edits. the ledger now stores the original text, so diffs against the published text become possible as posts publish.
+
 ## phases
 
 0. **backfill + one analysis.** done, see above. a one-off script pulls all 1412 published posts and their stats into json, then runs one analysis (local claude cli, since it's dev tooling). result: is there any pattern worth learning? if not, stop here.
