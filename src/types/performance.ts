@@ -7,9 +7,18 @@ export interface TweetStats {
   bookmarks: number;
 }
 
-export type StatsLookup =
-  | { status: 'ok'; stats: TweetStats; fetchedAt: string }
-  | { status: 'missing'; fetchedAt: string };
+export interface Snapshot {
+  takenAt: string;
+  // Nightly runs land anywhere inside a snapshot window, so keep the real age
+  ageHours: number;
+  stats: TweetStats;
+}
+
+export interface PostSnapshots {
+  h48?: Snapshot;
+  d7?: Snapshot;
+  latest?: Snapshot;
+}
 
 export interface PublishedPost {
   draftId: number;
@@ -17,14 +26,21 @@ export interface PublishedPost {
   url: string;
   createdAt: string;
   publishedAt: string;
-  tags: string[];
+  typefullyTags: string[];
   text: string;
   // Text of the posts after the first one in the thread (the self-reply)
   threadReplies: string[];
-  lookup: StatsLookup | null;
+  hasMedia: boolean;
+  isMissingOnX: boolean;
+  snapshots: PostSnapshots;
 }
 
-export interface BackfillFile {
+export interface PostsFile {
   updatedAt: string;
   posts: PublishedPost[];
+}
+
+export interface FollowerPoint {
+  date: string;
+  followers: number;
 }

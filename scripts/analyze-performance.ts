@@ -1,9 +1,9 @@
-import fs from 'node:fs';
-import { readText, writeText } from '../src/lib/fs.js';
+import { writeText } from '../src/lib/fs.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
-import type { BackfillFile, PublishedPost, TweetStats } from '../src/types/performance.js';
+import { loadPosts } from '../src/lib/performance/store.js';
+import { median, percentileAmong, permutationPValue } from '../src/lib/performance/stats.js';
+import type { PublishedPost, TweetStats } from '../src/types/performance.js';
 
-const BACKFILL_PATH = 'data/performance/backfill.json';
 // Views keep climbing for a few days, so younger posts would read as losers
 const MIN_AGE_DAYS = 7;
 const SHORT_POST_MAX_CHARS = 280;
@@ -42,13 +42,6 @@ function berlinParts(iso: string): { month: string; hour: number } {
   return { month: `${get('year')}-${get('month')}`, hour: Number(get('hour')) };
 }
 
-function median(values: number[]): number {
-  if (values.length === 0) return 0;
-  const sorted = [...values].sort((a, b) => a - b);
-  const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
-}
-
 function extractFeatures(post: PublishedPost, hour: number): Record<string, boolean> {
   const { text } = post;
   return {
@@ -66,10 +59,11 @@ function extractFeatures(post: PublishedPost, hour: number): Record<string, bool
 function scorePosts(posts: PublishedPost[], now: Date): ScoredPost[] {
   const cutoff = now.getTime() - MIN_AGE_DAYS * 86400000;
   const eligible = posts.flatMap((post) => {
-    if (post.lookup?.status !== 'ok' || post.lookup.stats.views === null) return [];
+    const latest = post.snapshots.latest?.stats;
+    if (post.isMissingOnX || !latest || latest.views === null) return [];
     if (new Date(post.publishedAt).getTime() > cutoff) return [];
     const { month, hour } = berlinParts(post.publishedAt);
-    const stats = { ...post.lookup.stats, views: post.lookup.stats.views };
+    const stats = { ...latest, views: latest.views };
     // fxtwitter counts the self-reply as a reply, which isn't engagement
     const externalReplies = Math.max(0, stats.replies - Math.min(1, post.threadReplies.length));
     return [{ post, stats, month, hour, externalReplies, features: extractFeatures(post, hour) }];
@@ -79,30 +73,9 @@ function scorePosts(posts: PublishedPost[], now: Date): ScoredPost[] {
   for (const p of eligible) byMonth.set(p.month, [...(byMonth.get(p.month) ?? []), p]);
 
   return eligible.map((p) => {
-    const peers = byMonth.get(p.month) ?? [];
-    const below = peers.filter((q) => q.stats.views < p.stats.views).length;
-    const ties = peers.filter((q) => q.stats.views === p.stats.views).length;
-    const monthPercentile = peers.length > 1 ? ((below + (ties - 1) / 2) / (peers.length - 1)) * 100 : 50;
-    return { ...p, monthPercentile };
+    const peers = (byMonth.get(p.month) ?? []).map((q) => q.stats.views);
+    return { ...p, monthPercentile: percentileAmong(p.stats.views, peers) };
   });
-}
-
-// Shuffle the feature labels to see how often chance alone produces a gap
-// this large: the honest answer to "is this real or noise"
-function permutationPValue(scores: number[], labels: boolean[]): number {
-  const gap = (ls: boolean[]): number =>
-    median(scores.filter((_, i) => ls[i])) - median(scores.filter((_, i) => !ls[i]));
-  const observed = Math.abs(gap(labels));
-  const shuffled = [...labels];
-  let asExtreme = 0;
-  for (let n = 0; n < PERMUTATIONS; n++) {
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    if (Math.abs(gap(shuffled)) >= observed) asExtreme++;
-  }
-  return (asExtreme + 1) / (PERMUTATIONS + 1);
 }
 
 function testFeature(posts: ScoredPost[], name: string): FeatureResult {
@@ -116,7 +89,7 @@ function testFeature(posts: ScoredPost[], name: string): FeatureResult {
     withoutCount: withoutScores.length,
     withMedian: median(withScores),
     withoutMedian: median(withoutScores),
-    pValue: permutationPValue(scores, labels),
+    pValue: permutationPValue(scores, labels, PERMUTATIONS),
   };
 }
 
@@ -212,13 +185,12 @@ async function analyze(posts: ScoredPost[], complete: Complete): Promise<string>
   ].join('\n\n') + '\n';
 }
 
-if (!fs.existsSync(BACKFILL_PATH)) {
-  console.error(`missing ${BACKFILL_PATH}, run npm run backfill first`);
+const posts = [...loadPosts().values()];
+if (posts.length === 0) {
+  console.error('no posts collected yet, run npm run collect first');
   process.exit(1);
 }
-
-const backfill = JSON.parse(readText(BACKFILL_PATH)) as BackfillFile;
-const scored = scorePosts(backfill.posts, new Date());
+const scored = scorePosts(posts, new Date());
 console.log(`${scored.length} posts eligible, asking claude for the analysis...`);
 
 const report = await analyze(scored, completeViaCli);
