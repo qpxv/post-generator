@@ -4,7 +4,7 @@ import { readText, ensureDir } from '../src/lib/fs.js';
 import { complete } from '../src/lib/claude.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
 import { loadEnv } from '../src/lib/env.js';
-import { GUIDANCE_PATH, LEARNED_PROMPT_PATH, LEDGER_PATH, loadJson, saveJson } from '../src/lib/performance/store.js';
+import { EDIT_PROMPT_PATH, GUIDANCE_PATH, LEARNED_PROMPT_PATH, LEDGER_PATH, loadJson, saveJson } from '../src/lib/performance/store.js';
 import type { Guidance, Ledger } from '../src/types/performance.js';
 
 loadEnv();
@@ -69,6 +69,8 @@ console.log(`${journalEntryCount} journal entries, generating ${POST_COUNT} post
 // Written nightly by scripts/learn.ts from how past posts performed
 const guidance = loadJson<Guidance | null>(GUIDANCE_PATH, null);
 const learnedPrompt = fs.existsSync(LEARNED_PROMPT_PATH) ? readText(LEARNED_PROMPT_PATH).trim() : '';
+// Written by scripts/learn-edits.ts from what ben changes in review
+const editPrompt = fs.existsSync(EDIT_PROMPT_PATH) ? readText(EDIT_PROMPT_PATH).trim() : '';
 
 // Scale the batch mix off POST_COUNT so it keeps the same ratio at any size
 // (6 posts: 1-2 short, 1 axiom. 12 posts: 2-4 short, 2 axiom), unless the
@@ -243,7 +245,7 @@ ${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when
 
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
-${learnedPrompt ? `${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
+${learnedPrompt ? `${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}${editPrompt ? `${editPrompt}\n\n` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
 - max 2 lines

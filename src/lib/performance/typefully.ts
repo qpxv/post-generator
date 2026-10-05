@@ -79,3 +79,12 @@ export async function fetchDraftThread(apiKey: string, socialSetId: number, draf
 export function tweetIdFromUrl(url: string): string | null {
   return url.match(/\/status\/(\d+)/)?.[1] ?? null;
 }
+
+// A draft ben deleted in review returns 404, which is the rejection signal
+export async function fetchDraftExists(apiKey: string, socialSetId: number, draftId: number): Promise<boolean> {
+  const url = `${TYPEFULLY_BASE}/social-sets/${socialSetId}/drafts/${draftId}`;
+  const res = await fetch(url, { headers: { Authorization: `Bearer ${apiKey}` } });
+  if (res.status === 404) return false;
+  if (!res.ok) throw new Error(`typefully GET ${url} failed with ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  return true;
+}

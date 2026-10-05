@@ -9,6 +9,10 @@ export const LEDGER_PATH = 'data/performance/ledger.json';
 export const GUIDANCE_PATH = 'data/learned/guidance.json';
 export const LEARNED_PROMPT_PATH = 'data/learned/prompt.md';
 export const CHANGELOG_PATH = 'data/learned/changelog.md';
+// Review outcome of every draft, built by collect-edits from the ledger
+export const EDITS_PATH = 'data/performance/edits.json';
+export const EDIT_STATE_PATH = 'data/learned/edit-rules.json';
+export const EDIT_PROMPT_PATH = 'data/learned/edits.md';
 export const PIPELINE_STATE_PATH = 'data/pipeline/state.json';
 
 export function loadJson<T>(filePath: string, fallback: T): T {

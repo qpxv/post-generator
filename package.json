@@ -16,6 +16,8 @@
     "learn": "node node_modules/tsx/dist/cli.mjs scripts/learn.ts",
     "gate": "node node_modules/tsx/dist/cli.mjs scripts/queue-gate.ts",
     "fetch-journal": "node node_modules/tsx/dist/cli.mjs scripts/fetch-journal.ts",
+    "edits": "node node_modules/tsx/dist/cli.mjs scripts/collect-edits.ts",
+    "learn-edits": "node node_modules/tsx/dist/cli.mjs scripts/learn-edits.ts",
     "analyze": "node node_modules/tsx/dist/cli.mjs scripts/analyze-performance.ts",
     "check": "tsc --noEmit"
   },

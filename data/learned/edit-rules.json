@@ -1,0 +1,26 @@
+{
+  "learnedAt": "2026-10-05T18:15:41.181Z",
+  "decidedCount": 59,
+  "rules": [
+    {
+      "rule": "trim elaboration lines that repeat a point already made: a third item in a list, a 'not x, not y' negation line, or a line that spells out what the previous line implied. keep the strongest one or two beats and move on",
+      "evidence": "11 pairs. pair 6: 'wanted to quit the exam sign out drop the whole thing' became 'wanted to quit the exam'. pair 24: cut 'no pressure no guilt no negotiation'. pair 25: cut 'not the testimonials'"
+    },
+    {
+      "rule": "don't end on a summary, moral, or slogan that restates the hook or the point already made. stop on the last concrete image or the line that makes the point, and cut the 1 to 3 lines after it. this includes tags like 'that is all'",
+      "evidence": "8 pairs. pair 13: cut 'the details are not decoration / they are the whole argument'. pair 7: cut 'the work you put into your offer deserves a website that can hold the weight of it'. pair 11: cut 'that is all'"
+    },
+    {
+      "rule": "if you add a closing line, make it a short casual aside or blunt tag that adds something new, such as a joke, a concrete detail, or a quick verdict. don't use a polished takeaway",
+      "evidence": "5 pairs. pair 31: added 'couldnt be me'. pair 38: added 'its binary'. pair 30: added 'even though it technically \"looks good\"'. pair 15: added 'and thats an entirely different skillset than moving around rectangles'"
+    },
+    {
+      "rule": "put the 'not x' or contrast half of a sentence on its own line instead of joining it to the main clause. a lone line for the punch lands harder",
+      "evidence": "4 pairs. pair 17: 'the website was INVISIBLE not broken' became 'the website was INVISIBLE' / 'not broken'. pair 12: 'cognitive work FOR your visitors not assigning it to them' split into two lines. pair 16: 'a snapshot of who they were not who they are' split into two lines"
+    },
+    {
+      "rule": "don't attach specific years to dated-design jabs ('2019 squarespace template', 'stock photo from 2017', 'made in 2014'). name the platform, or use a plain concrete flaw such as slow load or the wrong template",
+      "evidence": "3 pairs. pair 29: 'a 2019 squarespace template' became 'a squarespace template'. pair 27: 'hero image that looked like a stock photo from 2017' became 'hero image that loaded slow'. pair 38: 'looks like it was made in 2014' became 'looks like the wrong template got used'"
+    }
+  ]
+}

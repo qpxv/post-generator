@@ -105,7 +105,13 @@ phases 1 to 3 are built and run in the nightly workflow before posting. each lea
 
 **local testing without api credits:** `npm run post -- --cli --dry-run` generates through the local claude cli and schedules nothing.
 
-**next:** learn from ben's review edits. the ledger now stores the original text, so diffs against the published text become possible as posts publish.
+**edit learning (oct 5 2026):** ben's review is the densest signal (a decision on every draft), so the loop learns from it too, with no input beyond the review itself.
+
+1. `npm run edits` (nightly, no llm): pairs every ledger draft with its outcome in `data/performance/edits.json`. published unchanged → `kept`, published changed → `edited`, the draft 404s in typefully before publishing → `deleted`. drafts still in the queue stay pending and are checked again the next night.
+2. `npm run learn-edits` (nightly, but only calls the model once 5+ new reviews came in and at least 10 drafts were edited or deleted): sonnet 5.5 reads the newest 60 edited pairs, 20 deleted and 10 kept drafts and returns at most 10 rules for edits ben makes in 3+ pairs. code renders `data/learned/edits.md` (rules + 3 recent before/after pairs), state lives in `data/learned/edit-rules.json`, and every relearn is logged in `data/learned/changelog.md`. each run rewrites the whole list, so habits ben stops correcting drop out.
+3. `npm run post` injects `edits.md` into every post, exploration posts included, since it is about voice, not performance.
+
+bootstrap: `npm run edits -- --history` (local, one-off) recovered 59 pairs from the old `output/drafts` files in git history (20 kept, 39 edited). first rules: cut lines that repeat a point, don't end on a summary or moral, closers are casual asides, put the contrast half of a line on its own line, no years in dated-design jabs.
 
 ## phases
 

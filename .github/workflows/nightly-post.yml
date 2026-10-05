@@ -42,6 +42,20 @@ jobs:
         continue-on-error: true
         run: npm run learn
 
+      # Pairs each generated draft with what ben published or deleted in review
+      - name: collect review edits
+        continue-on-error: true
+        run: npm run edits
+        env:
+          TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
+
+      # Only calls the model once 5+ new reviews piled up since the last run
+      - name: learn from review edits
+        continue-on-error: true
+        run: npm run learn-edits
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
       # Generation is the only step that spends opus credits, so it only runs
       # while the queue is filling (see scripts/queue-gate.ts)
       - name: check queue depth

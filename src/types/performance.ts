@@ -63,6 +63,38 @@ export interface LedgerEntry {
 // Keyed by typefully draft id
 export type Ledger = Record<string, LedgerEntry>;
 
+export type ReviewOutcome = 'kept' | 'edited' | 'deleted';
+
+// One draft and what ben did with it in review
+export interface EditPair {
+  draftId: number;
+  // ledger: recorded at generation. history: recovered from old draft files in git.
+  source: 'ledger' | 'history';
+  outcome: ReviewOutcome;
+  original: string;
+  originalReply: string | null;
+  published: string | null;
+  publishedReply: string | null;
+  // Bigram dice similarity of original vs published post text, 0 when deleted
+  similarity: number;
+  decidedAt: string;
+}
+
+// Keyed by typefully draft id
+export type EditsFile = Record<string, EditPair>;
+
+export interface EditRule {
+  rule: string;
+  evidence: string;
+}
+
+export interface EditLearnState {
+  learnedAt: string;
+  // Decided pairs at the last learn run, so the next run waits for fresh reviews
+  decidedCount: number;
+  rules: EditRule[];
+}
+
 export type RuleDirection = 'prefer' | 'avoid';
 
 export interface LearnedRule {
