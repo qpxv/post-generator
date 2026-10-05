@@ -55,6 +55,18 @@ export async function fetchPublishedDrafts(apiKey: string, socialSetId: number):
   return drafts;
 }
 
+// Scheduled publish times of everything still waiting in the queue
+export async function fetchScheduledDates(apiKey: string, socialSetId: number): Promise<string[]> {
+  const dates: string[] = [];
+  let url: string | null = `${TYPEFULLY_BASE}/social-sets/${socialSetId}/drafts?status=scheduled&limit=${PAGE_SIZE}`;
+  while (url) {
+    const page: { results: { scheduled_date: string | null }[]; next: string | null } = await getJson(apiKey, url);
+    for (const d of page.results) if (d.scheduled_date) dates.push(d.scheduled_date);
+    url = page.next;
+  }
+  return dates;
+}
+
 export async function fetchDraftThread(apiKey: string, socialSetId: number, draftId: number): Promise<DraftThread> {
   const detail = await getJson<DraftDetail>(apiKey, `${TYPEFULLY_BASE}/social-sets/${socialSetId}/drafts/${draftId}`);
   const posts = detail.platforms.x?.posts ?? [];

@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import { readText, writeText } from '../fs.js';
-import type { FollowerPoint, PostsFile, PublishedPost } from '../../types/performance.js';
+import type { FollowerPoint, PipelineState, PostsFile, PublishedPost } from '../../types/performance.js';
 
 export const POSTS_PATH = 'data/performance/posts.json';
 export const FOLLOWERS_PATH = 'data/performance/followers.json';
@@ -9,6 +9,7 @@ export const LEDGER_PATH = 'data/performance/ledger.json';
 export const GUIDANCE_PATH = 'data/learned/guidance.json';
 export const LEARNED_PROMPT_PATH = 'data/learned/prompt.md';
 export const CHANGELOG_PATH = 'data/learned/changelog.md';
+export const PIPELINE_STATE_PATH = 'data/pipeline/state.json';
 
 export function loadJson<T>(filePath: string, fallback: T): T {
   if (!fs.existsSync(filePath)) return fallback;
@@ -39,4 +40,15 @@ export function recordFollowers(followers: number, date: string): void {
   points.push({ date, followers });
   points.sort((a, b) => a.date.localeCompare(b.date));
   saveJson(FOLLOWERS_PATH, points);
+}
+
+// Seeded with the last journal day the old one-day-per-night pipeline used
+const INITIAL_PIPELINE_STATE: PipelineState = { mode: 'filling', lastGeneratedThrough: '2026-10-04', updatedAt: '' };
+
+export function loadPipelineState(): PipelineState {
+  return loadJson<PipelineState>(PIPELINE_STATE_PATH, INITIAL_PIPELINE_STATE);
+}
+
+export function savePipelineState(state: PipelineState): void {
+  saveJson(PIPELINE_STATE_PATH, { ...state, updatedAt: new Date().toISOString() } satisfies PipelineState);
 }

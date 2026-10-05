@@ -42,35 +42,38 @@ jobs:
         continue-on-error: true
         run: npm run learn
 
-      - name: fetch journal entry
+      # Generation is the only step that spends opus credits, so it only runs
+      # while the queue is filling (see scripts/queue-gate.ts)
+      - name: check queue depth
+        id: gate
+        run: npm run gate
+        env:
+          TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
+
+      - name: fetch journal since last generation
         id: journal
-        run: |
-          DATE=$(TZ=Europe/Berlin date -d yesterday +%Y-%m-%d)
-          LABEL=$(TZ=Europe/Berlin date -d yesterday +"%B %-d" | tr '[:upper:]' '[:lower:]')
-          mkdir -p journal-tmp
-          URL="https://journal-app-xi-beryl.vercel.app/api/entries/export?date=$DATE&tz=Europe%2FBerlin"
-          HTTP_STATUS=$(curl -s -o "journal-tmp/$LABEL.txt" -w "%{http_code}" "$URL")
-          if [ "$HTTP_STATUS" != "200" ]; then
-            echo "journal export failed with status $HTTP_STATUS, skipping post"
-            rm -f "journal-tmp/$LABEL.txt"
-            exit 1
-          fi
-          echo "journal_dir=$PWD/journal-tmp" >> "$GITHUB_OUTPUT"
+        if: steps.gate.outputs.should_generate == 'true'
+        run: npm run fetch-journal -- --out=journal-tmp
 
       - name: generate and post
+        if: steps.gate.outputs.should_generate == 'true'
         run: npm run post
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TYPEFULLY_API_KEY: ${{ secrets.TYPEFULLY_API_KEY }}
           JOURNAL_DIR: ${{ steps.journal.outputs.journal_dir }}
 
-      # Runs even when the journal fetch fails, so collected stats are never lost
+      - name: record generated journal days
+        if: steps.gate.outputs.should_generate == 'true'
+        run: npm run gate -- --record=${{ steps.journal.outputs.through }}
+
+      # Runs even when an earlier step fails, so collected stats are never lost
       - name: commit learning data
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/performance data/learned
+          git add data/performance data/learned data/pipeline
           git diff --cached --quiet && exit 0
           git commit -m "chore: update post performance data"
           git pull --rebase

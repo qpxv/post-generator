@@ -101,6 +101,8 @@ phases 1 to 3 are built and run in the nightly workflow before posting. each lea
 
 **first run:** 0 rules passed. the closest was "website posts that open with a scene from the day do better" (+17 points, p 0.023). "short loses" and "animal hooks lose" don't hold in the newest 270 posts.
 
+**queue gate (oct 5 2026):** the queue was cut to 1 day (269 posts back to drafts, backup in `data/performance/typefully-queue-backup-2026-10-05.json`) so feedback lands within days. `npm run gate` pauses generation once the queue reaches 5 days ahead and resumes when it drains to 1 day, so opus only runs while the queue is filling. collect, tag and learn still run nightly. after a pause, `npm run fetch-journal` reads every journal day since the last generation (max 7) into one file with a `## <day>` header per day, so paused days still become posts. state lives in `data/pipeline/state.json`.
+
 **local testing without api credits:** `npm run post -- --cli --dry-run` generates through the local claude cli and schedules nothing.
 
 **next:** learn from ben's review edits. the ledger now stores the original text, so diffs against the published text become possible as posts publish.

@@ -84,3 +84,11 @@ export interface Guidance {
   shortPosts: { min: number; max: number } | null;
   winnerDraftIds: number[];
 }
+
+export interface PipelineState {
+  // filling: generate every night. draining: wait until the queue runs low.
+  mode: 'filling' | 'draining';
+  // Last journal day turned into posts, so a run after a pause reads every day since
+  lastGeneratedThrough: string;
+  updatedAt: string;
+}
