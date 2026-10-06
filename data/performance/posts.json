@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T16:10:51.362Z",
+  "updatedAt": "2026-10-06T07:26:27.981Z",
   "posts": [
     {
       "draftId": 3909986,
@@ -21971,6 +21971,12 @@
             "bookmarks": 0
           }
         }
+      },
+      "tags": {
+        "category": "website",
+        "hook": "buyer-objection",
+        "moment": "money",
+        "landing": "takeaway"
       }
     },
     {
@@ -42686,8 +42692,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.561Z",
-          "ageHours": 700,
+          "takenAt": "2026-10-06T07:26:21.203Z",
+          "ageHours": 716,
           "stats": {
             "views": 805,
             "likes": 7,
@@ -42720,8 +42726,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.711Z",
-          "ageHours": 696,
+          "takenAt": "2026-10-06T07:26:21.249Z",
+          "ageHours": 711,
           "stats": {
             "views": 158,
             "likes": 4,
@@ -42752,8 +42758,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.745Z",
-          "ageHours": 681,
+          "takenAt": "2026-10-06T07:26:21.220Z",
+          "ageHours": 697,
           "stats": {
             "views": 91,
             "likes": 6,
@@ -42786,8 +42792,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.917Z",
-          "ageHours": 676,
+          "takenAt": "2026-10-06T07:26:21.299Z",
+          "ageHours": 692,
           "stats": {
             "views": 51,
             "likes": 1,
@@ -42822,8 +42828,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.948Z",
-          "ageHours": 671,
+          "takenAt": "2026-10-06T07:26:21.312Z",
+          "ageHours": 687,
           "stats": {
             "views": 461,
             "likes": 5,
@@ -42858,8 +42864,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:45.935Z",
-          "ageHours": 657,
+          "takenAt": "2026-10-06T07:26:21.349Z",
+          "ageHours": 672,
           "stats": {
             "views": 131,
             "likes": 3,
@@ -42894,8 +42900,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.120Z",
-          "ageHours": 652,
+          "takenAt": "2026-10-06T07:26:21.399Z",
+          "ageHours": 668,
           "stats": {
             "views": 983,
             "likes": 2,
@@ -42928,8 +42934,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.124Z",
-          "ageHours": 647,
+          "takenAt": "2026-10-06T07:26:21.420Z",
+          "ageHours": 663,
           "stats": {
             "views": 305,
             "likes": 1,
@@ -42964,8 +42970,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.234Z",
-          "ageHours": 633,
+          "takenAt": "2026-10-06T07:26:21.445Z",
+          "ageHours": 648,
           "stats": {
             "views": 62,
             "likes": 1,
@@ -43000,8 +43006,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.310Z",
-          "ageHours": 628,
+          "takenAt": "2026-10-06T07:26:21.506Z",
+          "ageHours": 644,
           "stats": {
             "views": 49,
             "likes": 2,
@@ -43036,8 +43042,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.318Z",
-          "ageHours": 624,
+          "takenAt": "2026-10-06T07:26:21.542Z",
+          "ageHours": 639,
           "stats": {
             "views": 131,
             "likes": 1,
@@ -43072,8 +43078,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.419Z",
-          "ageHours": 609,
+          "takenAt": "2026-10-06T07:26:21.544Z",
+          "ageHours": 624,
           "stats": {
             "views": 198,
             "likes": 4,
@@ -43108,8 +43114,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.507Z",
-          "ageHours": 604,
+          "takenAt": "2026-10-06T07:26:21.598Z",
+          "ageHours": 620,
           "stats": {
             "views": 89,
             "likes": 3,
@@ -43144,8 +43150,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.501Z",
-          "ageHours": 599,
+          "takenAt": "2026-10-06T07:26:21.652Z",
+          "ageHours": 615,
           "stats": {
             "views": 176,
             "likes": 1,
@@ -43180,8 +43186,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.620Z",
-          "ageHours": 585,
+          "takenAt": "2026-10-06T07:26:21.667Z",
+          "ageHours": 600,
           "stats": {
             "views": 133,
             "likes": 3,
@@ -43216,8 +43222,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.758Z",
-          "ageHours": 580,
+          "takenAt": "2026-10-06T07:26:21.687Z",
+          "ageHours": 596,
           "stats": {
             "views": 137,
             "likes": 4,
@@ -43252,8 +43258,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.853Z",
-          "ageHours": 575,
+          "takenAt": "2026-10-06T07:26:21.747Z",
+          "ageHours": 591,
           "stats": {
             "views": 306,
             "likes": 3,
@@ -43288,8 +43294,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.819Z",
-          "ageHours": 561,
+          "takenAt": "2026-10-06T07:26:21.772Z",
+          "ageHours": 576,
           "stats": {
             "views": 85,
             "likes": 2,
@@ -43324,8 +43330,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.946Z",
-          "ageHours": 556,
+          "takenAt": "2026-10-06T07:26:21.776Z",
+          "ageHours": 572,
           "stats": {
             "views": 649,
             "likes": 3,
@@ -43360,8 +43366,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:46.997Z",
-          "ageHours": 552,
+          "takenAt": "2026-10-06T07:26:21.883Z",
+          "ageHours": 567,
           "stats": {
             "views": 197,
             "likes": 2,
@@ -43396,8 +43402,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.372Z",
-          "ageHours": 537,
+          "takenAt": "2026-10-06T07:26:21.870Z",
+          "ageHours": 552,
           "stats": {
             "views": 724,
             "likes": 9,
@@ -43432,8 +43438,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.129Z",
-          "ageHours": 532,
+          "takenAt": "2026-10-06T07:26:21.871Z",
+          "ageHours": 548,
           "stats": {
             "views": 209,
             "likes": 1,
@@ -43468,10 +43474,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.186Z",
-          "ageHours": 527,
+          "takenAt": "2026-10-06T07:26:21.972Z",
+          "ageHours": 543,
           "stats": {
-            "views": 325,
+            "views": 326,
             "likes": 3,
             "replies": 3,
             "retweets": 0,
@@ -43502,8 +43508,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.311Z",
-          "ageHours": 513,
+          "takenAt": "2026-10-06T07:26:21.951Z",
+          "ageHours": 528,
           "stats": {
             "views": 85,
             "likes": 2,
@@ -43538,8 +43544,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.382Z",
-          "ageHours": 508,
+          "takenAt": "2026-10-06T07:26:21.992Z",
+          "ageHours": 524,
           "stats": {
             "views": 54,
             "likes": 1,
@@ -43574,8 +43580,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.638Z",
-          "ageHours": 504,
+          "takenAt": "2026-10-06T07:26:22.122Z",
+          "ageHours": 519,
           "stats": {
             "views": 301,
             "likes": 5,
@@ -43610,8 +43616,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.579Z",
-          "ageHours": 489,
+          "takenAt": "2026-10-06T07:26:22.090Z",
+          "ageHours": 504,
           "stats": {
             "views": 96,
             "likes": 2,
@@ -43644,8 +43650,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.573Z",
-          "ageHours": 484,
+          "takenAt": "2026-10-06T07:26:22.094Z",
+          "ageHours": 500,
           "stats": {
             "views": 112,
             "likes": 3,
@@ -43680,8 +43686,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.806Z",
-          "ageHours": 480,
+          "takenAt": "2026-10-06T07:26:22.212Z",
+          "ageHours": 495,
           "stats": {
             "views": 53,
             "likes": 2,
@@ -43716,8 +43722,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.807Z",
-          "ageHours": 465,
+          "takenAt": "2026-10-06T07:26:22.206Z",
+          "ageHours": 480,
           "stats": {
             "views": 52,
             "likes": 1,
@@ -43752,8 +43758,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.928Z",
-          "ageHours": 460,
+          "takenAt": "2026-10-06T07:26:22.211Z",
+          "ageHours": 476,
           "stats": {
             "views": 47,
             "likes": 2,
@@ -43786,8 +43792,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.011Z",
-          "ageHours": 455,
+          "takenAt": "2026-10-06T07:26:22.310Z",
+          "ageHours": 471,
           "stats": {
             "views": 129,
             "likes": 3,
@@ -43822,8 +43828,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:47.999Z",
-          "ageHours": 441,
+          "takenAt": "2026-10-06T07:26:22.296Z",
+          "ageHours": 456,
           "stats": {
             "views": 131,
             "likes": 4,
@@ -43858,8 +43864,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.141Z",
-          "ageHours": 436,
+          "takenAt": "2026-10-06T07:26:22.327Z",
+          "ageHours": 452,
           "stats": {
             "views": 64,
             "likes": 1,
@@ -43894,8 +43900,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.185Z",
-          "ageHours": 432,
+          "takenAt": "2026-10-06T07:26:22.464Z",
+          "ageHours": 447,
           "stats": {
             "views": 352,
             "likes": 5,
@@ -43930,10 +43936,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.203Z",
-          "ageHours": 417,
+          "takenAt": "2026-10-06T07:26:22.398Z",
+          "ageHours": 432,
           "stats": {
-            "views": 50,
+            "views": 51,
             "likes": 3,
             "replies": 1,
             "retweets": 0,
@@ -43966,8 +43972,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.361Z",
-          "ageHours": 412,
+          "takenAt": "2026-10-06T07:26:22.423Z",
+          "ageHours": 428,
           "stats": {
             "views": 78,
             "likes": 1,
@@ -44002,8 +44008,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.398Z",
-          "ageHours": 407,
+          "takenAt": "2026-10-06T07:26:22.489Z",
+          "ageHours": 423,
           "stats": {
             "views": 93,
             "likes": 1,
@@ -44036,8 +44042,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.384Z",
-          "ageHours": 393,
+          "takenAt": "2026-10-06T07:26:22.519Z",
+          "ageHours": 408,
           "stats": {
             "views": 103,
             "likes": 2,
@@ -44072,8 +44078,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.581Z",
-          "ageHours": 388,
+          "takenAt": "2026-10-06T07:26:22.553Z",
+          "ageHours": 404,
           "stats": {
             "views": 131,
             "likes": 1,
@@ -44108,8 +44114,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.576Z",
-          "ageHours": 384,
+          "takenAt": "2026-10-06T07:26:22.585Z",
+          "ageHours": 399,
           "stats": {
             "views": 153,
             "likes": 2,
@@ -44142,8 +44148,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.581Z",
-          "ageHours": 369,
+          "takenAt": "2026-10-06T07:26:22.679Z",
+          "ageHours": 384,
           "stats": {
             "views": 129,
             "likes": 3,
@@ -44178,8 +44184,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.854Z",
-          "ageHours": 364,
+          "takenAt": "2026-10-06T07:26:22.646Z",
+          "ageHours": 380,
           "stats": {
             "views": 330,
             "likes": 2,
@@ -44214,8 +44220,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.854Z",
-          "ageHours": 359,
+          "takenAt": "2026-10-06T07:26:22.707Z",
+          "ageHours": 375,
           "stats": {
             "views": 257,
             "likes": 3,
@@ -44248,8 +44254,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:48.854Z",
-          "ageHours": 345,
+          "takenAt": "2026-10-06T07:26:22.732Z",
+          "ageHours": 360,
           "stats": {
             "views": 62,
             "likes": 1,
@@ -44284,8 +44290,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.034Z",
-          "ageHours": 340,
+          "takenAt": "2026-10-06T07:26:22.765Z",
+          "ageHours": 356,
           "stats": {
             "views": 39,
             "likes": 1,
@@ -44318,8 +44324,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.038Z",
-          "ageHours": 336,
+          "takenAt": "2026-10-06T07:26:22.818Z",
+          "ageHours": 351,
           "stats": {
             "views": 78,
             "likes": 4,
@@ -44354,8 +44360,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.243Z",
-          "ageHours": 321,
+          "takenAt": "2026-10-06T07:26:22.838Z",
+          "ageHours": 336,
           "stats": {
             "views": 50,
             "likes": 1,
@@ -44390,8 +44396,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.232Z",
-          "ageHours": 316,
+          "takenAt": "2026-10-06T07:26:22.855Z",
+          "ageHours": 332,
           "stats": {
             "views": 48,
             "likes": 1,
@@ -44426,8 +44432,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.246Z",
-          "ageHours": 311,
+          "takenAt": "2026-10-06T07:26:22.914Z",
+          "ageHours": 327,
           "stats": {
             "views": 118,
             "likes": 1,
@@ -44462,8 +44468,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.422Z",
-          "ageHours": 297,
+          "takenAt": "2026-10-06T07:26:22.932Z",
+          "ageHours": 312,
           "stats": {
             "views": 38,
             "likes": 1,
@@ -44498,8 +44504,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.605Z",
-          "ageHours": 292,
+          "takenAt": "2026-10-06T07:26:22.952Z",
+          "ageHours": 308,
           "stats": {
             "views": 120,
             "likes": 3,
@@ -44534,8 +44540,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.428Z",
-          "ageHours": 288,
+          "takenAt": "2026-10-06T07:26:23.022Z",
+          "ageHours": 303,
           "stats": {
             "views": 48,
             "likes": 1,
@@ -44570,8 +44576,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.615Z",
-          "ageHours": 273,
+          "takenAt": "2026-10-06T07:26:23.028Z",
+          "ageHours": 288,
           "stats": {
             "views": 64,
             "likes": 2,
@@ -44606,8 +44612,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.618Z",
-          "ageHours": 268,
+          "takenAt": "2026-10-06T07:26:23.046Z",
+          "ageHours": 284,
           "stats": {
             "views": 75,
             "likes": 3,
@@ -44640,8 +44646,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.784Z",
-          "ageHours": 264,
+          "takenAt": "2026-10-06T07:26:23.114Z",
+          "ageHours": 279,
           "stats": {
             "views": 46,
             "likes": 2,
@@ -44676,8 +44682,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:52.016Z",
-          "ageHours": 249,
+          "takenAt": "2026-10-06T07:26:23.120Z",
+          "ageHours": 264,
           "stats": {
             "views": 45,
             "likes": 2,
@@ -44710,8 +44716,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.810Z",
-          "ageHours": 244,
+          "takenAt": "2026-10-06T07:26:23.157Z",
+          "ageHours": 260,
           "stats": {
             "views": 40,
             "likes": 2,
@@ -44746,8 +44752,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.800Z",
-          "ageHours": 239,
+          "takenAt": "2026-10-06T07:26:23.209Z",
+          "ageHours": 255,
           "stats": {
             "views": 55,
             "likes": 1,
@@ -44780,8 +44786,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.976Z",
-          "ageHours": 225,
+          "takenAt": "2026-10-06T07:26:23.209Z",
+          "ageHours": 240,
           "stats": {
             "views": 156,
             "likes": 1,
@@ -44816,8 +44822,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:49.998Z",
-          "ageHours": 220,
+          "takenAt": "2026-10-06T07:26:23.245Z",
+          "ageHours": 236,
           "stats": {
             "views": 91,
             "likes": 1,
@@ -44864,8 +44870,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.104Z",
-          "ageHours": 215,
+          "takenAt": "2026-10-06T07:26:23.297Z",
+          "ageHours": 231,
           "stats": {
             "views": 97,
             "likes": 2,
@@ -44912,8 +44918,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.165Z",
-          "ageHours": 201,
+          "takenAt": "2026-10-06T07:26:23.305Z",
+          "ageHours": 216,
           "stats": {
             "views": 109,
             "likes": 2,
@@ -44960,8 +44966,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.190Z",
-          "ageHours": 196,
+          "takenAt": "2026-10-06T07:26:23.340Z",
+          "ageHours": 212,
           "stats": {
             "views": 38,
             "likes": 1,
@@ -45008,8 +45014,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.285Z",
-          "ageHours": 192,
+          "takenAt": "2026-10-06T07:26:23.385Z",
+          "ageHours": 207,
           "stats": {
             "views": 189,
             "likes": 2,
@@ -45054,8 +45060,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.426Z",
-          "ageHours": 177,
+          "takenAt": "2026-10-06T07:26:23.395Z",
+          "ageHours": 192,
           "stats": {
             "views": 42,
             "likes": 1,
@@ -45102,8 +45108,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.427Z",
-          "ageHours": 172,
+          "takenAt": "2026-10-06T07:26:23.427Z",
+          "ageHours": 188,
           "stats": {
             "views": 53,
             "likes": 2,
@@ -45138,8 +45144,20 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.480Z",
-          "ageHours": 168,
+          "takenAt": "2026-10-06T07:26:23.468Z",
+          "ageHours": 183,
+          "stats": {
+            "views": 35,
+            "likes": 1,
+            "replies": 1,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        },
+        "d7": {
+          "takenAt": "2026-10-06T07:26:23.468Z",
+          "ageHours": 183,
           "stats": {
             "views": 35,
             "likes": 1,
@@ -45172,10 +45190,22 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.610Z",
-          "ageHours": 153,
+          "takenAt": "2026-10-06T07:26:23.502Z",
+          "ageHours": 168,
           "stats": {
-            "views": 153,
+            "views": 154,
+            "likes": 4,
+            "replies": 0,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        },
+        "d7": {
+          "takenAt": "2026-10-06T07:26:23.502Z",
+          "ageHours": 168,
+          "stats": {
+            "views": 154,
             "likes": 4,
             "replies": 0,
             "retweets": 0,
@@ -45206,10 +45236,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.628Z",
-          "ageHours": 148,
+          "takenAt": "2026-10-06T07:26:23.513Z",
+          "ageHours": 164,
           "stats": {
-            "views": 24,
+            "views": 26,
             "likes": 2,
             "replies": 0,
             "retweets": 0,
@@ -45242,10 +45272,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.659Z",
-          "ageHours": 144,
+          "takenAt": "2026-10-06T07:26:23.555Z",
+          "ageHours": 159,
           "stats": {
-            "views": 118,
+            "views": 119,
             "likes": 3,
             "replies": 2,
             "retweets": 0,
@@ -45276,10 +45306,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.790Z",
-          "ageHours": 129,
+          "takenAt": "2026-10-06T07:26:23.606Z",
+          "ageHours": 144,
           "stats": {
-            "views": 48,
+            "views": 49,
             "likes": 1,
             "replies": 0,
             "retweets": 0,
@@ -45312,10 +45342,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.801Z",
-          "ageHours": 124,
+          "takenAt": "2026-10-06T07:26:23.596Z",
+          "ageHours": 140,
           "stats": {
-            "views": 229,
+            "views": 231,
             "likes": 3,
             "replies": 1,
             "retweets": 0,
@@ -45348,10 +45378,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.838Z",
-          "ageHours": 120,
+          "takenAt": "2026-10-06T07:26:23.648Z",
+          "ageHours": 135,
           "stats": {
-            "views": 79,
+            "views": 80,
             "likes": 3,
             "replies": 2,
             "retweets": 0,
@@ -45384,8 +45414,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:50.978Z",
-          "ageHours": 105,
+          "takenAt": "2026-10-06T07:26:23.683Z",
+          "ageHours": 120,
           "stats": {
             "views": 25,
             "likes": 1,
@@ -45420,8 +45450,8 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.002Z",
-          "ageHours": 100,
+          "takenAt": "2026-10-06T07:26:23.702Z",
+          "ageHours": 116,
           "stats": {
             "views": 156,
             "likes": 2,
@@ -45468,8 +45498,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.020Z",
-          "ageHours": 96,
+          "takenAt": "2026-10-06T07:26:23.730Z",
+          "ageHours": 111,
           "stats": {
             "views": 40,
             "likes": 1,
@@ -45516,8 +45546,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.165Z",
-          "ageHours": 81,
+          "takenAt": "2026-10-06T07:26:23.769Z",
+          "ageHours": 96,
           "stats": {
             "views": 304,
             "likes": 5,
@@ -45562,8 +45592,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.207Z",
-          "ageHours": 76,
+          "takenAt": "2026-10-06T07:26:23.792Z",
+          "ageHours": 92,
           "stats": {
             "views": 130,
             "likes": 1,
@@ -45610,8 +45640,8 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.206Z",
-          "ageHours": 72,
+          "takenAt": "2026-10-06T07:26:23.817Z",
+          "ageHours": 87,
           "stats": {
             "views": 35,
             "likes": 1,
@@ -45658,10 +45688,10 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.345Z",
-          "ageHours": 57,
+          "takenAt": "2026-10-06T07:26:23.853Z",
+          "ageHours": 73,
           "stats": {
-            "views": 104,
+            "views": 106,
             "likes": 3,
             "replies": 2,
             "retweets": 0,
@@ -45704,10 +45734,10 @@
           }
         },
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.383Z",
-          "ageHours": 52,
+          "takenAt": "2026-10-06T07:26:23.883Z",
+          "ageHours": 68,
           "stats": {
-            "views": 824,
+            "views": 825,
             "likes": 10,
             "replies": 6,
             "retweets": 0,
@@ -45738,8 +45768,20 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.474Z",
-          "ageHours": 47,
+          "takenAt": "2026-10-06T07:26:23.909Z",
+          "ageHours": 63,
+          "stats": {
+            "views": 35,
+            "likes": 1,
+            "replies": 0,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        },
+        "h48": {
+          "takenAt": "2026-10-06T07:26:23.909Z",
+          "ageHours": 63,
           "stats": {
             "views": 35,
             "likes": 1,
@@ -45774,11 +45816,23 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.520Z",
-          "ageHours": 33,
+          "takenAt": "2026-10-06T07:26:23.938Z",
+          "ageHours": 48,
           "stats": {
-            "views": 35,
-            "likes": 0,
+            "views": 42,
+            "likes": 1,
+            "replies": 1,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        },
+        "h48": {
+          "takenAt": "2026-10-06T07:26:23.938Z",
+          "ageHours": 48,
+          "stats": {
+            "views": 42,
+            "likes": 1,
             "replies": 1,
             "retweets": 0,
             "quotes": 0,
@@ -45810,10 +45864,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.652Z",
-          "ageHours": 28,
+          "takenAt": "2026-10-06T07:26:23.969Z",
+          "ageHours": 44,
           "stats": {
-            "views": 22,
+            "views": 26,
             "likes": 1,
             "replies": 1,
             "retweets": 0,
@@ -45844,11 +45898,11 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.670Z",
-          "ageHours": 23,
+          "takenAt": "2026-10-06T07:26:24.003Z",
+          "ageHours": 39,
           "stats": {
-            "views": 21,
-            "likes": 0,
+            "views": 22,
+            "likes": 1,
             "replies": 0,
             "retweets": 0,
             "quotes": 0,
@@ -45880,11 +45934,11 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.833Z",
-          "ageHours": 9,
+          "takenAt": "2026-10-06T07:26:24.038Z",
+          "ageHours": 24,
           "stats": {
-            "views": 29,
-            "likes": 0,
+            "views": 35,
+            "likes": 1,
             "replies": 1,
             "retweets": 0,
             "quotes": 0,
@@ -45916,10 +45970,10 @@
       "isMissingOnX": false,
       "snapshots": {
         "latest": {
-          "takenAt": "2026-10-05T15:45:51.700Z",
-          "ageHours": 4,
+          "takenAt": "2026-10-06T07:26:24.071Z",
+          "ageHours": 20,
           "stats": {
-            "views": 17,
+            "views": 25,
             "likes": 0,
             "replies": 1,
             "retweets": 0,
@@ -45933,6 +45987,76 @@
         "hook": "scene-from-day",
         "moment": "money",
         "landing": "stance"
+      }
+    },
+    {
+      "draftId": 10297601,
+      "tweetId": "2107141514367557661",
+      "url": "https://x.com/b_winzer/status/2107141514367557661",
+      "createdAt": "2026-08-12T03:28:12.644Z",
+      "publishedAt": "2026-10-05T16:11:00.845Z",
+      "typefullyTags": [
+        "reviewed"
+      ],
+      "text": "switched from coffee to espresso today\n\nsame caffeine in one sip instead of a whole mug\n\nway more efficient than drinking 200ml of coffee",
+      "threadReplies": [],
+      "hasMedia": false,
+      "isMissingOnX": false,
+      "snapshots": {
+        "latest": {
+          "takenAt": "2026-10-06T07:26:24.130Z",
+          "ageHours": 15,
+          "stats": {
+            "views": 94,
+            "likes": 5,
+            "replies": 2,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        }
+      },
+      "tags": {
+        "category": "personal",
+        "hook": "scene-from-day",
+        "moment": "other",
+        "landing": "abstract-virtue"
+      }
+    },
+    {
+      "draftId": 10297603,
+      "tweetId": "2107364987614412880",
+      "url": "https://x.com/b_winzer/status/2107364987614412880",
+      "createdAt": "2026-08-12T03:28:13.127Z",
+      "publishedAt": "2026-10-06T06:59:03.766Z",
+      "typefullyTags": [
+        "reviewed"
+      ],
+      "text": "we watched a movie that took place entirely inside one house and it was better than most films with a hundred locations\n\none building the whole way through and it still held me for the full 90mins\n\nthen the ending landed flat and that was the only part i talked about on the way to bed\n\na whole movie i liked and the last four minutes are what i remember\n\nwebsites do the same thing to people\n\na one page website beats a nine page website almost every time because there is one path and the person walks it from top to bottom\n\nbut everybody puts the effort at the top\n\nthe hero gets rewritten fourteen times and then the bottom of the page is a three field form with contradicting fields\n\nand the bottom is exactly where someone is standing when they are finally ready to buy\n\nthey read everything you wrote, they still want it, and then you hand them a dead form\n\nthe LAST screen is where the money gets decided",
+      "threadReplies": [
+        "scroll to the bottom of your own website and ask if that is how you want the conversation to end\n\ndm me if it is not"
+      ],
+      "hasMedia": false,
+      "isMissingOnX": false,
+      "snapshots": {
+        "latest": {
+          "takenAt": "2026-10-06T07:26:24.092Z",
+          "ageHours": 0,
+          "stats": {
+            "views": 2,
+            "likes": 0,
+            "replies": 1,
+            "retweets": 0,
+            "quotes": 0,
+            "bookmarks": 0
+          }
+        }
+      },
+      "tags": {
+        "category": "website",
+        "hook": "scene-from-day",
+        "moment": "people",
+        "landing": "named-page-elements"
       }
     }
   ]
