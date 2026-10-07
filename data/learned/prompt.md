@@ -32,35 +32,6 @@ they look for two seconds and decide you are cheap
 then they judge your service like that too
 
 --- website post ---
-a senior dev joined a client project today
-
-first thing he did was push two commits directly to main
-
-both broke the pipeline
-
-and this is someone with years of experience
-
-the mistake wasn't that he didn't know what he was doing
-
-the mistake was skipping the part where you show your work before it goes live
-
-and this is the EXACT thing i see with business websites
-
-people build something, throw it up and assume it works
-
-then they wonder why nobody converts
-
-your website is live right now pointing at real clients and you haven't checked whether the headline makes sense to someone who doesn't already know you
-
-whether the page loads in under 3 seconds
-
-whether a stranger can figure out what you do in the first 5 seconds without scrolling
-
-most business owners treat launch as the finish line
-
-bur it's actually where the real work starts
-
---- website post ---
 we drove six hours with the car packed to the roof with our own duvets and pillows to save 55 euros at a hotel
 
 the whole trip costs over two thousand
@@ -107,6 +78,31 @@ your customers ran that comparison a long time ago
 they had four tabs open and yours was one of them
 
 they just never told you which one they closed first
+
+--- website post ---
+a dog walked up to my desk at work today and licked my hand every single time i stopped petting him
+
+did that for five minutes straight
+
+the second my hand went still he told me to start again
+
+then i got home and opened a website someone sent me for feedback and it did the exact opposite of that
+
+you land on it and it just sits there
+
+the headline says they deliver solutions tailored to your needs so you look to the button under it for a clue and that one says learn more
+
+learn more about WHAT exactly
+
+so you keep scrolling until you hit a contact form at the bottom that still tells you nothing about what happens after you press send
+
+the whole page makes you work to figure out what it wants from you
+
+people will not do that work
+
+a dog communicated a clear request to me without a single word and your homepage can't manage it with an entire screen full of text
+
+say what you do in the first line and put the button where the eye already stopped moving
 
 --- personal post ---
 took my first ever sip of red bull today

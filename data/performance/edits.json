@@ -647,5 +647,27 @@
     "publishedReply": null,
     "similarity": 1,
     "decidedAt": "2026-05-05T06:58:02.489Z"
+  },
+  "11102431": {
+    "draftId": 11102431,
+    "source": "ledger",
+    "outcome": "deleted",
+    "original": "i followed up with every open lead this morning and caught the problem on the third message\n\nevery single one was written in lowercase\n\non x that read as a voice because half the timeline wrote that way\n\nin the inbox of a business owner who ran payroll every month it read as a twenty year old who could not be bothered to hit shift\n\naxiom 7 contextual inference: relevant unstated information may be inferred from available context according to ordinary human reasoning\n\nthe prospect had one message from me and zero history\n\nso that message was the entire context available to them\n\nso anything they wanted to know about how i would handle their deadlines had to be inferred from that one message with the missing capital letters included\n\nthe axiom gave them full permission to close that gap on their own\n\nvisitors ran the EXACT same chain on every website i audited this year\n\na copyright footer stuck on an old year told them the owner stopped checking\n\nand once they believed that the generic gmail on the contact page read as a side project run out of a bedroom\n\nthey never emailed to confirm either guess\n\ni rewrote the follow ups with capitals before lunch\n\nthis post stayed lowercase because x ran a different inference",
+    "originalReply": "most websites i audit lose the visitor on an inference the owner never saw coming\n\ndm me and i will show you which one yours triggers",
+    "published": null,
+    "publishedReply": null,
+    "similarity": 0,
+    "decidedAt": "2026-10-07T07:05:31.170Z"
+  },
+  "11102432": {
+    "draftId": 11102432,
+    "source": "ledger",
+    "outcome": "edited",
+    "original": "a magpie lost its mind on the treetop behind my webcam while i was telling five coworkers my favorite song\n\nthe answer was experience by einaudi\n\nthe bird was screaming danger calls loud enough to come through the mic\n\nand every face in that grid drifted up toward the corner of my window\n\ni had my answer ready and the bird took the room anyway\n\ni watched a chat popup do the exact same thing to a hero section last week\n\nthe headline had about three seconds to explain what the business did\n\nright at second one a bubble slid up from the bottom corner asking if the visitor needed help\n\nthe eye went straight to it because anything moving beat still text every time i tested it\n\nand when they reached to close it the cookie banner had already covered the button underneath\n\nby the time both were gone the three seconds were too\n\nthe owner paid for that widget because a sales guy promised it would capture leads\n\nall it ever captured was the attention his headline NEEDED",
+    "originalReply": "most websites i open have something moving that should not be there\n\ndm me and i will tell you what it is on yours",
+    "published": "a magpie lost its mind on the treetop behind my webcam while i was telling five coworkers my favorite song\n\nthe answer was experience by einaudi\n\nthe bird was screaming danger calls loud enough to come through the mic\n\nand every face in that grid drifted up toward the corner of my window\n\ni had my answer ready and the bird took the room anyway\n\ni watched a chat popup do the exact same thing to a hero section last week\n\nthe headline had about three seconds to explain what the business did\n\nright at second one a bubble slid up from the bottom corner asking if the visitor needed help\n\nthe eye went straight to it because anything moving beats still text\n\nthat’s evolutionary\n\nand when they reached to close it the cookie banner had already covered the button underneath\n\nby the time both were gone the three seconds were too\n\nthe owner pays for that widget because a sales guy promised it would capture leads\n\nall it ever captured was the attention his headline NEEDED",
+    "publishedReply": null,
+    "similarity": 0.949,
+    "decidedAt": "2026-10-07T07:00:04.735Z"
   }
 }
