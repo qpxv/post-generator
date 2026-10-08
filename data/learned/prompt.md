@@ -80,29 +80,29 @@ they had four tabs open and yours was one of them
 they just never told you which one they closed first
 
 --- website post ---
-a dog walked up to my desk at work today and licked my hand every single time i stopped petting him
+the internet where i am staying drops every few minutes and it showed me exactly why slow websites lose clients
 
-did that for five minutes straight
+i sat there watching claude reconnect over and over
 
-the second my hand went still he told me to start again
+every single time i caught myself reaching for my phone before it came back
 
-then i got home and opened a website someone sent me for feedback and it did the exact opposite of that
+four seconds of nothing on screen was all it took
 
-you land on it and it just sits there
+and i wanted that thing to load because actual work depended on it
 
-the headline says they deliver solutions tailored to your needs so you look to the button under it for a clue and that one says learn more
+now picture someone who found your website through a google search and has zero reason to care about you
 
-learn more about WHAT exactly
+their patience is a FRACTION of mine
 
-so you keep scrolling until you hit a contact form at the bottom that still tells you nothing about what happens after you press send
+most business websites i open are carrying an eight megabyte hero image plus an animation library plus a background video that all have to download before a single word appears
 
-the whole page makes you work to figure out what it wants from you
+on campsite wifi or a phone with two bars that is a white screen
 
-people will not do that work
+the owner never sees it because he checks his own website on fibre at his desk with everything already cached
 
-a dog communicated a clear request to me without a single word and your homepage can't manage it with an entire screen full of text
+then he pays for ads and wonders where the traffic went
 
-say what you do in the first line and put the button where the eye already stopped moving
+how fast the page appears is the first thing your website says about you
 
 --- personal post ---
 took my first ever sip of red bull today
