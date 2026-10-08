@@ -1,6 +1,6 @@
 import { loadEnv } from '../src/lib/env.js';
 import { setOutput } from '../src/lib/ci.js';
-import { fetchScheduledDates, fetchSocialSetId } from '../src/lib/performance/typefully.js';
+import { createUnscheduledDraft, fetchScheduledDates, fetchSocialSetId, fetchTagSlug } from '../src/lib/performance/typefully.js';
 import { loadPipelineState, savePipelineState } from '../src/lib/performance/store.js';
 import type { PipelineState } from '../src/types/performance.js';
 
@@ -32,6 +32,17 @@ async function queueHorizonDays(): Promise<number> {
   return (latest - Date.now()) / DAY_MS;
 }
 
+// Shows up in the review app on paused nights, so an empty review day reads as
+// "queue is full" rather than "pipeline broke". Ben deletes it after seeing it.
+async function postPipelineFullNotice(horizonDays: number): Promise<void> {
+  const apiKey = process.env.TYPEFULLY_API_KEY;
+  if (!apiKey) throw new Error('missing TYPEFULLY_API_KEY');
+  const socialSetId = await fetchSocialSetId(apiKey);
+  const needsReview = await fetchTagSlug(apiKey, socialSetId, 'needs review');
+  const text = `pipeline full: queue is ${horizonDays.toFixed(1)} days deep, generation resumes at ${RESUME_AT_DAYS} day. nothing to review today, delete this`;
+  await createUnscheduledDraft(apiKey, socialSetId, text, [needsReview]);
+}
+
 const state = loadPipelineState();
 
 if (recordArg) {
@@ -46,6 +57,13 @@ if (recordArg) {
     const verdict = mode === 'filling' ? 'generating tonight' : `paused until the queue is down to ${RESUME_AT_DAYS} day`;
     console.log(`queue reaches ${horizon.toFixed(1)} days ahead, mode ${state.mode} -> ${mode}, ${verdict}`);
     setOutput('should_generate', String(mode === 'filling'));
+    // --horizon is a dry test of the switch, so it shouldn't drop drafts into typefully
+    if (mode === 'draining' && !horizonArg) {
+      await postPipelineFullNotice(horizon).then(
+        () => console.log('left a "pipeline full" draft in the review queue'),
+        (err: unknown) => console.error(`failed to leave the "pipeline full" draft: ${err instanceof Error ? err.message : String(err)}`),
+      );
+    }
   } catch (err) {
     // Fail open: a typefully hiccup should cost one extra batch, not a missed day
     console.error(`queue check failed, generating anyway: ${err instanceof Error ? err.message : String(err)}`);

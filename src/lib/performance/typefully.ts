@@ -88,3 +88,21 @@ export async function fetchDraftExists(apiKey: string, socialSetId: number, draf
   if (!res.ok) throw new Error(`typefully GET ${url} failed with ${res.status}: ${(await res.text()).slice(0, 200)}`);
   return true;
 }
+
+export async function fetchTagSlug(apiKey: string, socialSetId: number, name: string): Promise<string> {
+  const tags = await getJson<{ results: { slug: string; name: string }[] }>(apiKey, `${TYPEFULLY_BASE}/social-sets/${socialSetId}/tags`);
+  const tag = tags.results.find((t) => t.name.toLowerCase() === name.toLowerCase());
+  if (!tag) throw new Error(`no "${name}" tag found in typefully`);
+  return tag.slug;
+}
+
+// No publish_at, so the draft sits in typefully unscheduled and never goes out
+export async function createUnscheduledDraft(apiKey: string, socialSetId: number, text: string, tagSlugs: string[]): Promise<void> {
+  const url = `${TYPEFULLY_BASE}/social-sets/${socialSetId}/drafts`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ platforms: { x: { enabled: true, posts: [{ text }] } }, tags: tagSlugs }),
+  });
+  if (!res.ok) throw new Error(`typefully POST ${url} failed with ${res.status}: ${(await res.text()).slice(0, 200)}`);
+}
