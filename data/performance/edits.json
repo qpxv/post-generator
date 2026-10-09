@@ -703,6 +703,17 @@
     "similarity": 0.951,
     "decidedAt": "2026-10-08T07:01:00.944Z"
   },
+  "11102436": {
+    "draftId": 11102436,
+    "source": "ledger",
+    "outcome": "kept",
+    "original": "my magpies are cowards\n\ntwo ravens landed at their nest this morning and both magpies went in swinging\n\nthen they sat on a branch and watched until the ravens got bored and left\n\ni was rooting for them like it was a football final\n\nstill love them",
+    "originalReply": null,
+    "published": "my magpies are cowards\n\ntwo ravens landed at their nest this morning and both magpies went in swinging\n\nthen they sat on a branch and watched until the ravens got bored and left\n\ni was rooting for them like it was a football final\n\nstill love them",
+    "publishedReply": null,
+    "similarity": 1,
+    "decidedAt": "2026-10-08T11:41:00.693Z"
+  },
   "11121242": {
     "draftId": 11121242,
     "source": "ledger",
@@ -713,5 +724,27 @@
     "publishedReply": null,
     "similarity": 0,
     "decidedAt": "2026-10-08T07:13:24.823Z"
+  },
+  "11121243": {
+    "draftId": 11121243,
+    "source": "ledger",
+    "outcome": "edited",
+    "original": "four ravens tried to knock a buzzard out of the sky this afternoon\n\ni was standing in the kitchen watching it circle when they came in from the left and hit it one after another\n\nand watching it i realized the whole fight was a live demo of something i wrote down as an axiom this week\n\naxiom 1 emotion direction: every emotion is an internal response that directs energy toward or away from a target and the target and direction are what give the emotion its name\n\nthe ravens threw every bit of their energy straight AT the buzzard\n\nmeanwhile the buzzard folded its wings and dropped behind the rooftops with all of its energy going away from them\n\nsame sky and the same thirty seconds and two completely different emotions running on each side\n\nthe axiom put every emotion inside the one responding so the event itself carried zero emotion\n\nthe emotion lived entirely in which way each animal was moving relative to the other\n\nthe axiom said every emotion so it covered people the exact same way\n\nhand two guys the same harsh comment and one of them walks straight back into the conversation to argue the point while the other one stops replying for a week\n\nthe comment was identical and the direction split them\n\nso when someone says a situation made them angry the situation is the wrong place to look\n\nfind the target and find which way the energy went\n\nfind me one emotion with no target and no direction and the axiom breaks\n\nnobody has found one yet",
+    "originalReply": null,
+    "published": "four ravens tried to knock a buzzard out of the sky this afternoon\n\ni was standing in the kitchen watching it circle when they came in from the left and hit it one after another\n\nand watching it i realized the whole fight was a live demo of something i wrote down as an axiom this week\n\naxiom 1 emotion direction: every emotion is an internal response that directs energy toward or away from a target and the target and direction are what give the emotion its name\n\nthe ravens threw every bit of their energy straight AT the buzzard\n\nmeanwhile the buzzard folded its wings and dropped behind the rooftops with all of its energy going away from them\n\nthe axiom put every emotion inside the one responding so the event itself carried zero emotion\n\nthe emotion lived entirely in which way each animal was moving relative to the other\n\nthis is fully applicable to humans too btw\n\nhand two guys the same harsh comment and one of them walks straight back into the conversation to argue the point while the other one stops replying for a week\n\nthe comment was identical and the direction split them\n\nso when someone says a situation made them angry, the situation is the wrong place to look\n\nfind the target and find which way the energy went\n\naka find the root cause of why you got angry at something in a specific situation",
+    "publishedReply": null,
+    "similarity": 0.857,
+    "decidedAt": "2026-10-08T16:13:00.759Z"
+  },
+  "11121244": {
+    "draftId": 11121244,
+    "source": "ledger",
+    "outcome": "edited",
+    "original": "my own journal app was a few days away from refusing to load\n\nit pulled every single entry i ever wrote every time i opened it\n\n233 days and over fifteen thousand entries came down in one shot and added up to 4480kb\n\nvercel cuts you off at 4500kb\n\nso i rebuilt it to send only the last month and load older stuff when i scroll back to it and search runs on the server now so it still finds everything\n\nthe page opened instantly after that and the loading screen i stared at every morning for months disappeared\n\nand the weird part is i never noticed how slow it was until it was gone\n\ni got used to the wait because i was the only person using it and i HAD to use it\n\nyour visitors are the opposite on both counts\n\nthey owe you nothing and they have three other tabs open\n\nmost slow websites are slow for the same reason my app was\n\nthe owner shoved every photo and every video and the whole portfolio onto the homepage at original size because more looked like more\n\na stranger on a phone with two bars got a white screen for four seconds and went back to google\n\nyou got used to your own loading time\n\nnobody else ever agreed to",
+    "originalReply": "most slow websites i rebuild load half a homepage that nobody scrolls to\n\ndm me and i'll check yours",
+    "published": "my own journal app was a few days away from refusing to load\n\nit pulled every single entry i ever wrote every time i opened it\n\n233 days and over fifteen thousand entries came down in one shot and added up to 4480kb\n\nvercel cuts you off at 4500kb\n\nso i rebuilt it to send only the last month and load older stuff when i scroll back to it\n\nthe page opened instantly after that and the loading screen i stared at every morning for months disappeared\n\nand the weird part is i never noticed how slow it was until it was gone\n\ni got used to the wait because i was the only person using it and i HAD to use it\n\nyour visitors are the opposite on both counts\n\nthey owe you nothing and they have three other tabs open\n\nmost slow websites are slow for the same reason my app was\n\nthe owner shoved every photo and every video and the whole portfolio onto the homepage at original size because more looked like more\n\na stranger on a phone with two bars got a white screen for four seconds and went back to google\n\nyou got used to your own loading time\n\nbut other people not",
+    "publishedReply": null,
+    "similarity": 0.947,
+    "decidedAt": "2026-10-09T06:58:00.851Z"
   }
 }

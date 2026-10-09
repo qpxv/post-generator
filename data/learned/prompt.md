@@ -1,37 +1,6 @@
 ben's best performing posts from the last 30 days. study what they do: how the first line opens, how the moment is built, how the point lands. never reuse their moment, their topic, or their wording:
 
 --- website post ---
-my hair got so long that the wind wrecked it two seconds after i stepped out the door
-
-so i sat down at the barber tonight and it is short again
-
-watching her work was the interesting part
-
-she measured one section against the other and checked the back with a mirror and went at the same spot four separate times until it sat right
-
-and the funny thing is
-
-i own scissors
-
-i could have done it myself in the bathroom in six minutes
-
-and every person who looked at me would have known within ONE second that i cut my hair myself
-
-that is what a diy website looks like to a buyer
-
-the headline sits in one font and the buttons ended up in another because the template shipped with one and the owner pasted his own on top
-
-that same eyeballing is why the hero photo got stretched wide to fill the space until everyone in it looks heavier than they really are
-
-and that stretch pushed the text under it slightly out of line with the block above
-
-your visitor can't name any of that
-
-they look for two seconds and decide you are cheap
-
-then they judge your service like that too
-
---- website post ---
 we drove six hours with the car packed to the roof with our own duvets and pillows to save 55 euros at a hotel
 
 the whole trip costs over two thousand
@@ -103,6 +72,33 @@ the owner never sees it because he checks his own website on fibre at his desk w
 then he pays for ads and wonders where the traffic went
 
 how fast the page appears is the first thing your website says about you
+
+--- website post ---
+i deleted x off my phone yesterday and started replying to dms faster than i have all year
+
+sounds backwards so let me explain
+
+i built my own app for my dms a while ago and yesterday i made it the only place i can read them
+
+the problem was the notification preview
+
+i would see the first line of a message and already know what it said
+
+then i would answer it in my head for three hours and never open the app
+
+now the notification tells me nothing at all
+
+so i tap it and i am already inside the chat and replying becomes the easiest thing available to me
+
+the gap between seeing something and doing something is where everything died
+
+your website has that exact gap in it
+
+somebody read your hero and decided they were interested and then you sent them hunting for a contact page and asked for nine fields and told them you would get back within 48 hours
+
+they were gone by field four and you called it a bad lead
+
+every extra step you put in front of someone is a place where they QUIT
 
 --- personal post ---
 took my first ever sip of red bull today
