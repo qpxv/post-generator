@@ -1,4 +1,7 @@
 import { spawn } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 // Same signature as complete() in claude.ts so a caller can swap between the
 // local CLI (dev tooling, billed to the subscription) and the API (CI) freely.
@@ -7,14 +10,27 @@ import { spawn } from 'node:child_process';
 // no --mcp-config loads zero MCP servers, otherwise the model sees the user's
 // connectors and comments on them in the output. Not --bare: that forces
 // ANTHROPIC_API_KEY auth and would bill the API instead of the subscription.
+// The system prompt goes through a temp file, not argv: generation prompts
+// outgrow the argument size limit (cmux's claude shim caps it at 120KB).
 export async function completeViaCli(systemPrompt: string, userPrompt: string, model?: string): Promise<string> {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'claude-cli-'));
+  const systemPromptPath = path.join(tmpDir, 'system-prompt.md');
+  fs.writeFileSync(systemPromptPath, systemPrompt, 'utf8');
   const args = [
     '-p', '--tools', '', '--permission-prompts', 'none', '--strict-mcp-config',
-    '--no-session-persistence', '--system-prompt', systemPrompt,
+    '--no-session-persistence', '--system-prompt-file', systemPromptPath,
     ...(model ? ['--model', model] : []),
   ];
 
-  const stdout = await new Promise<string>((resolve, reject) => {
+  try {
+    return stripCodeFence((await runCli(args, userPrompt)).trim());
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+  }
+}
+
+function runCli(args: string[], userPrompt: string): Promise<string> {
+  return new Promise<string>((resolve, reject) => {
     const child = spawn('claude', args, { stdio: ['pipe', 'pipe', 'pipe'] });
     let out = '';
     let err = '';
@@ -28,8 +44,6 @@ export async function completeViaCli(systemPrompt: string, userPrompt: string, m
     // Prompt goes through stdin: it is far too large for a single argv entry
     child.stdin.end(userPrompt);
   });
-
-  return stripCodeFence(stdout.trim());
 }
 
 function stripCodeFence(text: string): string {
