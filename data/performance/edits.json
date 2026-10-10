@@ -746,5 +746,49 @@
     "publishedReply": null,
     "similarity": 0.947,
     "decidedAt": "2026-10-09T06:58:00.851Z"
+  },
+  "11121245": {
+    "draftId": 11121245,
+    "source": "ledger",
+    "outcome": "edited",
+    "original": "woke up at ten to five because a sprinkler next door started clicking\n\nhad the laptop open and work going by six forty one\n\nthe first bird only started singing at six fifty four\n\nbeat every bird on the street by thirteen minutes and i was annoyingly proud of it",
+    "originalReply": null,
+    "published": "woke up at 4:49am because a sprinkler next door started clicking\n\nhad the laptop open and work going by 6:41am\n\nthe first bird only started singing at 6:54am\n\nhave beaten nature by thirteen minutes today",
+    "publishedReply": null,
+    "similarity": 0.558,
+    "decidedAt": "2026-10-09T11:49:00.741Z"
+  },
+  "11121246": {
+    "draftId": 11121246,
+    "source": "ledger",
+    "outcome": "edited",
+    "original": "i flipped through a kids logic puzzle book this morning and cracked the whole thing in about a minute\n\nevery twenty pages the exact same puzzle types came back around with different numbers plugged in\n\nonce i saw the loop the book was over for me because i could solve page eighty before i even turned to it\n\nbuyers do that to template websites\n\nby the time they landed on yours they had already seen the same theme forty times\n\nthe same edge to edge hero with a guy smiling at a laptop and the same three icons in a row and the same testimonial slider with initials where names should be\n\nthe owner swapped in his logo and his phone number and figured that made it his\n\nto a buyer it was page eighty again\n\nthey already knew where the pricing would sit and what the about section would say so they skimmed it and filed you next to every other plumber and coach running that theme\n\nthe second a visitor recognizes the structure they stop paying attention to the person behind it",
+    "originalReply": "i build every one of these from a blank file\n\ndm me if yours came out of a theme library",
+    "published": "i flipped through a kids logic puzzle book this morning and cracked the whole thing in about a minute\n\nevery twenty pages the exact same puzzle types came back around with different numbers plugged in\n\nonce i saw the loop the book was over for me because i could solve page eighty before i even turned to it\n\nbuyers do that same thing with template websites\n\nby the time they land on yours they already saw the same theme 40 times\n\nthe same edge to edge hero with a guy smiling at a laptop and the same three icons in a row and the same testimonial slider with initials where full names should be\n\nthe owner swapped in his logo and his phone number and thought that made it his\n\nto a buyer it is page eighty again\n\nthey already know where the pricing sits and what the about section says so they skim through it\n\nthe second a visitor recognizes the structure they stop paying attention to the person behind it",
+    "publishedReply": "i build every one of these from the ground up\n\ndm me if you still use a template",
+    "similarity": 0.813,
+    "decidedAt": "2026-10-09T16:15:04.141Z"
+  },
+  "11158389": {
+    "draftId": 11158389,
+    "source": "ledger",
+    "outcome": "deleted",
+    "original": "a coworker texted me a formal letter in perfect bureaucratic german tonight to ask if i wanted döner for lunch tomorrow\n\nit closed with yours most respectfully and a postscript solemnly swearing that his desire for the kebab was sincere\n\ni laughed for a solid minute and wrote back in the exact same voice\n\nit worked because both of us knew it was a bit\n\nthen i remembered that most business websites i open are written in that same voice\n\nwe are delighted to provide comprehensive solutions tailored to your individual requirements\n\nexcept nobody is JOKING\n\na guy with water dripping through his ceiling at 11pm reads that and still has zero idea whether this plumber can come tonight\n\nformal language is what people write when they have nothing concrete to say\n\nit puts a suit and tie on a sentence with nothing inside it\n\nthe plumber whose first line says burst pipe and i am there within the hour gets the call\n\nthe other one gets a very polite paragraph and a closed tab\n\nat least my coworker got me to show up at the office",
+    "originalReply": "half the homepages i read sound exactly like that letter\ndm me and i will tell you what yours is actually saying",
+    "published": null,
+    "publishedReply": null,
+    "similarity": 0,
+    "decidedAt": "2026-10-10T06:54:31.443Z"
+  },
+  "11158394": {
+    "draftId": 11158394,
+    "source": "ledger",
+    "outcome": "deleted",
+    "original": "spent ten minutes today watching two grown men chew their pens\n\nwe did an old exam task for our trade certification on paper with a timer running\n\ni was done in about ten minutes\n\nthen i sat there with my arms crossed while they flipped back to page one\n\ni was completely locked in and it was honestly the best i have performed on paper all year\n\nthen we compared scores and i had one point less than the guy who took twice as long\n\nso i was fast and slightly worse and i will take that trade every single time\n\nspeed turns into accuracy with enough reps\n\nslow almost never turns into fast\n\nhe is going to bring up that one point at the döner place tomorrow and i am going to let him",
+    "originalReply": null,
+    "published": null,
+    "publishedReply": null,
+    "similarity": 0,
+    "decidedAt": "2026-10-10T06:54:31.606Z"
   }
 }

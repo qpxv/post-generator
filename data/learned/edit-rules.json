@@ -1,34 +1,34 @@
 {
-  "learnedAt": "2026-10-08T07:14:22.191Z",
-  "decidedCount": 65,
+  "learnedAt": "2026-10-10T06:55:17.535Z",
+  "decidedCount": 72,
   "rules": [
     {
-      "rule": "end the post on the last concrete beat and cut the final one or two lines when they restate the lesson, give a moral, or add a sign-off like 'that is all'.",
-      "evidence": "9 pairs (1, 5, 6, 10, 11, 13, 15, 17, 37). e.g. draft ended 'the details are not decoration / they are the whole argument' and published ended on 'subtly tells people the opposite'."
+      "rule": "cut the final line or two when they restate, moralize or tie a bow on a point already made. end on the last concrete beat or the main takeaway",
+      "evidence": "9 pairs (5, 9, 14, 15, 17, 19, 21, 40, 41). pair 17 cuts 'most coaches are paying for traffic and sending it to a website that cannot hold a room'; pair 15 cuts 'the work you put into your offer deserves a website that can hold the weight of it'"
     },
     {
-      "rule": "when a draft stacks three or more parallel 'not x' or 'no x' lines, keep only the one or two that carry the point and cut the rest.",
-      "evidence": "5 pairs (12, 16, 28, 29, 39). e.g. 'not the words / not the offers / not the testimonials / the FEELING' became 'not the words / not the offers / the FEELING'."
+      "rule": "remove 'not x' / 'no x' lines and list items that pad a point. keep at most the strongest one or two",
+      "evidence": "9 pairs (14, 15, 16, 20, 32, 33, 40, 43, 46). pair 14 cuts 'not the one that feels good'; pair 32 cuts 'no pressure no guilt no negotiation'; pair 40 cuts 'not because i'm special'"
     },
     {
-      "rule": "state general truths and claims about how things work in the present tense, not the past.",
-      "evidence": "4 pairs (1, 2, 3, 4). e.g. 'your visitors only ever saw one / so yours had to be the one that won' became 'only ever see one / so yours has to be the one that won'."
+      "rule": "add one short, casual aside in his own voice, usually after a point or at the very end, e.g. btw, aka, anyways, couldnt be me, its binary",
+      "evidence": "8 pairs (4, 8, 10, 23, 38, 39, 44, 46). pair 8 adds 'that's evolutionary' after 'anything moving beats still text'; pair 46 ends with 'its binary'; pair 39 adds 'couldnt be me'"
     },
     {
-      "rule": "when a line ends with a 'not x' contrast or joins two clauses with no break, put the contrast or second clause on its own line.",
-      "evidence": "4 pairs (16, 19, 20, 21). e.g. 'the website was INVISIBLE not broken' became 'the website was INVISIBLE' / 'not broken'."
+      "rule": "cut extra detail lines or trailing clauses that elaborate beyond the point of the story, such as side details, aftermath and stacked examples",
+      "evidence": "7 pairs (1, 3, 4, 15, 26, 30, 36). pair 3 cuts 'and search runs on the server now so it still finds everything'; pair 36 cuts 'the meeting was fine / got through the work'; pair 15 cuts 'stock photos generic layout copy that sounded like it was written by a committee of nobodies'"
     },
     {
-      "rule": "where the draft makes a point and moves on, add a short casual or deadpan aside of one line. it can be a joke, a blunt kicker, or a flat clarification. don't add a polished moral.",
-      "evidence": "6 pairs (4, 19, 34, 35, 40, 42). e.g. added 'that's evolutionary', 'its binary', 'couldnt be me', and 'and thats an entirely different skillset than moving around rectangles'."
+      "rule": "write general truths and what visitors or buyers do in the present tense, not the past",
+      "evidence": "5 pairs (1, 5, 6, 7, 8). pair 6: 'your visitors only ever saw one' becomes 'your visitors only ever see one'; pair 8: 'the owner paid for that widget' becomes 'the owner pays for that widget'"
     },
     {
-      "rule": "drop years and dated comparisons ('from 2017', 'made in 2014', '2019 squarespace template') and use a plain generic detail instead.",
-      "evidence": "3 pairs (31, 33, 42). e.g. 'a 2019 squarespace template' became 'a squarespace template'; 'looked like it was made in 2014' became 'looks like the wrong template got used'."
+      "rule": "do not attach specific years to dated-looking examples. use a generic description instead",
+      "evidence": "3 pairs (35, 37, 46). pair 35: 'a stock photo from 2017' becomes 'loaded slow'; pair 37: '2019 squarespace template' becomes 'squarespace template'"
     },
     {
-      "rule": "don't write long posts where a quirky personal experiment is explained in step-by-step mechanism (kilos of blanket weight, a quoted axiom, a spelled-out inference chain) before a stretched 'visitors do the exact same thing' link to websites. both deleted drafts did this and then needed a reply with a dm pitch.",
-      "evidence": "2 deleted drafts: the weighted-blanket / eleven-field contact form post and the lowercase follow-ups / 'axiom 7 contextual inference' post. published posts with the same reply format used shorter, simpler analogies."
+      "rule": "when a line says 'x not y', break it into two separate lines so the contrast sits on its own line",
+      "evidence": "3 pairs (20, 24, 25). pair 25: 'the website was INVISIBLE not broken' becomes 'INVISIBLE' / 'not broken'; pair 24: 'who they were not who they are' becomes 'who they were in the past' / 'not who they are now'"
     }
   ]
 }

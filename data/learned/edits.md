@@ -1,139 +1,149 @@
-how ben edits drafts in review: he has reviewed 65 drafts so far, kept 20 as written, edited 43 and deleted 2. these are the changes he makes over and over. write every post (exploration posts included) the way he would leave it, so he has nothing to fix:
+how ben edits drafts in review: he has reviewed 72 drafts so far, kept 21 as written, edited 47 and deleted 4. these are the changes he makes over and over. write every post (exploration posts included) the way he would leave it, so he has nothing to fix:
 
-- end the post on the last concrete beat and cut the final one or two lines when they restate the lesson, give a moral, or add a sign-off like 'that is all'.
-- when a draft stacks three or more parallel 'not x' or 'no x' lines, keep only the one or two that carry the point and cut the rest.
-- state general truths and claims about how things work in the present tense, not the past.
-- when a line ends with a 'not x' contrast or joins two clauses with no break, put the contrast or second clause on its own line.
-- where the draft makes a point and moves on, add a short casual or deadpan aside of one line. it can be a joke, a blunt kicker, or a flat clarification. don't add a polished moral.
-- drop years and dated comparisons ('from 2017', 'made in 2014', '2019 squarespace template') and use a plain generic detail instead.
-- don't write long posts where a quirky personal experiment is explained in step-by-step mechanism (kilos of blanket weight, a quoted axiom, a spelled-out inference chain) before a stretched 'visitors do the exact same thing' link to websites. both deleted drafts did this and then needed a reply with a dm pitch.
+- cut the final line or two when they restate, moralize or tie a bow on a point already made. end on the last concrete beat or the main takeaway
+- remove 'not x' / 'no x' lines and list items that pad a point. keep at most the strongest one or two
+- add one short, casual aside in his own voice, usually after a point or at the very end, e.g. btw, aka, anyways, couldnt be me, its binary
+- cut extra detail lines or trailing clauses that elaborate beyond the point of the story, such as side details, aftermath and stacked examples
+- write general truths and what visitors or buyers do in the present tense, not the past
+- do not attach specific years to dated-looking examples. use a generic description instead
+- when a line says 'x not y', break it into two separate lines so the contrast sits on its own line
 
 recent edits of his, the draft first and then the version he published. follow the direction of his changes, don't copy these posts:
 
 draft:
-changed my build process tonight so every project spat out three different websites at once and opened them in browser tabs
+i flipped through a kids logic puzzle book this morning and cracked the whole thing in about a minute
 
-the weak one was obvious in about two seconds
+every twenty pages the exact same puzzle types came back around with different numbers plugged in
 
-your visitors only ever saw one
+once i saw the loop the book was over for me because i could solve page eighty before i even turned to it
 
-so yours had to be the one that won
+buyers do that to template websites
+
+by the time they landed on yours they had already seen the same theme forty times
+
+the same edge to edge hero with a guy smiling at a laptop and the same three icons in a row and the same testimonial slider with initials where names should be
+
+the owner swapped in his logo and his phone number and figured that made it his
+
+to a buyer it was page eighty again
+
+they already knew where the pricing would sit and what the about section would say so they skimmed it and filed you next to every other plumber and coach running that theme
+
+the second a visitor recognizes the structure they stop paying attention to the person behind it
 [reply under it]
-most websites i see were the first draft that never had to beat anything
+i build every one of these from a blank file
 
-dm me if you want yours to win
+dm me if yours came out of a theme library
 
 what ben published:
-changed my build process tonight so every project spat out three different websites at once and opened them in browser tabs
+i flipped through a kids logic puzzle book this morning and cracked the whole thing in about a minute
 
-the weak one was obvious in about two seconds
+every twenty pages the exact same puzzle types came back around with different numbers plugged in
 
-your visitors only ever see one
+once i saw the loop the book was over for me because i could solve page eighty before i even turned to it
 
-so yours has to be the one that won
+buyers do that same thing with template websites
+
+by the time they land on yours they already saw the same theme 40 times
+
+the same edge to edge hero with a guy smiling at a laptop and the same three icons in a row and the same testimonial slider with initials where full names should be
+
+the owner swapped in his logo and his phone number and thought that made it his
+
+to a buyer it is page eighty again
+
+they already know where the pricing sits and what the about section says so they skim through it
+
+the second a visitor recognizes the structure they stop paying attention to the person behind it
 [reply under it]
-most websites i see were the first draft that never had to beat anything
+i build every one of these from the ground up
 
-dm me if you want yours to win
+dm me if you still use a template
 
 ---
 
 draft:
-a magpie lost its mind on the treetop behind my webcam while i was telling five coworkers my favorite song
+woke up at ten to five because a sprinkler next door started clicking
 
-the answer was experience by einaudi
+had the laptop open and work going by six forty one
 
-the bird was screaming danger calls loud enough to come through the mic
+the first bird only started singing at six fifty four
 
-and every face in that grid drifted up toward the corner of my window
-
-i had my answer ready and the bird took the room anyway
-
-i watched a chat popup do the exact same thing to a hero section last week
-
-the headline had about three seconds to explain what the business did
-
-right at second one a bubble slid up from the bottom corner asking if the visitor needed help
-
-the eye went straight to it because anything moving beat still text every time i tested it
-
-and when they reached to close it the cookie banner had already covered the button underneath
-
-by the time both were gone the three seconds were too
-
-the owner paid for that widget because a sales guy promised it would capture leads
-
-all it ever captured was the attention his headline NEEDED
-[reply under it]
-most websites i open have something moving that should not be there
-
-dm me and i will tell you what it is on yours
+beat every bird on the street by thirteen minutes and i was annoyingly proud of it
 
 what ben published:
-a magpie lost its mind on the treetop behind my webcam while i was telling five coworkers my favorite song
+woke up at 4:49am because a sprinkler next door started clicking
 
-the answer was experience by einaudi
+had the laptop open and work going by 6:41am
 
-the bird was screaming danger calls loud enough to come through the mic
+the first bird only started singing at 6:54am
 
-and every face in that grid drifted up toward the corner of my window
-
-i had my answer ready and the bird took the room anyway
-
-i watched a chat popup do the exact same thing to a hero section last week
-
-the headline had about three seconds to explain what the business did
-
-right at second one a bubble slid up from the bottom corner asking if the visitor needed help
-
-the eye went straight to it because anything moving beats still text
-
-that’s evolutionary
-
-and when they reached to close it the cookie banner had already covered the button underneath
-
-by the time both were gone the three seconds were too
-
-the owner pays for that widget because a sales guy promised it would capture leads
-
-all it ever captured was the attention his headline NEEDED
+have beaten nature by thirteen minutes today
 
 ---
 
 draft:
-drank a coffee at 4pm to lock in for studying
+my own journal app was a few days away from refusing to load
 
-couldn't sleep until 3am
+it pulled every single entry i ever wrote every time i opened it
 
-adenosine receptors still completely wrecked
+233 days and over fifteen thousand entries came down in one shot and added up to 4480kb
 
-one bad decision at 4pm cost me the entire night
+vercel cuts you off at 4500kb
 
-that's a website with one thing wrong
+so i rebuilt it to send only the last month and load older stuff when i scroll back to it and search runs on the server now so it still finds everything
 
-one slow load time
+the page opened instantly after that and the loading screen i stared at every morning for months disappeared
 
-one blurry photo on mobile
+and the weird part is i never noticed how slow it was until it was gone
 
-one headline that doesn't speak to the right person
+i got used to the wait because i was the only person using it and i HAD to use it
 
-and the whole thing stops converting
+your visitors are the opposite on both counts
 
-visitors don't debug your website they just leave
+they owe you nothing and they have three other tabs open
+
+most slow websites are slow for the same reason my app was
+
+the owner shoved every photo and every video and the whole portfolio onto the homepage at original size because more looked like more
+
+a stranger on a phone with two bars got a white screen for four seconds and went back to google
+
+you got used to your own loading time
+
+nobody else ever agreed to
+[reply under it]
+most slow websites i rebuild load half a homepage that nobody scrolls to
+
+dm me and i'll check yours
 
 what ben published:
-drank a coffee at 4pm to lock in for studying
+my own journal app was a few days away from refusing to load
 
-couldn't sleep until 3am
+it pulled every single entry i ever wrote every time i opened it
 
-adenosine receptors still completely wrecked
+233 days and over fifteen thousand entries came down in one shot and added up to 4480kb
 
-that's basically a website with one thing wrong
+vercel cuts you off at 4500kb
 
-one slow load time
+so i rebuilt it to send only the last month and load older stuff when i scroll back to it
 
-one blurry photo on mobile
+the page opened instantly after that and the loading screen i stared at every morning for months disappeared
 
-one headline that doesn't speak to the right person
+and the weird part is i never noticed how slow it was until it was gone
 
-and the whole thing stops converting
+i got used to the wait because i was the only person using it and i HAD to use it
+
+your visitors are the opposite on both counts
+
+they owe you nothing and they have three other tabs open
+
+most slow websites are slow for the same reason my app was
+
+the owner shoved every photo and every video and the whole portfolio onto the homepage at original size because more looked like more
+
+a stranger on a phone with two bars got a white screen for four seconds and went back to google
+
+you got used to your own loading time
+
+but other people not
