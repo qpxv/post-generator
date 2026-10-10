@@ -76,6 +76,7 @@ await runPool(newDrafts, TYPEFULLY_CONCURRENCY, async (draft) => {
       isMissingOnX: false,
       snapshots: {},
       isExplore: ledger[String(draft.id)]?.isExplore,
+      philosophySource: ledger[String(draft.id)]?.philosophySource,
     });
   } catch (err) {
     console.error(`draft ${draft.id}: ${errorMessage(err)}`);

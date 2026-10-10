@@ -39,6 +39,7 @@ export interface PublishedPost {
   tags?: PostTags;
   // Generated as an exploration post that ignored the learned guidance
   isExplore?: boolean;
+  philosophySource?: string | null;
 }
 
 export interface PostsFile {
@@ -58,6 +59,9 @@ export interface LedgerEntry {
   // the published text later
   originalText: string;
   originalReply: string | null;
+  // Title of the philosophy principle or client belief the post landed on,
+  // null for personal posts and batches generated before the philosophy existed
+  philosophySource?: string | null;
 }
 
 // Keyed by typefully draft id

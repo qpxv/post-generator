@@ -4,6 +4,7 @@ import { readText, ensureDir } from '../src/lib/fs.js';
 import { complete } from '../src/lib/claude.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
 import { loadEnv } from '../src/lib/env.js';
+import { loadPhilosophy, rotatingWindow } from '../src/lib/philosophy.js';
 import { EDIT_PROMPT_PATH, GUIDANCE_PATH, LEARNED_PROMPT_PATH, LEDGER_PATH, loadJson, saveJson } from '../src/lib/performance/store.js';
 import type { Guidance, Ledger } from '../src/types/performance.js';
 
@@ -153,10 +154,68 @@ const featuredDefinitions = definitionLines.length > 0
   )
   : [];
 
+// Distilled from creators ben learns from (npm run distill). Website posts land
+// their point on one of these instead of a lesson the model makes up, and a
+// rotating subset keeps the batch from reaching for the same principle nightly
+const philosophy = loadPhilosophy();
+const hasPhilosophy = philosophy.principles.length > 0;
+const featuredPrinciples = rotatingWindow(philosophy.principles, seed, WEBSITE_POST_COUNT + 2);
+const featuredObjections = rotatingWindow(philosophy.objections, seed, Math.ceil(WEBSITE_POST_COUNT / 2));
+const featuredTactics = rotatingWindow(philosophy.tactics, seed, 6);
+
+// How value posts are built, studied from a creator's posts (npm run
+// study-format). Kept out of data/examples on purpose: everything there is fed
+// to every post, and personal posts must not pick up this format.
+const VALUE_FORMAT_PATH = 'data/formats/value-posts.md';
+const valueFormat = fs.existsSync(VALUE_FORMAT_PATH) ? readText(VALUE_FORMAT_PATH).trim() : '';
+const hasValueFormat = valueFormat !== '';
+
+const philosophyBlock = hasPhilosophy ? `where the website point comes from:
+
+ben has studied web design and how buyers judge websites in depth, and below is the body of principles he holds. ${hasValueFormat
+    ? "every website post teaches exactly one of today's featured principles, client beliefs or tactics below, in depth, developed with that item's reasoning. pick the one today's journal gives you the best way into. use a different one for each website post."
+    : "every website post must land its point on exactly one of today's featured principles or client beliefs below, and develop it with that item's reasoning. the journal moment still opens the post and carries it. the principle is what the moment turns into, so pick the one the moment genuinely leads to. use a different one for each website post."}
+
+faithfulness rules, never break these:
+- state the idea as ben's own conviction in his voice. never name or mention where it came from
+- the examples, stories, clients and projects below belong to someone else. never retell them as something ben did or saw. ben's only first-hand material is the journal
+- never use any number, statistic, percentage or study from this section. they are secondhand and unchecked. numbers may only come from the journal
+- never copy a quoted phrasing word for word. say it the way ben would
+
+how buyers judge a website (background, always true):
+${philosophy.buyerJudgment.map((b) => `- ${b}`).join('\n')}
+
+today's featured principles:
+
+${featuredPrinciples.map((p) => p.text).join('\n\n')}
+
+${featuredObjections.length > 0 ? `today's featured client beliefs and objections (a post can open its turn on what a buyer believes, then take it apart):\n\n${featuredObjections.map((o) => `- ${o.text}`).join('\n')}\n\n` : ''}${featuredTactics.length > 0 ? `concrete details a website point can name (a post may use one to make its point specific):\n${featuredTactics.map((t) => `- ${t}`).join('\n')}\n\n` : ''}for every post, after the reply, output what it is built on: the principle or client belief's bold title copied exactly as it appears above, or for a tactic "tactic: " plus its first six words. output "none" for personal posts.
+` : '';
+
+const valueFormatBlock = hasValueFormat ? `website posts are value posts:
+
+every website post is a value post that teaches something a business owner can use, the kind of post people save and come back to. build each one on a skeleton from the format guide below and develop every point the way the guide describes: claim, mechanism, consequence, concrete example. vary the skeleton and hook type across the batch. value posts are always long.
+
+a value post may open on a moment from the journal when that moment leads straight into the lesson, because first-hand detail is what makes ben credible. when the journal has nothing that fits, open on a claim or on what a buyer believes instead. never force a journal moment in.
+
+format exceptions for value posts only (these override the hard rules above, for value posts and nothing else):
+- numbered points (1) or #1 - ITEM or STEP 1), hyphen lists, and section labels in CAPS are allowed. a colon is allowed directly after a CAPS section label and nowhere else
+- a real list is allowed, so the master rule against lists dressed up as prose does not apply to it. the explanation under each point is still connected prose
+- inside every sentence, every other rule still holds: all lowercase outside CAPS labels and emphasis, no other punctuation, no em dashes, no negation payoffs, no repeated sentence openers, word precision, past tense for anything that happened (present tense for how things work), and the faithfulness rules
+- short open-loop lines before a payoff ("here's why", "let me explain", "for example") are allowed inside the post, never as the opening line
+- the guide shows numbers in hooks. ben's numbers may only come from the journal. a hook without a real number uses a different hook type
+- no sign-off with a name and no dm or keyword call to action in the post. the reply carries the invitation
+- where the guide and ben's review edits below disagree, his edits win. that means ending on the last concrete beat instead of a closer that restates the lesson
+
+the format guide (studied from another creator's posts, so take only the construction, never his topics or his wording):
+
+${valueFormat}
+` : '';
+
 // Build delimiter list dynamically based on POST_COUNT
 const delimiterBlock = Array.from(
   { length: POST_COUNT },
-  (_, i) => `===post-${i + 1}===\n{post}\n===reply-${i + 1}===\n{reply or "none"}`
+  (_, i) => `===post-${i + 1}===\n{post}\n===reply-${i + 1}===\n{reply or "none"}${hasPhilosophy ? `\n===source-${i + 1}===\n{principle title or "none"}` : ''}`
 ).join('\n');
 
 const systemPrompt = `you are ghostwriting x posts for ben winzer.
@@ -199,6 +258,7 @@ hard rules - never break these:
 - banned filler phrases (in addition to the ones already listed): "and that stuck with me" / "that stayed with me" / any close synonym of this same "this moment lodged in my memory" filler, in any form, "i just stood there"
 - keep verbs consistently in past tense throughout each post - don't drift into present tense mid-post
 - do not expose private personal details that should not be public
+- never name coworkers, friends or anyone else from the journal. refer to them by role instead (a coworker, a friend, my brother, a client). the journal uses real first names, never carry them into a post
 - never write about topics that would reduce authority or make ben look small - this includes family, relationships, personal struggles, emotional vulnerability, anything that signals instability or neediness. if the journal mentions these things, extract a business or mindset angle from the context instead and leave the private detail out entirely. the account should always project competence and forward momentum
 
 word precision — this is the most important rule in this section:
@@ -243,9 +303,11 @@ ${featuredAxioms.length > 0 ? `- this batch has been running the same one or two
 ${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when a post needs a precise definition today, pull from this rotating set before defaulting to trust or discipline again:\n\n${featuredDefinitions.map((d) => `- ${d}`).join('\n')}\n\nonly reach outside this set (or back to trust/discipline) if the journal entry genuinely doesn't connect to any of them - don't force a fit, but don't default back to the same two words out of habit either` : ''}
 - when a post runs in axiom mode, colons are allowed directly after the words "axiom" or "definition" to label what follows (e.g. "definition of standard:", "axiom 3, asymmetric access:"), and quotation marks are allowed around a claim being tested (e.g. "trusted by thousands"). every other punctuation rule above still applies inside these posts - no periods, no commas, no question marks, no other colons
 
+${philosophyBlock}
+${valueFormatBlock}
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
-${learnedPrompt ? `${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}${editPrompt ? `${editPrompt}\n\n` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
+${learnedPrompt ? `${hasValueFormat ? 'the best performing posts below were written before website posts switched to the value format. take their hook energy and voice from them, never their story-then-lesson shape for a website post.\n\n' : ''}${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}${editPrompt ? `${editPrompt}\n\n` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
 - max 2 lines
@@ -257,13 +319,15 @@ the reply is a second tweet that threads directly under the main post. rules:
 - never sound like a marketer wrote it
 
 ${replyExamples ? `these are example replies to use as reference for energy and length. study the tone - direct, short, personal, never salesy:\n\n${replyExamples}\n` : ''}
-post length: mix short and long posts. for every ${POST_COUNT} posts, write at least ${SHORT_POST_MIN} and at most ${SHORT_POST_MAX} as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.
+post length: mix short and long posts. for every ${POST_COUNT} posts, write at least ${SHORT_POST_MIN} and at most ${SHORT_POST_MAX} as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.${hasValueFormat ? ' those beats describe a long personal post. website posts are value posts, always long, and built the way the format guide describes, so the short posts all come from the personal share.' : ''}
 
 hooks: every post must open with a hook that makes someone stop scrolling. no slow builds. no context-setting. the first line is everything. look at how the example posts open and match that energy. specific > vague. concrete > abstract. story > statement when possible.
 
 your job: read the journal and write exactly ${POST_COUNT} posts with this split:
 
-${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.
+${hasValueFormat
+  ? `${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts are value posts about websites, trust, or conversion, for any business that needs a website that actually works. each teaches one featured item in depth on a skeleton from the format guide, written for a business owner deciding whether their website is costing them customers. never marketing copy and never a pitch: the value is the teaching itself.`
+  : `${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.`}
 
 ${PERSONAL_POST_COUNT} of the ${POST_COUNT} posts should be personal - observations from his day, random realizations, stories about anything. the point can be about life, mindset, work, money, whatever fits. no website angle required.
 
@@ -280,9 +344,10 @@ const userPrompt = `journal entry - ${journal.name}:\n\n${journalContent}`;
 console.log('generating posts...');
 const response = await generate(systemPrompt, userPrompt);
 
-// Parse posts and replies
+// Parse posts, replies and the principle each post landed on
 let posts = parsePosts(response, POST_COUNT);
 let replies = parseReplies(response, POST_COUNT);
+let sources = parseSources(response, POST_COUNT);
 
 if (posts.length === 0) {
   console.error('could not parse posts from response. raw output:');
@@ -305,28 +370,33 @@ also fix, if present:
 - the "X doesn't do A, it does B" contrastive cliche
 - throat-clearing intros like "here's the thing" or "i've been thinking about"
 - the filler phrase "and that stuck with me" / "that stayed with me" or any close synonym of "this moment lodged in my memory", in any form
+- a real person's name (a coworker, a friend, anyone from ben's day). replace it with their role (a coworker, a friend, a client) and keep the rest of the sentence
+- any number, statistic, percentage or study stated as fact that is not a plain detail from ben's own day (a price he paid, a count he saw). rewrite the sentence to make the same point without the figure
 
 if a post runs in axiom mode (it states a definition or names an axiom and builds a logical chain toward a conclusion): check that every "therefore" or conclusion actually follows necessarily from the stated definition/axiom, not just that it sounds like it does. if a step is really just an assertion dressed up as a deduction, rewrite that step so the logic actually holds - don't delete the axiom/definition structure to fix it. the colons after the words "axiom" and "definition", and quotation marks around a claim being tested, are allowed in these posts and should not be stripped as punctuation violations.
 
 voice constraints to preserve while rewriting: all lowercase, zero punctuation (except the axiom-mode exceptions above), past tense, one thought per line with blank lines between.
 
-your job: read every post and reply below. if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
+${hasValueFormat ? 'value posts: a post whose source line is not "none" is a value post. its numbered points, hyphen lists, CAPS section labels and the colon right after a CAPS label are its intended structure. never turn them back into prose and never strip that colon. still fix the banned patterns inside its sentences.\n\n' : ''}your job: read every post and reply below.${hasPhilosophy ? ' copy every source line through exactly as it is, never edit it.' : ''} if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
 
 output the exact same number of posts using the exact same delimiters as the input, in the same order:
 
 ${delimiterBlock}`;
 
 const reviseInput = posts
-  .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}`)
+  .map((p, i) => `===post-${i + 1}===\n${p}\n===reply-${i + 1}===\n${replies[i] ?? 'none'}${hasPhilosophy ? `\n===source-${i + 1}===\n${sources[i] ?? 'none'}` : ''}`)
   .join('\n');
 
 const revised = await generate(revisePrompt, reviseInput);
 const revisedPosts = parsePosts(revised, POST_COUNT);
 const revisedReplies = parseReplies(revised, POST_COUNT);
+const revisedSources = parseSources(revised, POST_COUNT);
 
 if (revisedPosts.length === POST_COUNT) {
   posts = revisedPosts;
   replies = revisedReplies;
+  // The revise pass only copies sources through, so a dropped line keeps the original
+  sources = revisedSources.map((src, i) => src ?? sources[i] ?? null);
 } else {
   console.warn('revise pass output did not parse cleanly - keeping original posts');
 }
@@ -340,7 +410,9 @@ const outputContent = posts
     const reply = replies[i];
     const replyLine = reply ? `\n\n**reply:** ${reply}` : '';
     const exploreLabel = exploreIndexes.includes(i) ? ' (explore)' : '';
-    return `## post ${i + 1}${exploreLabel}\n\n${p}${replyLine}`;
+    const source = sources[i];
+    const sourceLine = source ? `\n\n**principle:** ${source}` : '';
+    return `## post ${i + 1}${exploreLabel}\n\n${p}${replyLine}${sourceLine}`;
   })
   .join('\n\n---\n\n');
 fs.writeFileSync(outputPath, outputContent, 'utf8');
@@ -426,6 +498,7 @@ for (const [i, post] of posts.entries()) {
         isExplore: exploreIndexes.includes(i),
         originalText: post,
         originalReply: reply ?? null,
+        philosophySource: sources[i] ?? null,
       };
     }
     console.log(`post ${i + 1}: added to queue`);
@@ -451,16 +524,24 @@ function parsePosts(text: string, count: number): string[] {
   }).filter(Boolean);
 }
 
+// The text after `marker` up to whichever of `endMarkers` comes first, or null
+// for a missing section or a literal "none"
+function parseSection(text: string, marker: string, endMarkers: string[]): string | null {
+  const start = text.indexOf(marker);
+  if (start === -1) return null;
+  const contentStart = start + marker.length;
+  const ends = endMarkers.map((m) => text.indexOf(m, contentStart)).filter((e) => e !== -1);
+  const val = text.slice(contentStart, ends.length > 0 ? Math.min(...ends) : text.length).trim();
+  return val === 'none' || val === '' ? null : val;
+}
+
 function parseReplies(text: string, count: number): (string | null)[] {
-  return Array.from({ length: count }, (_, i) => {
-    const marker = `===reply-${i + 1}===`;
-    const start = text.indexOf(marker);
-    if (start === -1) return null;
-    const contentStart = start + marker.length;
-    const nextPost = text.indexOf(`===post-${i + 2}===`, contentStart);
-    const end = nextPost !== -1 ? nextPost : text.length;
-    const val = text.slice(contentStart, end).trim();
-    return val === 'none' || val === '' ? null : val;
-  });
+  return Array.from({ length: count }, (_, i) =>
+    parseSection(text, `===reply-${i + 1}===`, [`===source-${i + 1}===`, `===post-${i + 2}===`]));
+}
+
+function parseSources(text: string, count: number): (string | null)[] {
+  return Array.from({ length: count }, (_, i) =>
+    parseSection(text, `===source-${i + 1}===`, [`===post-${i + 2}===`]));
 }
 
