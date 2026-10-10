@@ -131,7 +131,7 @@ the account is small (around 630 followers, median post well under 200 views), s
 - a feature table where each post is ranked 0-100 against posts from the same month (to cancel out reach swings between eras), with a permutation test p-value per feature. p < 0.05 means the gap is unlikely to be chance
 - the top and bottom performing website posts and personal posts by that monthly percentile, with full text
 
-the website/personal split is fixed at 60/40 by ben and is not up for change. only judge what works inside each category.
+the mix of post types is fixed by ben and is not up for change. only judge what works inside each category.
 
 your job is to answer: is there a learnable signal here, and if so what is it?
 

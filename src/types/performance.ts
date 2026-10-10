@@ -52,6 +52,8 @@ export interface FollowerPoint {
   followers: number;
 }
 
+export type PostType = 'value' | 'personal' | 'conspiracy';
+
 export interface LedgerEntry {
   generatedAt: string;
   isExplore: boolean;
@@ -62,6 +64,8 @@ export interface LedgerEntry {
   // Title of the philosophy principle or client belief the post landed on,
   // null for personal posts and batches generated before the philosophy existed
   philosophySource?: string | null;
+  // Unset on drafts generated before the value/personal/conspiracy mix
+  postType?: PostType;
 }
 
 // Keyed by typefully draft id

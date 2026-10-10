@@ -5,8 +5,9 @@ import { complete } from '../src/lib/claude.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
 import { loadEnv } from '../src/lib/env.js';
 import { loadPhilosophy, rotatingWindow } from '../src/lib/philosophy.js';
+import { loadValueFormat } from '../src/lib/value-format.js';
 import { EDIT_PROMPT_PATH, GUIDANCE_PATH, LEARNED_PROMPT_PATH, LEDGER_PATH, loadJson, saveJson } from '../src/lib/performance/store.js';
-import type { Guidance, Ledger } from '../src/types/performance.js';
+import type { Guidance, Ledger, PostType } from '../src/types/performance.js';
 
 loadEnv();
 
@@ -79,15 +80,35 @@ const editPrompt = fs.existsSync(EDIT_PROMPT_PATH) ? readText(EDIT_PROMPT_PATH).
 const learnedShortPosts = guidance?.shortPosts ?? null;
 const SHORT_POST_MIN = learnedShortPosts?.min ?? Math.max(1, Math.ceil(POST_COUNT / 6));
 const SHORT_POST_MAX = learnedShortPosts?.max ?? Math.max(SHORT_POST_MIN, Math.ceil(POST_COUNT / 3));
-// The last posts of each batch ignore the learned block and try angles the
-// data hasn't proven yet. Without this the system only copies past winners
-// and the account narrows into one style.
-const EXPLORE_POST_COUNT = learnedPrompt ? (POST_COUNT >= 9 ? 2 : 1) : 0;
-const exploreIndexes = Array.from({ length: EXPLORE_POST_COUNT }, (_, i) => POST_COUNT - EXPLORE_POST_COUNT + i);
-const AXIOM_POST_COUNT = Math.max(1, Math.round(POST_COUNT / 6));
-const WEBSITE_POST_SHARE = 0.6;
-const WEBSITE_POST_COUNT = Math.round(POST_COUNT * WEBSITE_POST_SHARE);
-const PERSONAL_POST_COUNT = POST_COUNT - WEBSITE_POST_COUNT;
+// The mix is set by ben, scaled off POST_COUNT so it keeps the same ratio at
+// any size: half value posts, a third conspiracy posts, the rest personal
+// (4 posts: 2/1/1, 6: 3/2/1, 9: 4/3/2, 12: 6/4/2). The learner never changes it.
+const VALUE_POST_COUNT = Math.floor(POST_COUNT / 2);
+const CONSPIRACY_POST_COUNT = Math.round(POST_COUNT / 3);
+const PERSONAL_POST_COUNT = POST_COUNT - VALUE_POST_COUNT - CONSPIRACY_POST_COUNT;
+// Fixed order, so every post's type is known from its position alone
+const postTypes: PostType[] = [
+  ...Array<PostType>(VALUE_POST_COUNT).fill('value'),
+  ...Array<PostType>(PERSONAL_POST_COUNT).fill('personal'),
+  ...Array<PostType>(CONSPIRACY_POST_COUNT).fill('conspiracy'),
+];
+const indexesOf = (type: PostType): number[] => postTypes.flatMap((t, i) => (t === type ? [i] : []));
+const valueIndexes = indexesOf('value');
+const personalIndexes = indexesOf('personal');
+const conspiracyIndexes = indexesOf('conspiracy');
+// The last value posts ignore the learned block and try angles the data
+// hasn't proven yet. Without this the system only copies past winners and the
+// account narrows into one style. Value posts are the ones the learned rules
+// are about, so that is where exploring means something.
+const EXPLORE_POST_COUNT = learnedPrompt ? Math.min(POST_COUNT >= 9 ? 2 : 1, VALUE_POST_COUNT) : 0;
+const exploreIndexes = valueIndexes.slice(valueIndexes.length - EXPLORE_POST_COUNT);
+
+// "post 1", "posts 1 to 3"
+function postLabel(indexes: number[]): string {
+  const first = (indexes[0] ?? 0) + 1;
+  const last = (indexes[indexes.length - 1] ?? 0) + 1;
+  return indexes.length === 1 ? `post ${first}` : `posts ${first} to ${last}`;
+}
 
 // Load example posts if any
 const exampleDir = 'data/examples';
@@ -128,6 +149,11 @@ function dayOfYear(d: Date): number {
 
 const seed = dayOfYear(new Date());
 
+// With a single personal slot an axiom post every night would crowd out the
+// normal personal posts, so roughly one batch in three gets one
+const AXIOM_POST_COUNT = seed % 3 === 0 ? 1 : 0;
+const axiomIndex = AXIOM_POST_COUNT > 0 ? personalIndexes[0] : undefined;
+
 // axioms.md entries are separated by blank lines, each starting "axiom N (name)"
 const axiomBlocks = axioms
   .split(/\n\s*\n/)
@@ -159,16 +185,16 @@ const featuredDefinitions = definitionLines.length > 0
 // rotating subset keeps the batch from reaching for the same principle nightly
 const philosophy = loadPhilosophy();
 const hasPhilosophy = philosophy.principles.length > 0;
-const featuredPrinciples = rotatingWindow(philosophy.principles, seed, WEBSITE_POST_COUNT + 2);
-const featuredObjections = rotatingWindow(philosophy.objections, seed, Math.ceil(WEBSITE_POST_COUNT / 2));
+const featuredPrinciples = rotatingWindow(philosophy.principles, seed, VALUE_POST_COUNT + 2);
+const featuredObjections = rotatingWindow(philosophy.objections, seed, Math.ceil(VALUE_POST_COUNT / 2));
 const featuredTactics = rotatingWindow(philosophy.tactics, seed, 6);
 
-// How value posts are built, studied from a creator's posts (npm run
-// study-format). Kept out of data/examples on purpose: everything there is fed
-// to every post, and personal posts must not pick up this format.
-const VALUE_FORMAT_PATH = 'data/formats/value-posts.md';
-const valueFormat = fs.existsSync(VALUE_FORMAT_PATH) ? readText(VALUE_FORMAT_PATH).trim() : '';
-const hasValueFormat = valueFormat !== '';
+// How value posts are built, studied from a creator's posts (npm run study-format)
+const valueFormat = loadValueFormat();
+const hasValueFormat = valueFormat.guide !== '';
+// Each value post gets its own skeleton, rotated daily. Left to itself the
+// model builds every value post on the same caps-points-then-fix-list shape.
+const assignedSkeletons = rotatingWindow(valueFormat.skeletons, seed, VALUE_POST_COUNT);
 
 const philosophyBlock = hasPhilosophy ? `where the website point comes from:
 
@@ -189,12 +215,18 @@ today's featured principles:
 
 ${featuredPrinciples.map((p) => p.text).join('\n\n')}
 
-${featuredObjections.length > 0 ? `today's featured client beliefs and objections (a post can open its turn on what a buyer believes, then take it apart):\n\n${featuredObjections.map((o) => `- ${o.text}`).join('\n')}\n\n` : ''}${featuredTactics.length > 0 ? `concrete details a website point can name (a post may use one to make its point specific):\n${featuredTactics.map((t) => `- ${t}`).join('\n')}\n\n` : ''}for every post, after the reply, output what it is built on: the principle or client belief's bold title copied exactly as it appears above, or for a tactic "tactic: " plus its first six words. output "none" for personal posts.
+${featuredObjections.length > 0 ? `today's featured client beliefs and objections (a post can open its turn on what a buyer believes, then take it apart):\n\n${featuredObjections.map((o) => `- ${o.text}`).join('\n')}\n\n` : ''}${featuredTactics.length > 0 ? `concrete details a website point can name (a post may use one to make its point specific):\n${featuredTactics.map((t) => `- ${t}`).join('\n')}\n\n` : ''}for every post, after the reply, output what it is built on: the principle or client belief's bold title copied exactly as it appears above, or for a tactic "tactic: " plus its first six words. output "none" for personal and conspiracy posts.
 ` : '';
 
 const valueFormatBlock = hasValueFormat ? `website posts are value posts:
 
-every website post is a value post that teaches something a business owner can use, the kind of post people save and come back to. build each one on a skeleton from the format guide below and develop every point the way the guide describes: claim, mechanism, consequence, concrete example. vary the skeleton and hook type across the batch. value posts are always long.
+every website post is a value post that teaches something a business owner can use, the kind of post people save and come back to. build each one on a skeleton from the format guide below and develop every point the way the guide describes: claim, mechanism, consequence, concrete example. value posts are always long.
+
+${assignedSkeletons.length > 0 ? `each value post is built on its own skeleton from the guide, assigned for today:\n${assignedSkeletons.map((skeleton, i) => `- post ${(valueIndexes[i] ?? 0) + 1}: ${skeleton}`).join('\n')}\nfollow the assigned skeleton's shape, not a generic one. if a skeleton needs facts the journal does not have (a case study needs a real client with real results), use ben's own build, test or work from the journal as its subject, or switch to a skeleton no other post uses. never invent a client, a result or a number to fill a skeleton.\n\n` : ''}the value posts in a batch must look different from each other at a glance. the shape that keeps coming out is an intro, then a CAPS point with text, another CAPS point with text, then a "how to fix" bullet list, and repeating it across a batch is a failure. so in every batch:
+- at most one value post uses CAPS section labels throughout
+- at least one value post uses no CAPS labels at all and is carried by prose, couplets, a bad and good pair, or repeated stanzas
+- at most one value post ends on a "how to apply" or "how to fix" bullet list
+- every value post uses a different hook type from the guide
 
 a value post may open on a moment from the journal when that moment leads straight into the lesson, because first-hand detail is what makes ben credible. when the journal has nothing that fits, open on a claim or on what a buyer believes instead. never force a journal moment in.
 
@@ -205,11 +237,25 @@ format exceptions for value posts only (these override the hard rules above, for
 - short open-loop lines before a payoff ("here's why", "let me explain", "for example") are allowed inside the post, never as the opening line
 - the guide shows numbers in hooks. ben's numbers may only come from the journal. a hook without a real number uses a different hook type
 - no sign-off with a name and no dm or keyword call to action in the post. the reply carries the invitation
+- the guide's "what to avoid" section says to drop profanity and villain framing. ignore those two points: ben wants both, within the voice rules above (villains are types of things and habits, never named real people or businesses). everything else in that section still applies
 - where the guide and ben's review edits below disagree, his edits win. that means ending on the last concrete beat instead of a closer that restates the lesson
 
 the format guide (studied from another creator's posts, so take only the construction, never his topics or his wording):
 
-${valueFormat}
+${valueFormat.guide}
+` : '';
+
+const conspiracyBlock = CONSPIRACY_POST_COUNT > 0 ? `conspiracy posts:
+
+${postLabel(conspiracyIndexes)} ${CONSPIRACY_POST_COUNT > 1 ? 'are conspiracy posts' : 'is a conspiracy post'}. ben shares something random he genuinely believes about how the world works, the kind of take most people would call a conspiracy theory or a weird opinion. he says it the way he would tell a friend: plainly and sincerely, then the actual reasons he believes it, from things he noticed. raw voice and swearing like every other post, no website angle, no reply.
+
+- it is a real belief, never a bit. never write it to be funny: no punchlines, no running gags, no escalating each step into something more absurd, no ironic wink at the end. if a line only exists to get a laugh, cut it
+- the reasoning stays grounded: what he observed, why it convinced him, what it would explain. it stops when the belief is laid out, and may end on the plain question he still has about it
+
+- take the theory from the journal when ben had one, or from a strange thought in it. when the journal has none, build one from something that actually happened in his day (the bus, the gym, a coffee, his phone, a coworker's habit)
+- theories are about perception, the brain, dreams, time, everyday tech, habits, how people behave. never about real groups of people, politics, religion, health, medicine or science claims someone could act on, and never about named people or companies. it is a game, never misinformation
+- ${CONSPIRACY_POST_COUNT > 1 ? 'the conspiracy posts must open differently from each other. at most one may literally open with "conspiracy theory"' : 'it does not have to literally open with "conspiracy theory"'}
+- short or long, whatever the theory needs
 ` : '';
 
 // Build delimiter list dynamically based on POST_COUNT
@@ -228,7 +274,9 @@ voice:
 - every sentence or short thought gets its own line with a blank line between
 - personal and direct - writes like he is talking to one person
 - stream of consciousness that leads somewhere
-- profanity is fine when it sounds natural
+- raw and unfiltered, the way ben actually talks in his journal and his messages. swearing is normal, not an exception: fuck, shit, bullshit, damn, bro, whenever it gives a line more punch. a post with zero edge reads like a brand account, which is the worst thing it can be
+- savage about bad websites and the people and habits that produce them. roast them like a friend who is fed up watching businesses lose money: the template every plumber in the city uses, the cheap agency that ships the same website forty times, the nephew who built it over a weekend, the stock photo of two hands shaking, the ai builder that spits out a website that looks like everyone else's, the slider nobody has clicked since 2015. the villain is always a type of thing or a habit, never a named real person or a named real business
+- roast the website and the decision, never the reader as a person. "your homepage is a crime scene" is the energy. calling the reader stupid is not
 - never corporate, never polished, never motivational speaker energy
 - never say "site" - always say "website"
 - write in past tense - the journal describes things that already happened, so tell it that way (was, went, said, saw, did, had, built, told, walked, realized)
@@ -296,18 +344,19 @@ ${axioms ? `ben's axioms:\n\n${axioms}\n` : ''}
 ${definitions ? `ben's definitions - use these exact meanings whenever a post touches one of these words, instead of the vague everyday meaning:\n\n${definitions}\n` : ''}
 how to use this:
 - when a post's point rests on a concept like trust, standard, respect, certainty, judgment, or another word defined above, reach for the precise definition instead of the vague conventional one. let the definition do the work of proving the point, not just decorate it
-- aim for about ${AXIOM_POST_COUNT} of the ${POST_COUNT} posts per batch to run fully in axiom mode: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. the rest of the posts should stay in ben's normal observational, journal-rooted voice - do not force this structure onto every post
-- an axiom-mode post does NOT need to land on websites, trust, conversion, or any business point - ben genuinely geeks out on this stuff as philosophy in its own right, so let the logical chain conclude wherever it actually leads (about emotion, judgment, identity, behavior, other people, whatever the axiom is actually about). only bend it toward the website/business angle if the journal entry makes that connection natural - never force it. count an axiom-mode post as one of the personal posts for the website/personal split when it doesn't land on a business point, so it doesn't eat into the website-post quota
-- an axiom-mode post can close with a falsifiability challenge - daring the reader to find the one exception, then pointing out there isn't one. use this closer sparingly, it loses power if every post ends this way
+${axiomIndex !== undefined ? `- post ${axiomIndex + 1} (the personal post) runs fully in axiom mode today: state a definition, name the axiom, walk the logical chain (a person has X, a stranger has no access to X until Y, therefore Z), and land on a conclusion that has to be true, not one that just sounds good. no other post runs in axiom mode
+- the axiom-mode post does NOT need to land on websites, trust, conversion, or any business point - ben genuinely geeks out on this stuff as philosophy in its own right, so let the logical chain conclude wherever it actually leads (about emotion, judgment, identity, behavior, other people, whatever the axiom is actually about)
+- it can close with a falsifiability challenge - daring the reader to find the one exception, then pointing out there isn't one` : '- no post runs in axiom mode today. the axioms and definitions above are background for how ben reasons, so a value post may lean on a definition when its point rests on that word'}
 ${featuredAxioms.length > 0 ? `- this batch has been running the same one or two axioms and definitions over and over (mostly asymmetric access, and trust/discipline), and that repetition is a real problem - it makes the account look like it only has one idea. today's axiom-mode posts MUST each build their logical chain around one of these specific axioms instead of defaulting back to a familiar one. use a different one for each axiom-mode post, never the same axiom twice in a batch:\n\n${featuredAxioms.join('\n\n')}\n\ndo not swap in a different axiom today unless the journal makes these genuinely impossible to connect to - reach for the connection before giving up on it` : ''}
 ${featuredDefinitions.length > 0 ? `- likewise, spread the definitions out. when a post needs a precise definition today, pull from this rotating set before defaulting to trust or discipline again:\n\n${featuredDefinitions.map((d) => `- ${d}`).join('\n')}\n\nonly reach outside this set (or back to trust/discipline) if the journal entry genuinely doesn't connect to any of them - don't force a fit, but don't default back to the same two words out of habit either` : ''}
 - when a post runs in axiom mode, colons are allowed directly after the words "axiom" or "definition" to label what follows (e.g. "definition of standard:", "axiom 3, asymmetric access:"), and quotation marks are allowed around a claim being tested (e.g. "trusted by thousands"). every other punctuation rule above still applies inside these posts - no periods, no commas, no question marks, no other colons
 
 ${philosophyBlock}
 ${valueFormatBlock}
+${conspiracyBlock}
 ${examples ? `these are reference posts from other creators in different niches. do not copy their subject matter. instead study and replicate: the hook energy, the confidence, and the pacing. apply all of that to ben's topics. the examples show you the level of directness, the kind of hooks that land hard, and when to write short vs long. important: some of these example posts use sentence-fragment lists, repeated sentence-openers, or negation constructions for rhythm - do NOT copy those specific devices, they are explicitly banned in the hard rules above regardless of what the examples do. take the confidence and directness from these examples, not their rhetorical tricks:\n\n${examples}\n` : ''}
 ${voiceSamples ? `these are raw examples of ben's own natural writing - real messages, comments, and notes, not curated posts. this is the most direct signal for how he actually talks: word choices, phrasing quirks, rhythm, personality. blend this into the post's voice on top of the structural/hook lessons from the reference posts above - the reference posts teach pacing and hook energy, these samples teach how ben himself sounds:\n\n${voiceSamples}\n` : ''}
-${learnedPrompt ? `${hasValueFormat ? 'the best performing posts below were written before website posts switched to the value format. take their hook energy and voice from them, never their story-then-lesson shape for a website post.\n\n' : ''}${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}${editPrompt ? `${editPrompt}\n\n` : ''}replies: every website-focused post (the ${WEBSITE_POST_COUNT}) must have a reply. personal posts (the ${PERSONAL_POST_COUNT}) must output "none" for the reply.
+${learnedPrompt ? `${hasValueFormat ? 'the best performing posts below were written before website posts switched to the value format. take their hook energy and voice from them, never their story-then-lesson shape for a website post.\n\n' : ''}${learnedPrompt}\n\n${exploreIndexes.length > 0 ? `exploration: ${exploreIndexes.map((i) => `post ${i + 1}`).join(' and ')} ${exploreIndexes.length > 1 ? 'are exploration posts' : 'is an exploration post'}. for ${exploreIndexes.length > 1 ? 'these' : 'this one'}, ignore the learned rules and the best-post examples above and try a hook style and a kind of moment they do not recommend. every other rule in this prompt still applies.\n\n` : ''}` : ''}${editPrompt ? `${editPrompt}\n\n` : ''}replies: every value post (${postLabel(valueIndexes)}) must have a reply. personal and conspiracy posts must output "none" for the reply.
 
 the reply is a second tweet that threads directly under the main post. rules:
 - max 2 lines
@@ -319,19 +368,27 @@ the reply is a second tweet that threads directly under the main post. rules:
 - never sound like a marketer wrote it
 
 ${replyExamples ? `these are example replies to use as reference for energy and length. study the tone - direct, short, personal, never salesy:\n\n${replyExamples}\n` : ''}
-post length: mix short and long posts. for every ${POST_COUNT} posts, write at least ${SHORT_POST_MIN} and at most ${SHORT_POST_MAX} as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.${hasValueFormat ? ' those beats describe a long personal post. website posts are value posts, always long, and built the way the format guide describes, so the short posts all come from the personal share.' : ''}
+post length: mix short and long posts. for every ${POST_COUNT} posts, write at least ${SHORT_POST_MIN} and at most ${SHORT_POST_MAX} as short posts. a short post is a maximum of 280 characters total including all spaces and line breaks - count carefully and do not exceed this. short posts should hit harder than long ones because they have no room to build. every word has to earn its place. the rest of the posts must be long - this is not optional. a long post builds through several beats: the moment from the journal, what it actually looked or felt like with real detail, the turn into the website/business point, and then that point developed with a specific example or two, not just stated once and dropped. aim for something in the range of 10-18 short lines, not 5-6. if a long post feels like it wrapped up after one paragraph, it's too short - go back and develop the idea further, add the next layer of the thought, don't just restate the hook.${hasValueFormat ? ' those beats describe a long personal post. website posts are value posts, always long, and built the way the format guide describes, so the short posts all come from the personal and conspiracy posts.' : ''}
 
-hooks: every post must open with a hook that makes someone stop scrolling. no slow builds. no context-setting. the first line is everything. look at how the example posts open and match that energy. specific > vague. concrete > abstract. story > statement when possible.
+hooks: every post must open with a hook that makes someone stop scrolling. no slow builds. no context-setting. the first line is everything. website posts open brutal: attack the reader's website, a belief business owners hold, or a habit everyone in the industry has, head on, with a claim that a good share of readers will want to argue with. safe, agreeable openers that nobody would push back on are a failure. examples of the energy, never to be copied: "your website is the reason your phone stopped ringing", "most agency websites are the same template with a different logo slapped on", "if your homepage has a slider you already lost half your visitors". look at how the example posts open and match that energy. specific > vague. concrete > abstract. story > statement when possible.
 
-your job: read the journal and write exactly ${POST_COUNT} posts with this split:
+your job: read the journal and write exactly ${POST_COUNT} posts in this order: ${postLabel(valueIndexes)} ${VALUE_POST_COUNT > 1 ? 'are value posts' : 'is a value post'}, ${postLabel(personalIndexes)} ${PERSONAL_POST_COUNT > 1 ? 'are personal' : 'is personal'}${axiomIndex !== undefined ? ` (post ${axiomIndex + 1} in axiom mode)` : ''}${CONSPIRACY_POST_COUNT > 0 ? `, ${postLabel(conspiracyIndexes)} ${CONSPIRACY_POST_COUNT > 1 ? 'are conspiracy posts' : 'is a conspiracy post'}` : ''}.
 
 ${hasValueFormat
-  ? `${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts are value posts about websites, trust, or conversion, for any business that needs a website that actually works. each teaches one featured item in depth on a skeleton from the format guide, written for a business owner deciding whether their website is costing them customers. never marketing copy and never a pitch: the value is the teaching itself.`
-  : `${WEBSITE_POST_COUNT} of the ${POST_COUNT} posts should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.`}
+  ? `${VALUE_POST_COUNT} of the ${POST_COUNT} posts are value posts about websites, trust, or conversion, for any business that needs a website that actually works. each teaches one featured item in depth on a skeleton from the format guide, written for a business owner deciding whether their website is costing them customers. never marketing copy and never a pitch: the value is the teaching itself.`
+  : `${VALUE_POST_COUNT} of the ${POST_COUNT} posts should connect to websites, trust, or conversion - applicable to any business that needs a website that actually works. but do NOT write them like marketing content. start with a real moment or observation from the journal, let it unfold, and land on a point about why a bad website costs businesses clients, why design signals trust, why diy looks cheap, or whatever fits naturally from the journal. the website angle should feel like an inevitable conclusion not a pitch.`}
 
 ${PERSONAL_POST_COUNT} of the ${POST_COUNT} posts should be personal - observations from his day, random realizations, stories about anything. the point can be about life, mindset, work, money, whatever fits. no website angle required.
 
+${CONSPIRACY_POST_COUNT} of the ${POST_COUNT} posts are conspiracy posts as described above.
+
 start every post with a hook. the first line needs to grab immediately - skip context, skip the thesis, skip any kind of warm up.
+
+edge check, the most important pass of all: ben's current drafts come out far too safe and polite, and he deletes them for it. before output, read every post as a fed up friend who swears and has watched a hundred businesses burn money on bad websites. every website post must
+- open with a brutal hook that attacks the reader's website, a belief, or an industry habit, one that plenty of readers will want to argue with
+- roast at least one villain by type (the template every plumber uses, the cheap agency, the nephew's weekend build, the handshake stock photo, the ai builder clone) with real contempt
+- sound raw: swearing where it adds punch (fuck, shit, bullshit, bro), blunt verdicts, zero corporate politeness
+personal and conspiracy posts get the same raw voice and swearing, minus the roast. if a post could have been written by a polite brand account, rewrite it until it couldn't. the voice rules still hold: villains are types and habits, never named people or businesses, and the reader's website gets roasted, never the reader as a person.
 
 before you output anything, re-read each post against the hard rules above - specifically the banned sentence patterns (repeated sentence-openers, negation lists, bare noun-fragment stacks, "brain doesn't do X it does Y") and the past tense rule. rewrite any line that slipped into one of those patterns.
 
@@ -377,7 +434,9 @@ if a post runs in axiom mode (it states a definition or names an axiom and build
 
 voice constraints to preserve while rewriting: all lowercase, zero punctuation (except the axiom-mode exceptions above), past tense, one thought per line with blank lines between.
 
-${hasValueFormat ? 'value posts: a post whose source line is not "none" is a value post. its numbered points, hyphen lists, CAPS section labels and the colon right after a CAPS label are its intended structure. never turn them back into prose and never strip that colon. still fix the banned patterns inside its sentences.\n\n' : ''}your job: read every post and reply below.${hasPhilosophy ? ' copy every source line through exactly as it is, never edit it.' : ''} if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
+${hasValueFormat ? 'value posts: a post whose source line is not "none" is a value post. its numbered points, hyphen lists, CAPS section labels and the colon right after a CAPS label are its intended structure. never turn them back into prose and never strip that colon. still fix the banned patterns inside its sentences.\n\n' : ''}swearing, roasts of bad websites and the people who make them, and brutal hooks are ben's intended voice. never soften, censor, or remove them, and never make a post more polite while fixing something else.
+
+your job: read every post and reply below.${hasPhilosophy ? ' copy every source line through exactly as it is, never edit it.' : ''} if a post or reply contains any of these banned patterns, rewrite ONLY the affected sentence(s) to say the same thing a different way - same meaning, same voice, just without the banned construction. leave everything else in every post completely unchanged, word for word, including posts that have no violations at all.
 
 output the exact same number of posts using the exact same delimiters as the input, in the same order:
 
@@ -409,7 +468,7 @@ const outputContent = posts
   .map((p, i) => {
     const reply = replies[i];
     const replyLine = reply ? `\n\n**reply:** ${reply}` : '';
-    const exploreLabel = exploreIndexes.includes(i) ? ' (explore)' : '';
+    const exploreLabel = ` (${postTypes[i] ?? 'personal'}${i === axiomIndex ? ', axiom' : ''}${exploreIndexes.includes(i) ? ', explore' : ''})`;
     const source = sources[i];
     const sourceLine = source ? `\n\n**principle:** ${source}` : '';
     return `## post ${i + 1}${exploreLabel}\n\n${p}${replyLine}${sourceLine}`;
@@ -499,6 +558,7 @@ for (const [i, post] of posts.entries()) {
         originalText: post,
         originalReply: reply ?? null,
         philosophySource: sources[i] ?? null,
+        postType: postTypes[i] ?? 'personal',
       };
     }
     console.log(`post ${i + 1}: added to queue`);
@@ -540,8 +600,9 @@ function parseReplies(text: string, count: number): (string | null)[] {
     parseSection(text, `===reply-${i + 1}===`, [`===source-${i + 1}===`, `===post-${i + 2}===`]));
 }
 
+// The model sometimes copies the title's markdown bold along with it
 function parseSources(text: string, count: number): (string | null)[] {
   return Array.from({ length: count }, (_, i) =>
-    parseSection(text, `===source-${i + 1}===`, [`===post-${i + 2}===`]));
+    parseSection(text, `===source-${i + 1}===`, [`===post-${i + 2}===`])?.replace(/\*\*/g, '').trim() ?? null);
 }
 

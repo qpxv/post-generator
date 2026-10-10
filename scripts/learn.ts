@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import { writeText } from '../src/lib/fs.js';
 import { CHANGELOG_PATH, GUIDANCE_PATH, LEARNED_PROMPT_PATH, loadJson, loadPosts, saveJson } from '../src/lib/performance/store.js';
 import { median, percentileAmong, permutationPValue, seededRandom } from '../src/lib/performance/stats.js';
-import { TAG_DIMENSION_NAMES, tagValue, tagValues } from '../src/lib/performance/tags.js';
+import { CATEGORY_NAMES, TAG_DIMENSION_NAMES, tagValue, tagValues } from '../src/lib/performance/tags.js';
 import type { Category, TagDimension } from '../src/lib/performance/tags.js';
 import { zonedParts } from '../src/lib/performance/time.js';
 import type { Guidance, LearnedRule, PublishedPost, RuleDirection } from '../src/types/performance.js';
@@ -27,7 +27,7 @@ const PERMUTATIONS = 5000;
 const WINNER_WINDOW_DAYS = 30;
 const WINNER_MIN_AGE_HOURS = 48;
 const WINNER_MIN_H48_PEERS = 20;
-const WINNERS_PER_CATEGORY: Record<Category, number> = { website: 4, personal: 2 };
+const WINNERS_PER_CATEGORY: Record<Category, number> = { website: 4, personal: 2, conspiracy: 2 };
 
 const SHORT_RULE_ID = 'all:length=short';
 const SHORT_RULE_TEXT: Record<RuleDirection, string> = {
@@ -101,7 +101,7 @@ function buildCandidates(window: ScoredPost[]): Candidate[] {
     text: (direction) => SHORT_RULE_TEXT[direction],
   }];
   const tagged = window.filter((p) => p.post.tags);
-  for (const category of ['website', 'personal'] as const) {
+  for (const category of CATEGORY_NAMES) {
     const population = tagged.filter((p) => p.category === category);
     for (const dimension of TAG_DIMENSION_NAMES) {
       for (const value of tagValues(dimension)) {
@@ -179,7 +179,7 @@ function pickWinners(posts: PublishedPost[], now: number): ScoredPost[] {
   const scored = withH48.length >= WINNER_MIN_H48_PEERS
     ? scoreWithinMonth(withH48, (p) => p.snapshots.h48?.stats)
     : scoreWithinMonth(recent, (p) => p.snapshots.latest?.stats);
-  return (['website', 'personal'] as const).flatMap((category) =>
+  return CATEGORY_NAMES.flatMap((category) =>
     scored
       .filter((p) => p.category === category)
       .sort((a, b) => b.monthPercentile - a.monthPercentile)
@@ -193,8 +193,7 @@ function renderPrompt(rules: LearnedRule[], winners: ScoredPost[]): string {
     rules.filter((r) => r.id.startsWith(`${category}:`)).map((r) => `- ${r.text}`);
   const groups = [
     { label: 'all posts', lines: ruleLines('all') },
-    { label: 'website posts', lines: ruleLines('website') },
-    { label: 'personal posts', lines: ruleLines('personal') },
+    ...CATEGORY_NAMES.map((category) => ({ label: `${category} posts`, lines: ruleLines(category) })),
   ].filter((g) => g.lines.length > 0);
 
   if (groups.length > 0) {

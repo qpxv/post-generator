@@ -24,10 +24,11 @@ steps 1 to 5 are `continue-on-error`. if one of them fails, that night's batch j
 all generation rules live in `scripts/daily.ts`. that file is the source of truth for voice, banned patterns and batch mix.
 
 - batch size follows how many journal entries the day had (4, 6, 9 or 12 posts)
-- 60% website posts, 40% personal. this split is fixed and the learner never changes it
-- website posts get a reply, personal posts don't
-- some posts are axiom mode, built on an entry from `axioms.md`
-- the last 1 or 2 posts of each batch are exploration posts that ignore the learned rules, so the account doesn't narrow into one style
+- the mix is fixed by ben and scales with batch size: half value posts, a third conspiracy posts, the rest personal (6 posts: 3 value, 1 personal, 2 conspiracy). the learner never changes it
+- value posts teach one rotating principle from `data/philosophy/` on a skeleton from `data/formats/value-posts.md`. each one gets a different skeleton per day, and they get a reply
+- conspiracy posts are ben's wild theories about anything (perception, the brain, everyday tech), from the journal when it has one. no reply
+- about one batch in three, the personal post is an axiom post built on an entry from `axioms.md`
+- the last 1 or 2 value posts are exploration posts that ignore the learned rules, so the account doesn't narrow into one style
 
 inputs it reads:
 

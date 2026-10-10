@@ -12,7 +12,10 @@ interface TagValue {
 export const CATEGORY_VALUES = {
   website: 'the post lands on a point about websites, design, trust, or conversion',
   personal: 'the post is about life, mindset, work, or money with no website point',
+  conspiracy: 'the post lays out a wild theory ben has about life, the brain, people, or everyday tech',
 } as const;
+
+export const CATEGORY_NAMES = Object.keys(CATEGORY_VALUES) as Category[];
 
 export const TAG_DIMENSIONS = {
   hook: {
