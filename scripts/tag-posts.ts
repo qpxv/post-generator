@@ -1,5 +1,6 @@
 import { loadEnv } from '../src/lib/env.js';
 import { completeViaCli } from '../src/lib/claude-cli.js';
+import { runPool } from '../src/lib/pool.js';
 import { loadPosts, savePosts } from '../src/lib/performance/store.js';
 import { CATEGORY_VALUES, TAG_DIMENSIONS, TAG_DIMENSION_NAMES, parsePostTags, tagValues } from '../src/lib/performance/tags.js';
 import type { PostTags } from '../src/lib/performance/tags.js';
@@ -83,13 +84,6 @@ function parseBatch(raw: string, batch: PublishedPost[]): Map<number, PostTags> 
     if (batchIds.has(id) && tags) byId.set(id, tags);
   }
   return byId;
-}
-
-async function runPool<T>(items: T[], concurrency: number, worker: (item: T) => Promise<void>): Promise<void> {
-  let next = 0;
-  await Promise.all(Array.from({ length: concurrency }, async () => {
-    while (next < items.length) await worker(items[next++]);
-  }));
 }
 
 const classify: Classify = isCliMode ? classifyViaCli : classifyViaApi;

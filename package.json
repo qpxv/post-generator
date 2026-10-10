@@ -14,6 +14,9 @@
     "edits": "node node_modules/tsx/dist/cli.mjs scripts/collect-edits.ts",
     "learn-edits": "node node_modules/tsx/dist/cli.mjs scripts/learn-edits.ts",
     "analyze": "node node_modules/tsx/dist/cli.mjs scripts/analyze-performance.ts",
+    "transcripts": "node node_modules/tsx/dist/cli.mjs scripts/fetch-transcripts.ts",
+    "distill": "node node_modules/tsx/dist/cli.mjs scripts/distill-philosophy.ts",
+    "study-format": "node node_modules/tsx/dist/cli.mjs scripts/study-format.ts",
     "check": "tsc --noEmit"
   },
   "devDependencies": {

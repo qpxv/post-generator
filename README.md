@@ -37,6 +37,8 @@ inputs it reads:
 | `data/examples/good-replies.md` | reference replies |
 | `data/voice-samples.md` | ben's raw writing (messages, notes) for how he actually sounds |
 | `axioms.md`, `definitions.md` | ben's worldview, one axiom and a few definitions are featured per day |
+| `data/philosophy/*.md` | distilled principles, buyer psychology and client objections (`npm run distill`). website posts land their point on one of the day's rotating featured items, and the drafts file labels which |
+| `data/formats/value-posts.md` | how value posts are built (hooks, skeletons, point structure), studied from another creator's posts with `npm run study-format`. every website post is a value post built on it. personal posts never see it |
 | `data/learned/prompt.md` | performance rules written by `learn` |
 | `data/learned/edits.md` | review rules written by `learn-edits` |
 
@@ -75,6 +77,9 @@ other commands:
 | `npm run collect -- --refresh-all` | refreshes stats on every post, not just recent ones |
 | `npm run edits -- --history` | recovers edit pairs from old committed drafts (local only) |
 | `npm run gate -- --horizon=N` | tests the pause/resume switch as if the queue were N days deep |
+| `npm run transcripts -- --channel=<url> --slug=<name>` | downloads english captions for every video on a youtube channel to `data/transcripts/<name>/` (needs `brew install yt-dlp`, only fetches new uploads on rerun) |
+| `npm run distill -- --slug=<name>` | turns those transcripts into `data/philosophy/<name>.md` via the claude cli. `--focus=design --out=<path>` writes a design playbook instead (used for the website collection's `DESIGN-PLAYBOOK.md`). `--limit=N` writes notes for N videos only, to check quality first |
+| `npm run study-format -- --in=<posts file> --out=data/formats/value-posts.md` | studies a creator's pasted posts and writes the value post format guide via the claude cli. the posts file stays outside the repo |
 | `npm run check` | `tsc --noEmit` |
 
 ## repo layout
@@ -89,6 +94,7 @@ data/examples/       reference posts, replies, newsletters
 data/learned/        rules the pipeline writes for itself (committed nightly)
 data/performance/    post stats, ledger, review edits (committed nightly)
 data/pipeline/       queue gate state (committed nightly)
+data/philosophy/     distilled philosophy of creators ben learns from (raw transcripts in data/transcripts/ are gitignored)
 docs/                design notes for the feedback loop
 output/              generated drafts and newsletters
 web/                 next.js dashboard for reviewing typefully drafts
