@@ -1,0 +1,2549 @@
+[
+  {
+    "id": 11175221,
+    "scheduled_date": "2026-10-15T11:45:00Z",
+    "created_at": "2026-10-10T06:57:53.755Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "watch a curious dog meet a stranger once and your homepage will never look the same to you\n\none..."
+  },
+  {
+    "id": 11175220,
+    "scheduled_date": "2026-10-15T07:00:00Z",
+    "created_at": "2026-10-10T06:57:53.564Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "left the umbrella at home this morning because i gambled the rain would stop\n\nit got heavier the..."
+  },
+  {
+    "id": 11175219,
+    "scheduled_date": "2026-10-14T16:15:00Z",
+    "created_at": "2026-10-10T06:57:53.369Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "my laptop got faster the second i unplugged the office monitor\n\nnothing on the laptop changed and i..."
+  },
+  {
+    "id": 11175218,
+    "scheduled_date": "2026-10-14T11:45:00Z",
+    "created_at": "2026-10-10T06:57:53.179Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "the bus driver home today was the sharpest guy on the road and i never heard him say a word\n\nhe..."
+  },
+  {
+    "id": 11175217,
+    "scheduled_date": "2026-10-14T07:00:00Z",
+    "created_at": "2026-10-10T06:57:52.999Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "the bus app told me my bus was coming two minutes early and i was annoyed about it\n\ni had left the..."
+  },
+  {
+    "id": 11175216,
+    "scheduled_date": "2026-10-13T16:15:00Z",
+    "created_at": "2026-10-10T06:57:52.794Z",
+    "tags": [
+      "needs-review"
+    ],
+    "preview": "my barber stared at my head for a full minute and then cut exactly two hairs\n\nsabine did that the..."
+  },
+  {
+    "id": 11158393,
+    "scheduled_date": "2026-10-13T11:45:00Z",
+    "created_at": "2026-10-09T07:19:40.214Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "carried a time estimate around for weeks and the weight vanished in a ten minute call\n\ni owed my..."
+  },
+  {
+    "id": 11158392,
+    "scheduled_date": "2026-10-13T07:00:00Z",
+    "created_at": "2026-10-09T07:19:39.992Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "moved my desk to the window tonight and the only thing left on it is a mousepad\n\nthe laptop sits..."
+  },
+  {
+    "id": 11158391,
+    "scheduled_date": "2026-10-12T16:15:00Z",
+    "created_at": "2026-10-09T07:19:39.761Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "set my laptop to 125 percent zoom today because i ditched the big monitor\n\nmost business websites..."
+  },
+  {
+    "id": 11158390,
+    "scheduled_date": "2026-10-12T11:45:00Z",
+    "created_at": "2026-10-09T07:19:39.464Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built a fake post into my own content pipeline tonight that only shows up when everything is..."
+  },
+  {
+    "id": 11140204,
+    "scheduled_date": "2026-10-11T07:00:00Z",
+    "created_at": "2026-10-08T07:17:04.978Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a coworker and i were halfway through a practice exam today and sat at 20 out of 44 points\n\nthe..."
+  },
+  {
+    "id": 11140205,
+    "scheduled_date": "2026-10-11T11:45:00Z",
+    "created_at": "2026-10-08T07:17:05.248Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "packed away the mechanical keyboard i bought two weeks ago and hit 99 wpm on the bare macbook\n\nthe..."
+  },
+  {
+    "id": 11140206,
+    "scheduled_date": "2026-10-11T16:15:00Z",
+    "created_at": "2026-10-08T07:17:05.491Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "200 pushups did something to my triceps that dumbbells NEVER managed\n\na day later they still hurt..."
+  },
+  {
+    "id": 11140207,
+    "scheduled_date": "2026-10-12T07:00:00Z",
+    "created_at": "2026-10-08T07:17:05.699Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sit up straight for one second and watch how fast your back wants to curl again\n\ni put my external..."
+  },
+  {
+    "id": 10312673,
+    "scheduled_date": null,
+    "created_at": "2026-08-13T03:31:49.493Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "emptied the trash on my macbook and there were 50000 items sitting in it\n\nstuff i deleted months..."
+  },
+  {
+    "id": 10312674,
+    "scheduled_date": null,
+    "created_at": "2026-08-13T03:31:49.689Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "woke up at 5am with zero chance of falling back asleep so i made a coffee and went and sat outside..."
+  },
+  {
+    "id": 10312675,
+    "scheduled_date": null,
+    "created_at": "2026-08-13T03:31:49.906Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat across from two elderly ladies on a boat for two hours today and talked to them the entire..."
+  },
+  {
+    "id": 10312676,
+    "scheduled_date": null,
+    "created_at": "2026-08-13T03:31:50.097Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the hotel room i was at yesterday was twice the size of what the photos on their website..."
+  },
+  {
+    "id": 10327070,
+    "scheduled_date": null,
+    "created_at": "2026-08-14T03:29:27.227Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i watched bullet train last night and gave it two straight hours without touching my phone..."
+  },
+  {
+    "id": 10327071,
+    "scheduled_date": null,
+    "created_at": "2026-08-14T03:29:27.462Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i answered every dm i had today while walking through a city\n\nmeanwhile the average business takes..."
+  },
+  {
+    "id": 10327073,
+    "scheduled_date": null,
+    "created_at": "2026-08-14T03:29:27.806Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent five hours in a car yesterday and the thing i kept thinking about was my own setup waiting..."
+  },
+  {
+    "id": 10327074,
+    "scheduled_date": null,
+    "created_at": "2026-08-14T03:29:27.978Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i ate a fish roll at a concrete rest stop in the middle of nowhere yesterday and walked away with..."
+  },
+  {
+    "id": 10348188,
+    "scheduled_date": null,
+    "created_at": "2026-08-15T17:37:45.545Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the dog at the place where im at laid down in the garden yesterday and scooted her belly across the..."
+  },
+  {
+    "id": 10348190,
+    "scheduled_date": null,
+    "created_at": "2026-08-15T17:37:45.828Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my cousin put a bowl of water down for the dog yesterday and she would not touch it\n\nso i sat down..."
+  },
+  {
+    "id": 10348191,
+    "scheduled_date": null,
+    "created_at": "2026-08-15T17:37:46.094Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "most dogs listen because someone trained them\n\na dog here where i am at follows me around because i..."
+  },
+  {
+    "id": 10348193,
+    "scheduled_date": null,
+    "created_at": "2026-08-15T17:37:46.575Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "watched \"the ritual\" last night which is a horror movie and the scariest thing in the whole movie..."
+  },
+  {
+    "id": 10348194,
+    "scheduled_date": null,
+    "created_at": "2026-08-15T17:37:46.778Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built the best website i ever made so far sitting in a garden on a laptop that was about to..."
+  },
+  {
+    "id": 10351841,
+    "scheduled_date": null,
+    "created_at": "2026-08-16T02:25:59.416Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the grocery store by my house has self checkout now\n\npeople scan their stuff and there isnt any..."
+  },
+  {
+    "id": 10351840,
+    "scheduled_date": null,
+    "created_at": "2026-08-16T02:25:59.183Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my linux machine froze tonight right in the middle of reviewing 25 posts\n\nthree weeks of content..."
+  },
+  {
+    "id": 10351839,
+    "scheduled_date": null,
+    "created_at": "2026-08-16T02:25:58.945Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "we sat in a traffic jam today for a crash that was on the other side of the autobahn\n\nour lane was..."
+  },
+  {
+    "id": 10351838,
+    "scheduled_date": null,
+    "created_at": "2026-08-16T02:25:58.669Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the radio ran a gambling game while we were driving today\n\nif 5 hens lay 5 eggs in 5 days how many..."
+  },
+  {
+    "id": 10362882,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:19.579Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "today i heard about a guy who had a math exam a basketball game and an angry client all inside the..."
+  },
+  {
+    "id": 10362881,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:19.360Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i scrolled through around sixty business profiles today and half of them stopped posting months..."
+  },
+  {
+    "id": 10362880,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:19.104Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i sat in a completely dark room today so my brain would stop negotiating with me\n\nblinds all the..."
+  },
+  {
+    "id": 10362879,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:18.877Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i used to think my service was too easy to charge properly for\n\nbuilding a website takes me a few..."
+  },
+  {
+    "id": 10362878,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:18.625Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "visited a meditation website today\n\nstatic image in the background with a bright blue figure in the..."
+  },
+  {
+    "id": 10362877,
+    "scheduled_date": null,
+    "created_at": "2026-08-17T02:25:18.355Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i knew a website was built by ai within about three seconds today\n\nit was a brand i genuinely..."
+  },
+  {
+    "id": 10379185,
+    "scheduled_date": null,
+    "created_at": "2026-08-18T02:20:40.473Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent a good portion of today writing definitions for words i already use every single..."
+  },
+  {
+    "id": 10379184,
+    "scheduled_date": null,
+    "created_at": "2026-08-18T02:20:40.303Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "expectation is a standard someone holds for you whether they said it out loud or not\n\nyour website..."
+  },
+  {
+    "id": 10379186,
+    "scheduled_date": null,
+    "created_at": "2026-08-18T02:20:40.644Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i moved my workout above my business work on the priority list today\n\nfor a 20 year old building a..."
+  },
+  {
+    "id": 10379183,
+    "scheduled_date": null,
+    "created_at": "2026-08-18T02:20:40.101Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i sat through an ai security training video at the 9-5 today and knew chatgpt wrote it inside of..."
+  },
+  {
+    "id": 10379187,
+    "scheduled_date": null,
+    "created_at": "2026-08-18T02:20:40.816Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i grew maybe two millimetres of chin beard and people started treating me with more respect..."
+  },
+  {
+    "id": 10393981,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.994Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i listened to a rapper for forty seconds today and knew he was copying NF\n\nit was the word choice..."
+  },
+  {
+    "id": 10393980,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.815Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy i work with told me his day had to be planned hour to hour or he could not function\n\ni..."
+  },
+  {
+    "id": 10393978,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.473Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the guy i learned the most from at my 9-5 handed in his notice yesterday\n\nand he never sat me down..."
+  },
+  {
+    "id": 10393977,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.311Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i sent my code in for review yesterday at the 9-5 and ran it through ai first which found zero..."
+  },
+  {
+    "id": 10393979,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.645Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "im obsessed with rules that never break\n\naxioms\n\naxioms hold in every single case or they are not..."
+  },
+  {
+    "id": 10393976,
+    "scheduled_date": null,
+    "created_at": "2026-08-19T02:22:30.125Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the dictionary defines fear as a deep feeling of worry or dread\n\nthat defines nothing\n\nif..."
+  },
+  {
+    "id": 10407378,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:18.178Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i switched claude code into the learning style today and it made me slower on purpose\n\nit stops and..."
+  },
+  {
+    "id": 10407377,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:17.875Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i went down to the basement tonight with zero interest in training\n\nchest was still sore from..."
+  },
+  {
+    "id": 10407376,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:17.579Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent the whole workday on a windows laptop with a 60hz screen and none of the shortcuts i built..."
+  },
+  {
+    "id": 10407375,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:17.265Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent an hour tonight getting my definitions exact instead of writing anything\n\ndefinition of..."
+  },
+  {
+    "id": 10407374,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:17.011Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent the evening rewriting my own prompts because everything people write online is vague as..."
+  },
+  {
+    "id": 10407373,
+    "scheduled_date": null,
+    "created_at": "2026-08-20T02:22:16.451Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a designer built a client a frontend with claude and i broke it in under a minute\n\nthe client..."
+  },
+  {
+    "id": 10422123,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:29:01.005Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy at my office opens every single app with his mouse\n\ndrags the cursor down to the dock, hunts..."
+  },
+  {
+    "id": 10422122,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:29:00.789Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent last night refactoring 74 files in a codebase just so everything would sit where i expect..."
+  },
+  {
+    "id": 10422121,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:29:00.593Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my bus pulled into a stop and sat there for two minutes while the driver stared ahead\n\neveryone..."
+  },
+  {
+    "id": 10422120,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:29:00.398Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "your website says \"trusted by thousands\" and it does exactly nothing\n\ndefinition of trust:..."
+  },
+  {
+    "id": 10422119,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:29:00.184Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "guys at my office were talking about developers with forty years of experience who had never heard..."
+  },
+  {
+    "id": 10422118,
+    "scheduled_date": null,
+    "created_at": "2026-08-21T02:28:59.835Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a deep cleaning company showed up to a job and asked the client if they could borrow his vacuum..."
+  },
+  {
+    "id": 10446668,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:14.917Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "drove around with my brother tonight to two stores for no reason at all and i walked through both..."
+  },
+  {
+    "id": 10446667,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:14.677Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "german language has umlaute and \"ß\" and my hands slow down every time i hit one\n\nenglish just..."
+  },
+  {
+    "id": 10446666,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:14.434Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "explained what an api is to a friend at 10pm and had to go back to the origin of the internet to..."
+  },
+  {
+    "id": 10446665,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:14.257Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "took a text today that was 100 percent ai written and rewrote it until it was 0\n\nthe meaning stayed..."
+  },
+  {
+    "id": 10446664,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:14.070Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "one house in my neighborhood put a surveillance camera above their front door and today another..."
+  },
+  {
+    "id": 10446663,
+    "scheduled_date": null,
+    "created_at": "2026-08-23T02:29:13.851Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened the network tab on a random business website today and watched their api hand back fields..."
+  },
+  {
+    "id": 10458898,
+    "scheduled_date": null,
+    "created_at": "2026-08-24T02:28:28.918Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i built my old outreach around three days of warming someone up before saying anything and i never..."
+  },
+  {
+    "id": 10458900,
+    "scheduled_date": null,
+    "created_at": "2026-08-24T02:28:29.272Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i paid 130 euros for a tool today in about forty seconds\n\nthe pricing page told me exactly what i..."
+  },
+  {
+    "id": 10458901,
+    "scheduled_date": null,
+    "created_at": "2026-08-24T02:28:29.454Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i handed the first half of a paper i have been writing to someone who had never touched the..."
+  },
+  {
+    "id": 10458902,
+    "scheduled_date": null,
+    "created_at": "2026-08-24T02:28:29.631Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i watched a magpie clean her beak in a puddle on the garage roof across from my window for twenty..."
+  },
+  {
+    "id": 10474192,
+    "scheduled_date": null,
+    "created_at": "2026-08-25T02:23:16.494Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the ai's first draft of that website was absolute garbage\n\nso i opened excalidraw and sketched the..."
+  },
+  {
+    "id": 10474194,
+    "scheduled_date": null,
+    "created_at": "2026-08-25T02:23:17.032Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a coworker asked me to build a website for his club today and i'm doing it for free\n\nhe asked first..."
+  },
+  {
+    "id": 10474195,
+    "scheduled_date": null,
+    "created_at": "2026-08-25T02:23:17.271Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "boredom is the failure to find something absorbing enough to occupy your spare attention\n\nthat's..."
+  },
+  {
+    "id": 10474196,
+    "scheduled_date": null,
+    "created_at": "2026-08-25T02:23:17.626Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built a website until 1am and had to force myself to close the laptop\n\ndiscipline carries you..."
+  },
+  {
+    "id": 10490110,
+    "scheduled_date": null,
+    "created_at": "2026-08-26T02:30:05.298Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent twenty minutes debugging an empty database this morning\n\nwent through the connection string..."
+  },
+  {
+    "id": 10490114,
+    "scheduled_date": null,
+    "created_at": "2026-08-26T02:30:07.033Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent five hours on a call today rebuilding a website with a friend and the best thing we added..."
+  },
+  {
+    "id": 10490112,
+    "scheduled_date": null,
+    "created_at": "2026-08-26T02:30:06.343Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat in a meeting this morning where a guy read paragraphs out of the german criminal code out loud..."
+  },
+  {
+    "id": 10490111,
+    "scheduled_date": null,
+    "created_at": "2026-08-26T02:30:05.831Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i opened the website i built yesterday and by my standards it was bad\n\nmost people would have..."
+  },
+  {
+    "id": 10509119,
+    "scheduled_date": null,
+    "created_at": "2026-08-27T11:10:19.613Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i blurred a screenshot of a website today until every word was unreadable\n\nand i still could not..."
+  },
+  {
+    "id": 10509122,
+    "scheduled_date": null,
+    "created_at": "2026-08-27T11:10:20.338Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i drove the wrong direction for the first five minutes tonight and did not care at all\n\npicked up..."
+  },
+  {
+    "id": 10524771,
+    "scheduled_date": null,
+    "created_at": "2026-08-28T12:42:01.246Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a bus driver closed the doors on a man mid entry this morning\n\nhe had a stroller with two kids in..."
+  },
+  {
+    "id": 10524773,
+    "scheduled_date": null,
+    "created_at": "2026-08-28T12:42:01.885Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "found an artist tonight with 112k monthly listeners who sounds like she has 10 million\n\nbeing..."
+  },
+  {
+    "id": 10524774,
+    "scheduled_date": null,
+    "created_at": "2026-08-28T12:42:02.165Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "definition of trust: reliability which is consistently doing what you communicated you would do..."
+  },
+  {
+    "id": 10524775,
+    "scheduled_date": null,
+    "created_at": "2026-08-28T12:42:02.384Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i wrote 12 sets down for tonight and finished 10\n\nthen i spent ten minutes in my basement genuinely..."
+  },
+  {
+    "id": 10534690,
+    "scheduled_date": null,
+    "created_at": "2026-08-29T07:50:28.882Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "12:51am my phone started buzzing from an app i had finished nine minutes earlier\n\nthe client was..."
+  },
+  {
+    "id": 10534691,
+    "scheduled_date": null,
+    "created_at": "2026-08-29T07:50:29.277Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "nobody has ever judged your business against a standard you didn't show them\n\ndefinition of..."
+  },
+  {
+    "id": 10534692,
+    "scheduled_date": null,
+    "created_at": "2026-08-29T07:50:29.508Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the api behind my post reviewer died overnight and i found out at 8am when nothing had run\n\nit was..."
+  },
+  {
+    "id": 10534693,
+    "scheduled_date": null,
+    "created_at": "2026-08-29T07:50:29.714Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "walked to the bus at 8am and the loudest thing on the whole street was birds\n\nit had rained..."
+  },
+  {
+    "id": 10534694,
+    "scheduled_date": null,
+    "created_at": "2026-08-29T07:50:30.065Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent an hour today carrying tables into the basement of a building i've been working in for..."
+  },
+  {
+    "id": 10546699,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:28.522Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "someone tried to convince me tonight that a guy's cars were all rented\n\nthat was the entire..."
+  },
+  {
+    "id": 10546698,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:28.268Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened a website i built at 10pm and there were 9 bookings sitting in it\n\ni never sent anyone..."
+  },
+  {
+    "id": 10546697,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:28.016Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i was lying on my bed at 1pm flat out refusing to write a piece of university work i hate\n\nthen out..."
+  },
+  {
+    "id": 10546696,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:27.746Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "definition of trust: reliability in a person or certainty in a process depending on context\n\naxiom..."
+  },
+  {
+    "id": 10546695,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:27.400Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a client wrote me \"just a suggestion for some time in the future if you want\"\n\ni built it that..."
+  },
+  {
+    "id": 10546694,
+    "scheduled_date": null,
+    "created_at": "2026-08-30T09:13:26.143Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent an hour this morning making an app use less battery while it sits there doing absolutely..."
+  },
+  {
+    "id": 10557788,
+    "scheduled_date": null,
+    "created_at": "2026-08-31T06:54:59.925Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i moved my terminal onto the laptop screen and put the live website on the monitor and my build..."
+  },
+  {
+    "id": 10557789,
+    "scheduled_date": null,
+    "created_at": "2026-08-31T06:55:00.154Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "nobody emails you to say your website put them off\n\nthey close the tab and go with the guy whose..."
+  },
+  {
+    "id": 10557790,
+    "scheduled_date": null,
+    "created_at": "2026-08-31T06:55:00.418Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "claude burned 28000 tokens tonight trying to build one laser effect and still failed\n\ni scrapped it..."
+  },
+  {
+    "id": 10573030,
+    "scheduled_date": null,
+    "created_at": "2026-09-01T06:13:19.114Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my dad told me about a guy in his department who nearly broke a dental practice with a date\n\nthe..."
+  },
+  {
+    "id": 10573031,
+    "scheduled_date": null,
+    "created_at": "2026-09-01T06:13:19.489Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "there is a woman at my 9-5 who just calls\n\neveryone else texts first and asks if you have a..."
+  },
+  {
+    "id": 10573032,
+    "scheduled_date": null,
+    "created_at": "2026-09-01T06:13:19.774Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i tried playing piano quietly this morning and could barely do it\n\nplaying loud is easy\n\ncontrol is..."
+  },
+  {
+    "id": 10573035,
+    "scheduled_date": null,
+    "created_at": "2026-09-01T06:13:20.568Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a coworker and i got coffee together once completely by accident\n\nthen the next morning i waited..."
+  },
+  {
+    "id": 10573037,
+    "scheduled_date": null,
+    "created_at": "2026-09-01T06:13:21.187Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my paper was finished days ago and i still spent five hours on it today\n\nthe writing was done\n\nwhat..."
+  },
+  {
+    "id": 10557785,
+    "scheduled_date": null,
+    "created_at": "2026-08-31T06:54:59.090Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the design was finished before i wrote a single line of code\n\ni was making noodles and the whole..."
+  },
+  {
+    "id": 10557786,
+    "scheduled_date": null,
+    "created_at": "2026-08-31T06:54:59.461Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy i have never met created an event tonight in an app i built\n\nthen his mate messaged saying it..."
+  },
+  {
+    "id": 10589055,
+    "scheduled_date": null,
+    "created_at": "2026-09-02T05:39:54.773Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my professor stopped three hours into the lecture and asked whether we were still able to take..."
+  },
+  {
+    "id": 10589054,
+    "scheduled_date": null,
+    "created_at": "2026-09-02T05:39:54.549Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the internet died in the middle of my lecture tonight and it took me three minutes to get back into..."
+  },
+  {
+    "id": 10589053,
+    "scheduled_date": null,
+    "created_at": "2026-09-02T05:39:54.350Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i picked the discord website to rebuild from scratch tonight and it was the worst possible choice..."
+  },
+  {
+    "id": 10589052,
+    "scheduled_date": null,
+    "created_at": "2026-09-02T05:39:54.119Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a client hopped on a call today to show off an app he vibe coded\n\nthe senior dev asked him two..."
+  },
+  {
+    "id": 10589057,
+    "scheduled_date": null,
+    "created_at": "2026-09-02T05:39:55.402Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i squeezed my workout into the ten minutes before a three hour lecture and then focused better than..."
+  },
+  {
+    "id": 10603497,
+    "scheduled_date": null,
+    "created_at": "2026-09-03T05:39:28.970Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a dude told me to give him five minutes and showed up sixteen minutes later\n\ndefinition of..."
+  },
+  {
+    "id": 10603498,
+    "scheduled_date": null,
+    "created_at": "2026-09-03T05:39:29.253Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the keyboard i bought in 2022 for 140 euros types better than the expensive mechanical one i bought..."
+  },
+  {
+    "id": 10603499,
+    "scheduled_date": null,
+    "created_at": "2026-09-03T05:39:29.542Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "asked a guy what his offer was and he sent a wall of text so long i closed the chat without reading..."
+  },
+  {
+    "id": 10603500,
+    "scheduled_date": null,
+    "created_at": "2026-09-03T05:39:29.827Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "two weeks of training consistently and my arms visibly changed\n\nfor two years before that i told..."
+  },
+  {
+    "id": 10603501,
+    "scheduled_date": null,
+    "created_at": "2026-09-03T05:39:30.177Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent ten minutes of a lecture arguing whether checking that a website is up counts as a..."
+  },
+  {
+    "id": 10620213,
+    "scheduled_date": null,
+    "created_at": "2026-09-04T05:50:04.011Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "bus driver today stopped at an empty bus stop and opened the doors for ten seconds\n\nwe sat there..."
+  },
+  {
+    "id": 10620210,
+    "scheduled_date": null,
+    "created_at": "2026-09-04T05:50:03.313Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i walked into a meeting this morning with a plan i was completely sure about\n\nthen someone asked me..."
+  },
+  {
+    "id": 10620215,
+    "scheduled_date": null,
+    "created_at": "2026-09-04T05:50:04.807Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a post came up in my timeline today and it read differently to everything around it\n\ni stopped and..."
+  },
+  {
+    "id": 10620216,
+    "scheduled_date": null,
+    "created_at": "2026-09-04T05:50:05.094Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "dropped time under tension tonight and just hammered 15 reps on squats and lunges\n\ntook me twelve..."
+  },
+  {
+    "id": 10620212,
+    "scheduled_date": null,
+    "created_at": "2026-09-04T05:50:03.755Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "for months i thought the company we build software for was a PLC\n\nfound out today the thing making..."
+  },
+  {
+    "id": 10633430,
+    "scheduled_date": null,
+    "created_at": "2026-09-05T05:34:02.426Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i asked a friend four separate times over a few weeks for a discord role in his server\n\nstill..."
+  },
+  {
+    "id": 10633431,
+    "scheduled_date": null,
+    "created_at": "2026-09-05T05:34:02.634Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i typed on the mechanical keyboard at my desk all day then switched to the macbook\n\nmy hands knew..."
+  },
+  {
+    "id": 10633432,
+    "scheduled_date": null,
+    "created_at": "2026-09-05T05:34:02.826Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "there was a magpie in the tree across the street sitting in the exact spot where the branches..."
+  },
+  {
+    "id": 10633433,
+    "scheduled_date": null,
+    "created_at": "2026-09-05T05:34:03.060Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "just did a typing test and hit 109 wpm\n\ni never once practiced typing\n\nwhat i did do was write a..."
+  },
+  {
+    "id": 10645907,
+    "scheduled_date": null,
+    "created_at": "2026-09-06T05:46:26.345Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a car flashed its high beams at another car on the road tonight and twenty minutes later there was..."
+  },
+  {
+    "id": 10645909,
+    "scheduled_date": null,
+    "created_at": "2026-09-06T05:46:26.870Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "your website being one page with a headline a video and a button was fine three years ago\n\ntoday a..."
+  },
+  {
+    "id": 10645910,
+    "scheduled_date": null,
+    "created_at": "2026-09-06T05:46:27.262Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i was bored out of my mind for the last four hours of building a website today and finished it..."
+  },
+  {
+    "id": 10645905,
+    "scheduled_date": null,
+    "created_at": "2026-09-06T05:46:25.690Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i built a full website for a guy today and he never asked me for one\n\nfound him on X a while back..."
+  },
+  {
+    "id": 10658648,
+    "scheduled_date": null,
+    "created_at": "2026-09-07T05:56:49.165Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i asked ai to generate my own website this morning\n\nit ran for 15 minutes and handed me something i..."
+  },
+  {
+    "id": 10658646,
+    "scheduled_date": null,
+    "created_at": "2026-09-07T05:56:48.498Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built a landing page for a guy who never asked me for one\n\nsent him the vercel preview at 10:56pm..."
+  },
+  {
+    "id": 10658650,
+    "scheduled_date": null,
+    "created_at": "2026-09-07T05:56:49.721Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "took the bins out tonight and my right arm completely filled the sleeve of a pullover i got five..."
+  },
+  {
+    "id": 10658651,
+    "scheduled_date": null,
+    "created_at": "2026-09-07T05:56:50.393Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i typed the number 500 to a stranger today and then could not focus for two hours\n\nkept opening x..."
+  },
+  {
+    "id": 10674515,
+    "scheduled_date": null,
+    "created_at": "2026-09-08T05:49:54.315Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy told me 500 was too much for a website\n\nhe makes 20 grand a month\n\nso half a day of his..."
+  },
+  {
+    "id": 10674517,
+    "scheduled_date": null,
+    "created_at": "2026-09-08T05:49:54.741Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i put my blinds fully shut yesterday and got more done in two hours than in the eight before..."
+  },
+  {
+    "id": 10674519,
+    "scheduled_date": null,
+    "created_at": "2026-09-08T05:49:55.187Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i switched keyboards four times yesterday and ended up back on the slower one\n\ni actually tested..."
+  },
+  {
+    "id": 10689046,
+    "scheduled_date": null,
+    "created_at": "2026-09-09T05:53:39.138Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "bought a mousepad twice the size i need\n\nthe mouse touches maybe a third of it\n\ni still like..."
+  },
+  {
+    "id": 10704145,
+    "scheduled_date": null,
+    "created_at": "2026-09-10T05:48:23.789Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "watched a coworker spend ten minutes coloring the label boxes inside a flowchart today\n\nnobody..."
+  },
+  {
+    "id": 10704146,
+    "scheduled_date": null,
+    "created_at": "2026-09-10T05:48:24.133Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat through a two hour lecture tonight where the professor read his own slides out loud\n\nword for..."
+  },
+  {
+    "id": 10689043,
+    "scheduled_date": null,
+    "created_at": "2026-09-09T05:53:38.513Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent forty minutes today unpicking a problem that existed because windows treats two branch names..."
+  },
+  {
+    "id": 10689042,
+    "scheduled_date": null,
+    "created_at": "2026-09-09T05:53:38.275Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a colleague of mine writes messages so formal that i read them and assume she is angry at me\n\nthen..."
+  },
+  {
+    "id": 10689041,
+    "scheduled_date": null,
+    "created_at": "2026-09-09T05:53:38.024Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat in a call today where the client started arguing with themselves\n\nwe were on there as the..."
+  },
+  {
+    "id": 10704148,
+    "scheduled_date": null,
+    "created_at": "2026-09-10T05:48:24.703Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "designed something on a 27 inch monitor today then opened it on my phone and half of it fell..."
+  },
+  {
+    "id": 10704150,
+    "scheduled_date": null,
+    "created_at": "2026-09-10T05:48:25.169Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "found a children's song in a playlist tonight and ended up dancing around my basement like an idiot..."
+  },
+  {
+    "id": 10719165,
+    "scheduled_date": null,
+    "created_at": "2026-09-11T05:48:55.668Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the bus driver closed the door in an old ladys face this morning and drove off\n\ni had already..."
+  },
+  {
+    "id": 10719166,
+    "scheduled_date": null,
+    "created_at": "2026-09-11T05:48:55.900Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a colleague asked if i had sent over the paperwork\n\ni had already handed it in two days..."
+  },
+  {
+    "id": 10719168,
+    "scheduled_date": null,
+    "created_at": "2026-09-11T05:48:56.391Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my brother told me once that my room is peaceful and it took me a while to work out why\n\nthe window..."
+  },
+  {
+    "id": 10719169,
+    "scheduled_date": null,
+    "created_at": "2026-09-11T05:48:56.658Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "drove around with my brother last night and a car came at us with full beam on for no reason\n\nso we..."
+  },
+  {
+    "id": 10733382,
+    "scheduled_date": null,
+    "created_at": "2026-09-12T05:36:55.961Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "asked a coworker this morning whether he was in the office or at home\n\nhe answered with the word..."
+  },
+  {
+    "id": 10733384,
+    "scheduled_date": null,
+    "created_at": "2026-09-12T05:36:56.567Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i joined a new team on wednesday and today they put me on a client project\n\nthere is a guy sitting..."
+  },
+  {
+    "id": 10733385,
+    "scheduled_date": null,
+    "created_at": "2026-09-12T05:36:56.814Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i was nervous about a meeting today for exactly one reason\n\ni had no idea what was about to..."
+  },
+  {
+    "id": 10733386,
+    "scheduled_date": null,
+    "created_at": "2026-09-12T05:36:57.026Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "two magpies were hopping around on my garden house this morning and their feathers sat flat with..."
+  },
+  {
+    "id": 10733387,
+    "scheduled_date": null,
+    "created_at": "2026-09-12T05:36:57.269Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i said about five words in an hour long meeting today and still walked out of it on the..."
+  },
+  {
+    "id": 10745086,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:37.830Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "had to sprint for the train this morning because both of them pulled in at the same time and i was..."
+  },
+  {
+    "id": 10745085,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:37.420Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the train home was a single wagon on a route that fills six\n\npeople packed in shoulder to shoulder..."
+  },
+  {
+    "id": 10745083,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:37.083Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "pressed start on the dishwasher tonight and nothing happened\n\npressed it again and it ran like it..."
+  },
+  {
+    "id": 10745082,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:36.789Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my algorithms professor said today that Qualität kommt von QUAL\n\nin english: quality comes from..."
+  },
+  {
+    "id": 10745081,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:36.428Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i have eaten three instant noodle cups in one sitting and still walked away hungry\n\ntonight i..."
+  },
+  {
+    "id": 10745080,
+    "scheduled_date": null,
+    "created_at": "2026-09-13T07:55:36.103Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "one professor spent ninety minutes explaining how to create a file\n\ni wrote an algorithm in the..."
+  },
+  {
+    "id": 10757305,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:58.983Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "cleaned the entire kitchen today and felt absolutely nothing about it\n\nemptied the dishwasher and..."
+  },
+  {
+    "id": 10757304,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:58.768Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "most people who make their macbook look pretty are doing it because they enjoy looking at it\n\nmine..."
+  },
+  {
+    "id": 10757302,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:58.278Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat down with my parents today because they kept saying too much money disappears into food\n\nthey..."
+  },
+  {
+    "id": 10757301,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:57.263Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my blinds were fully down from 9 in the morning until 8 at night\n\npitch black room\n\ncoffee on the..."
+  },
+  {
+    "id": 10757300,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:56.951Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "found a website today that was a single carrd page and i knew within four seconds i could beat..."
+  },
+  {
+    "id": 10757303,
+    "scheduled_date": null,
+    "created_at": "2026-09-14T06:02:58.525Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "definition of trust: reliability in a person or certainty in a process\n\naxiom 3, asymmetric access:..."
+  },
+  {
+    "id": 10772944,
+    "scheduled_date": null,
+    "created_at": "2026-09-15T06:02:54.033Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the bus driver stopped the whole bus today got out and dragged a metal sign off the road\n\nnobody..."
+  },
+  {
+    "id": 10772945,
+    "scheduled_date": null,
+    "created_at": "2026-09-15T06:02:54.299Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a software tester walks into a bar\n\nhe orders 1 beer\nhe orders 0 beers\nhe orders 9999999 beers\nhe..."
+  },
+  {
+    "id": 10772947,
+    "scheduled_date": null,
+    "created_at": "2026-09-15T06:02:54.856Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "got asked about intrinsic and extrinsic motivation today and freestyled an answer that landed word..."
+  },
+  {
+    "id": 10772948,
+    "scheduled_date": null,
+    "created_at": "2026-09-15T06:02:55.086Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "there were so many school kids at the crossing this morning that they physically did not fit on..."
+  },
+  {
+    "id": 10788049,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T05:54:01.164Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i wrote three paragraphs on a pull request explaining why a conversion was unnecessary\n\nmy..."
+  },
+  {
+    "id": 10788050,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T05:54:01.473Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i passed a mandatory work training with 100% this morning and watched zero seconds of it\n\ndragged..."
+  },
+  {
+    "id": 10788052,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T05:54:02.054Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "you can make winning easy or you can make losing hard\n\nmaking winning easy is stuff like making the..."
+  },
+  {
+    "id": 10788053,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T05:54:02.334Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat through a three hour lecture where the prof ran the same type of exercise five times\n\nby the..."
+  },
+  {
+    "id": 10796273,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T17:26:54.649Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy at work asked me to walk him through an app yesterday because he was convinced it was some..."
+  },
+  {
+    "id": 10796275,
+    "scheduled_date": null,
+    "created_at": "2026-09-16T17:26:55.345Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i unplugged my keyboard and my mouse yesterday and just used the laptop\n\ntyped 105 wpm\n\nfastest i..."
+  },
+  {
+    "id": 10802008,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:55.160Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i scheduled my content until november 29th today (it’s september 16th) and it took me barely any..."
+  },
+  {
+    "id": 10802007,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:54.971Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "put a magpie on my desktop wallpaper today and caught myself grinning at a laptop screen\n\none image..."
+  },
+  {
+    "id": 10802006,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:54.755Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "someone on a video call today judged a stranger in under a second and neither of them would call it..."
+  },
+  {
+    "id": 10802005,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:54.500Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the exam question this morning asked me to describe two aspects of how the success of a project can..."
+  },
+  {
+    "id": 10802003,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:54.240Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent two hours on the apple website comparing two pairs of headphones and never got bored..."
+  },
+  {
+    "id": 10802002,
+    "scheduled_date": null,
+    "created_at": "2026-09-17T06:00:53.967Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy i know did his bank verification call this morning with no shirt on\n\nand the first thing the..."
+  },
+  {
+    "id": 10814681,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:36.693Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "left a script running on my laptop before bed just to watch something work while i wasn't touching..."
+  },
+  {
+    "id": 10814680,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:36.292Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "walked through the city today and genuinely did not care what one single person thought of..."
+  },
+  {
+    "id": 10814678,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:35.465Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat in a meeting about a corporation whose software licences all expired and the one person who..."
+  },
+  {
+    "id": 10829549,
+    "scheduled_date": null,
+    "created_at": "2026-09-19T05:41:57.604Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i went to sleep with two ai sessions running on my machine improving my own website generator\n\nwoke..."
+  },
+  {
+    "id": 10829550,
+    "scheduled_date": null,
+    "created_at": "2026-09-19T05:41:57.831Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy offered me less money then people usually do for a website and i said yes within about four..."
+  },
+  {
+    "id": 10829551,
+    "scheduled_date": null,
+    "created_at": "2026-09-19T05:41:58.101Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the bus was packed this morning and i stood up for an older woman without deciding to\n\nnobody has..."
+  },
+  {
+    "id": 10829547,
+    "scheduled_date": null,
+    "created_at": "2026-09-19T05:41:57.077Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "watched a truck drive into a street this morning and then reverse the whole way back out\n\nabsolute..."
+  },
+  {
+    "id": 10814679,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:36.055Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "held a door open for a colleague today and felt like an absolute G about it\n\nit took me one..."
+  },
+  {
+    "id": 10814677,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:35.216Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the bus display said 3 minutes and then it said 17\n\ni stood there for forty minutes watching three..."
+  },
+  {
+    "id": 10814676,
+    "scheduled_date": null,
+    "created_at": "2026-09-18T05:48:34.886Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i built an ai that generates websites and the first thing it produced was absolute TRASH\n\nso i gave..."
+  },
+  {
+    "id": 10829546,
+    "scheduled_date": null,
+    "created_at": "2026-09-19T05:41:56.770Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent the entire day writing java and i could not tell you what a single line of it did\n\nwe were..."
+  },
+  {
+    "id": 10841977,
+    "scheduled_date": null,
+    "created_at": "2026-09-20T06:00:27.745Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "second lecture today and pointers on arrays made my head hurt\n\nand i noticed i was calm about it..."
+  },
+  {
+    "id": 10841979,
+    "scheduled_date": null,
+    "created_at": "2026-09-20T06:00:28.252Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "pointers were part of a lecture today\n\nwe spent an hour on how memory addresses actually work and..."
+  },
+  {
+    "id": 10841975,
+    "scheduled_date": null,
+    "created_at": "2026-09-20T06:00:27.222Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "google maps said the walkway was 11 minutes\n\ni did it in 4\n\nthat estimate was built from people..."
+  },
+  {
+    "id": 10841974,
+    "scheduled_date": null,
+    "created_at": "2026-09-20T06:00:26.877Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i typed a command + url and then a few sentences of what i wanted into my terminal\n\nand an agent..."
+  },
+  {
+    "id": 10854857,
+    "scheduled_date": null,
+    "created_at": "2026-09-21T06:08:09.898Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i time boxed my entire next week last night and it took about forty minutes\n\ntold claude my goals..."
+  },
+  {
+    "id": 10854855,
+    "scheduled_date": null,
+    "created_at": "2026-09-21T06:08:09.453Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my internet was garbage all day\n\nhalf the websites i opened sat there white and i killed every one..."
+  },
+  {
+    "id": 10854854,
+    "scheduled_date": null,
+    "created_at": "2026-09-21T06:08:09.238Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "most websites ask a stranger for faith\n\nfaith is being sure about an outcome with no evidence..."
+  },
+  {
+    "id": 10854853,
+    "scheduled_date": null,
+    "created_at": "2026-09-21T06:08:09.037Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i told my ai agent to build a website and the only rule i gave it was do not go..."
+  },
+  {
+    "id": 10854852,
+    "scheduled_date": null,
+    "created_at": "2026-09-21T06:08:08.779Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "some guy dmed me trying to sell a tool that scans one domain for 130 dollars\n\nbefore replying i..."
+  },
+  {
+    "id": 10870953,
+    "scheduled_date": null,
+    "created_at": "2026-09-22T06:01:31.457Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my brain treats two kinds of uncertainty completely differently and i finally noticed it today\n\na..."
+  },
+  {
+    "id": 10870952,
+    "scheduled_date": null,
+    "created_at": "2026-09-22T06:01:31.157Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built a website today in 26 minutes and it looked good\n\nbut good is where most websites stop\n\nthe..."
+  },
+  {
+    "id": 10870951,
+    "scheduled_date": null,
+    "created_at": "2026-09-22T06:01:30.825Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a client gave us design feedback today asking for MORE clicks\n\nwe handed them a flow where the user..."
+  },
+  {
+    "id": 10870950,
+    "scheduled_date": null,
+    "created_at": "2026-09-22T06:01:30.501Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a coworker asked why i was not in the office today and i told him monday is the best day for..."
+  },
+  {
+    "id": 10870949,
+    "scheduled_date": null,
+    "created_at": "2026-09-22T06:01:30.068Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "it took me an hour and a half to find one prospect yesterday and it nearly broke me\n\nthen i found a..."
+  },
+  {
+    "id": 10886770,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:54.208Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i sat there for a full minute today deciding whether to send a work message with a casual phrase in..."
+  },
+  {
+    "id": 10886769,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:53.938Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat through forty minutes of an accounting lecture tonight and absorbed absolutely nothing\n\nthe guy..."
+  },
+  {
+    "id": 10886768,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:53.637Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i can dump everything i know about a project into a doc in ten minutes\n\nmaking it structured enough..."
+  },
+  {
+    "id": 10886767,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:53.355Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i built an entire website for a guy who had never spoken a single word to me\n\ncrawled his current..."
+  },
+  {
+    "id": 10886766,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:53.033Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a colleague of mine writes every message with full stops and capital letters and zero emotion\n\nand..."
+  },
+  {
+    "id": 10886765,
+    "scheduled_date": null,
+    "created_at": "2026-09-23T05:48:52.735Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent 170 euros on airpods today and sat there for ten minutes convinced i had wasted the..."
+  },
+  {
+    "id": 10903179,
+    "scheduled_date": null,
+    "created_at": "2026-09-24T06:03:13.921Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my phone sat face down on the edge of my mousepad for hours today and i never picked it up..."
+  },
+  {
+    "id": 10903178,
+    "scheduled_date": null,
+    "created_at": "2026-09-24T06:03:13.539Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "two guys took a door off its hinges in my hallway today and carried it upstairs right past my..."
+  },
+  {
+    "id": 10903177,
+    "scheduled_date": null,
+    "created_at": "2026-09-24T06:03:13.264Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a colleague thanked me today for being someone she could rely on and all i did was the stuff i said..."
+  },
+  {
+    "id": 10903176,
+    "scheduled_date": null,
+    "created_at": "2026-09-24T06:03:12.601Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i had music playing all morning and stopped it the second a magpie started calling in the tree..."
+  },
+  {
+    "id": 10903175,
+    "scheduled_date": null,
+    "created_at": "2026-09-24T06:03:12.308Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i went through six business websites tonight and could tell which ones were vibe coded before the..."
+  },
+  {
+    "id": 10919364,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:05:00.374Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my bus home got stuck behind another bus that crawled\n\nmy driver had been racing the entire ride..."
+  },
+  {
+    "id": 10919362,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:04:59.431Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "showed the mobile version of a dashboard in a meeting today and the first comment was about how..."
+  },
+  {
+    "id": 10919361,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:04:59.144Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a client from last year emailed me changes for his sales page tonight and i barely recognized my..."
+  },
+  {
+    "id": 10919360,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:04:58.893Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "left the office early today and was locked in at home until past 6\n\nthe office had people walking..."
+  },
+  {
+    "id": 10919359,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:04:58.624Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "walked into the office kitchen at 9am and found zero water\n\na whole building full of people and..."
+  },
+  {
+    "id": 10919358,
+    "scheduled_date": null,
+    "created_at": "2026-09-25T06:04:58.328Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "checked my walk in the basement mirror yesterday and walked past strangers completely differently..."
+  },
+  {
+    "id": 10934571,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:19.648Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i went through slides this morning that spent a whole lecture on integers and equals signs\n\ni..."
+  },
+  {
+    "id": 10934570,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:19.344Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i had to do osint today to find out who owned a website i was rebuilding\n\nhis name appeared nowhere..."
+  },
+  {
+    "id": 10934568,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:18.725Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i broke every form i built before a real person ever touched it\n\nthat was the habit programming..."
+  },
+  {
+    "id": 10934567,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:18.492Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i lasted 7 minutes on a borrowed keyboard today\n\nit was small and clicky which was exactly what i..."
+  },
+  {
+    "id": 10934566,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:18.205Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a youtube review sold me a 99 dollar keyboard in 36 minutes\n\nthe guy barely talked about specs\n\nhe..."
+  },
+  {
+    "id": 10934569,
+    "scheduled_date": null,
+    "created_at": "2026-09-26T06:03:19.055Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "\"this just isnt me\"\n\ni heard it again today after two days of something new and it was the most..."
+  },
+  {
+    "id": 10948645,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:15.368Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "learned hash tables in a lecture this morning\n\na hash table jumped straight to the value because..."
+  },
+  {
+    "id": 10948644,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:15.042Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "built so many websites this week that my own portfolio turned into bad ux\n\nevery new project got..."
+  },
+  {
+    "id": 10948643,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:14.758Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent twenty minutes tonight stuck on one python bug\n\ni had claude generate broken practice code..."
+  },
+  {
+    "id": 10948642,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:14.452Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "stopped opening outreach with \"i noticed\" and started opening with \"i rebuilt your website\"\n\ntoday..."
+  },
+  {
+    "id": 10948641,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:14.105Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "went grocery shopping tonight and walked out wanting to redesign the whole store\n\npeople drifted in..."
+  },
+  {
+    "id": 10948640,
+    "scheduled_date": null,
+    "created_at": "2026-09-27T06:30:13.775Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my new keyboard arrived today and the sound hit me before anything else\n\nevery key made this low..."
+  },
+  {
+    "id": 10963495,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:49.471Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "being hardworking on a task that fully absorbs you is logically impossible\n\nsat in front of a blank..."
+  },
+  {
+    "id": 10963494,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:49.227Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "lined up 50 chicken nuggets on a wooden board today for a speed eating challenge and they looked..."
+  },
+  {
+    "id": 10963493,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:48.962Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "updated a client website last night with the changes he asked for and the page looked worse after..."
+  },
+  {
+    "id": 10963492,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:48.666Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened a sales page i built a while ago and could not believe it came out of my hands\n\nevery time i..."
+  },
+  {
+    "id": 10963491,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:48.423Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my ai agent built the full first draft of a client website while i finished my coffee\n\nthe hero was..."
+  },
+  {
+    "id": 10963490,
+    "scheduled_date": null,
+    "created_at": "2026-09-28T06:38:48.100Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened a website i was rebuilding this morning and knew in TWO seconds that ai built it\n\nthe navbar..."
+  },
+  {
+    "id": 10982240,
+    "scheduled_date": null,
+    "created_at": "2026-09-29T06:46:40.869Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "we were banned from using ai on the project i worked on today so i wrote every line of code by..."
+  },
+  {
+    "id": 10982238,
+    "scheduled_date": null,
+    "created_at": "2026-09-29T06:46:40.450Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a client paid me $60 today to change a few things on a website i built him months ago\n\nhe could..."
+  },
+  {
+    "id": 10982237,
+    "scheduled_date": null,
+    "created_at": "2026-09-29T06:46:39.849Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i wrote down one thing i was grateful for every day for 859 days and today it was a keyboard\n\ni got..."
+  },
+  {
+    "id": 10982236,
+    "scheduled_date": null,
+    "created_at": "2026-09-29T06:46:39.566Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the first half of a meeting today was pure vision talk and i could not repeat a single sentence of..."
+  },
+  {
+    "id": 10982235,
+    "scheduled_date": null,
+    "created_at": "2026-09-29T06:46:39.097Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my own journaling app took over 30 seconds to load last night and i wanted to throw the laptop out..."
+  },
+  {
+    "id": 11000385,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:46.290Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "sat on a call for over an hour today going through a presentation a coworker had to give..."
+  },
+  {
+    "id": 11000384,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:45.690Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "spent two days writing code by hand for a project where ai was banned and then opened claude code..."
+  },
+  {
+    "id": 11000383,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:45.470Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "someone said they would call me any minute at twenty past twelve today and my phone rang more than..."
+  },
+  {
+    "id": 11000382,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:45.223Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "two magpies chased a third one out of their tree this morning and i watched axiom 1 play out..."
+  },
+  {
+    "id": 11000381,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:44.957Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "texted a guy \"the lunch only takes 45min max\"\n\nhe replied \"or ben\"\n\ntook me way too long to get..."
+  },
+  {
+    "id": 11000379,
+    "scheduled_date": null,
+    "created_at": "2026-09-30T06:35:44.628Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i put my old airpods in today to test them before a call and the music sounded like it was playing..."
+  },
+  {
+    "id": 11017234,
+    "scheduled_date": null,
+    "created_at": "2026-10-01T07:09:08.869Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my bus home showed up 30 minutes late today and the display said it was ending its route right..."
+  },
+  {
+    "id": 11017233,
+    "scheduled_date": null,
+    "created_at": "2026-10-01T07:09:08.545Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the bus window this morning had an ad sticker slapped over it from the outside\n\ni sat in the front..."
+  },
+  {
+    "id": 11017236,
+    "scheduled_date": null,
+    "created_at": "2026-10-01T07:09:09.303Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy booked a call with me today and answered my intake question with the letter g\n\none letter\n\nhe..."
+  },
+  {
+    "id": 11017237,
+    "scheduled_date": null,
+    "created_at": "2026-10-01T07:09:09.552Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened my calendly from midnight to midnight today\n\ngoogle calendar blocked whatever was taken so..."
+  },
+  {
+    "id": 11026214,
+    "scheduled_date": null,
+    "created_at": "2026-10-01T16:16:46.450Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the guy running my evening lecture got a teams call in the middle of his own zoom session..."
+  },
+  {
+    "id": 11035204,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:39.368Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a guy cancelled a call on me today without sending a single message\n\nthe meeting got declined at..."
+  },
+  {
+    "id": 11035203,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:39.102Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the display at the bus stop this morning said 16 minutes and the one after that said 52\n\nthe wait..."
+  },
+  {
+    "id": 11035202,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:38.538Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "ordered a 29 euro webcam tonight and it was the best money i spent this week\n\nevery call until now..."
+  },
+  {
+    "id": 11035201,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:38.240Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "asked claude this morning what our tests actually covered and it turned out the whole suite was..."
+  },
+  {
+    "id": 11035200,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:37.962Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "opened five websites tonight and every single one threw a popup over the page before i read a..."
+  },
+  {
+    "id": 11035199,
+    "scheduled_date": null,
+    "created_at": "2026-10-02T06:56:37.630Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "checked my own website on my phone on the bus this morning and found a bug within the first 30..."
+  },
+  {
+    "id": 11050809,
+    "scheduled_date": null,
+    "created_at": "2026-10-03T06:20:56.191Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "two of my friends told me i read out loud better than anyone they know and today i figured out..."
+  },
+  {
+    "id": 11050810,
+    "scheduled_date": null,
+    "created_at": "2026-10-03T06:20:56.772Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "deleted a whole website i built tonight\n\nit was shit and i knew it the second i scrolled through..."
+  },
+  {
+    "id": 11050811,
+    "scheduled_date": null,
+    "created_at": "2026-10-03T06:20:57.059Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "code tests at my 9-5 ran for twenty dead minutes today so i built a shortcut that turns a client..."
+  },
+  {
+    "id": 11050812,
+    "scheduled_date": null,
+    "created_at": "2026-10-03T06:20:57.379Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "watched a streamer lose at chess tonight and was sure i would beat him\n\nthen i opened a board and..."
+  },
+  {
+    "id": 11050807,
+    "scheduled_date": null,
+    "created_at": "2026-10-03T06:20:55.693Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "three of us stared at the same screen in a client call today trying to figure out why one dropdown..."
+  },
+  {
+    "id": 11065188,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:29.156Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "it was midnight and i had just deployed a website and the first thing i wanted was to build another..."
+  },
+  {
+    "id": 11065187,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:28.886Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i had claude audit an entire website while i sat on the toilet\n\nhalfway through the report i got an..."
+  },
+  {
+    "id": 11065186,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:28.647Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "boredom is never permanent and i can prove it\n\ndefinition of boredom: the failure to find something..."
+  },
+  {
+    "id": 11065185,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:28.359Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "deployed a website at 10pm last night and pulled it up on my phone before i called it done\n\nmost..."
+  },
+  {
+    "id": 11065184,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:28.088Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the best hero i ever started with kept me building until midnight\n\nmotivation is the internal..."
+  },
+  {
+    "id": 11065183,
+    "scheduled_date": null,
+    "created_at": "2026-10-04T06:46:27.739Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "my ai agent built a hero section today and i yelled at my screen\n\ni have built a lot of websites..."
+  },
+  {
+    "id": 11081825,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:17.710Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i wrote 215 journal entries in one day and the trick was stupidly simple\n\ni opened about thirty..."
+  },
+  {
+    "id": 11081826,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:18.017Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "the agency with the most generated looking website i saw all month built decent websites for its..."
+  },
+  {
+    "id": 11081827,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:18.298Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i made scrambled eggs for four people and got told my egg shell method was wrong\n\nthe suggestion..."
+  },
+  {
+    "id": 11081828,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:18.568Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i watched a guy turn a cleaver he found rotting in a forest into something i could see my face..."
+  },
+  {
+    "id": 11081829,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:18.837Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "a magpie sat on the roof across from me screaming danger calls at absolutely nothing\n\ni scanned..."
+  },
+  {
+    "id": 11081823,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:17.145Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i asked claude for five versions of my hero section and the one it recommended lost\n\none put the..."
+  },
+  {
+    "id": 11081822,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:16.859Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "halfway through writing 215 journal entries in one day i accused myself of cheating\n\ni had thirty..."
+  },
+  {
+    "id": 11081821,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:16.569Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i got served an ad for a web design agency and every testimonial on the website was signed with a..."
+  },
+  {
+    "id": 11081831,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:19.367Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "i spent ten minutes stuck between two animations for the wall of websites behind my hero\n\nin one..."
+  },
+  {
+    "id": 11081832,
+    "scheduled_date": null,
+    "created_at": "2026-10-05T06:51:19.660Z",
+    "tags": [
+      "reviewed"
+    ],
+    "preview": "watched guys scaling fast off nothing but a macbook and almost felt bad about my monitor\n\nthen it..."
+  }
+]
